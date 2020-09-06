@@ -12,6 +12,8 @@ import SDWebImage
 class StageScheduleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var CellSpaceImageView: UIImageView!
+    @IBOutlet weak var StageOpenTimeLabel: UILabel!
+    
     
     @IBOutlet weak var FastRegularStageNameLabel: UILabel!
     @IBOutlet weak var FastRegularStageImageView: UIImageView!
@@ -49,7 +51,12 @@ class StageScheduleTableViewCell: UITableViewCell {
             SecondRegularStageNameLabel.text = RegularStage?.maps_ex[1].name
             
             CellSpaceImageView.layer.borderWidth = 1
-            CellSpaceImageView.layer.borderColor = UIColor.rgb(red: 180, green: 180, blue: 180).cgColor
+            CellSpaceImageView.layer.borderColor = UIColor.rgb(red: 200, green: 200, blue: 200).cgColor
+            StageOpenTimeLabel.text = RegularStage?.start
+            guard let start = RegularStage?.start else { return }
+            guard let end = RegularStage?.end else { return }
+            let stageOpenTime = StageOpenTime(start: start, end: end)
+            StageOpenTimeLabel.text = stageOpenTime
         }
     }
     
@@ -96,4 +103,12 @@ class StageScheduleTableViewCell: UITableViewCell {
         }
     }
 
+    func StageOpenTime(start: String,end: String) -> String{
+        let month = start[start.index(start.startIndex, offsetBy: 5) ..< start.index(start.startIndex, offsetBy: 7)]
+        let day = start[start.index(start.startIndex, offsetBy: 8) ..< start.index(start.startIndex, offsetBy: 10)]
+        let startTime = start[start.index(start.startIndex, offsetBy: 11) ..< start.index(start.startIndex, offsetBy: 16)]
+        let endTime = end[end.index(end.startIndex, offsetBy: 11) ..< end.index(end.startIndex,offsetBy:16)]
+        
+        return "\(month)月\(day)日 \(startTime)~\(endTime)"
+    }
 }

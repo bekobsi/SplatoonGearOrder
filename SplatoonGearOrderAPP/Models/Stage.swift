@@ -19,6 +19,8 @@ class StageRule: Decodable{
 class StageInfo: Decodable{
     let rule: String
     let maps_ex: [MapInfo]
+    let start: String
+    let end: String
 }
 
 class MapInfo: Decodable{

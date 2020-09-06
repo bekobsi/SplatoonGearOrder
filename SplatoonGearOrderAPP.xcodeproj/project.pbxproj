@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1EA9DBE7F529CF4A51472A25 /* Pods_SplatoonGearOrderAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2574046EC4120A142FB25E /* Pods_SplatoonGearOrderAPP.framework */; };
+		985852372506577C004D2927 /* Iksm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985852362506577C004D2927 /* Iksm.swift */; };
 		985A31802500D8FF00507C33 /* UIImage-Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985A317F2500D8FF00507C33 /* UIImage-Extention.swift */; };
 		985F353724FE681200AFC146 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F353624FE681200AFC146 /* Stage.swift */; };
 		985F353A24FE894F00AFC146 /* UIColor-Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F353924FE894F00AFC146 /* UIColor-Extention.swift */; };
 		9863AC3725012EF500A74FC6 /* FetchIksm_sessionWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9863AC3625012EF500A74FC6 /* FetchIksm_sessionWebView.storyboard */; };
 		9863AC3D2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863AC3C2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift */; };
+		98644B36251A3BBD002B755F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 986784FC25013BD1003A5560 /* WebKit.framework */; };
 		9866598C24FD901D00116F03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866598B24FD901D00116F03 /* AppDelegate.swift */; };
 		9866598E24FD901D00116F03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866598D24FD901D00116F03 /* SceneDelegate.swift */; };
 		9866599524FD901E00116F03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9866599424FD901E00116F03 /* Assets.xcassets */; };
@@ -25,13 +27,16 @@
 		986659AD24FD931D00116F03 /* GesoTownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986659AC24FD931D00116F03 /* GesoTownViewController.swift */; };
 		986659B024FD97A600116F03 /* StageScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 986659AF24FD97A600116F03 /* StageScheduleTableViewCell.xib */; };
 		986659B524FD9D9300116F03 /* StageScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986659B424FD9D9300116F03 /* StageScheduleTableViewCell.swift */; };
-		986784FD25013BD1003A5560 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 986784FC25013BD1003A5560 /* WebKit.framework */; };
+		98675F5B2557FC910026637D /* IksmResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98675F5A2557FC910026637D /* IksmResultData.swift */; };
+		98675F5E255832A30026637D /* IksmGesoTownData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98675F5D255832A30026637D /* IksmGesoTownData.swift */; };
+		987E5A462514EE87007A560E /* GesoTownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 987E5A452514EE87007A560E /* GesoTownTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1F2574046EC4120A142FB25E /* Pods_SplatoonGearOrderAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SplatoonGearOrderAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		419497693202610DDD66B6A5 /* Pods-SplatoonGearOrderAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SplatoonGearOrderAPP.debug.xcconfig"; path = "Target Support Files/Pods-SplatoonGearOrderAPP/Pods-SplatoonGearOrderAPP.debug.xcconfig"; sourceTree = "<group>"; };
 		8275C34979BF22D83038D777 /* Pods-SplatoonGearOrderAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SplatoonGearOrderAPP.release.xcconfig"; path = "Target Support Files/Pods-SplatoonGearOrderAPP/Pods-SplatoonGearOrderAPP.release.xcconfig"; sourceTree = "<group>"; };
+		985852362506577C004D2927 /* Iksm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iksm.swift; sourceTree = "<group>"; };
 		985A317F2500D8FF00507C33 /* UIImage-Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extention.swift"; sourceTree = "<group>"; };
 		985F353624FE681200AFC146 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		985F353924FE894F00AFC146 /* UIColor-Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extention.swift"; sourceTree = "<group>"; };
@@ -51,7 +56,10 @@
 		986659AC24FD931D00116F03 /* GesoTownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesoTownViewController.swift; sourceTree = "<group>"; };
 		986659AF24FD97A600116F03 /* StageScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StageScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		986659B424FD9D9300116F03 /* StageScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		98675F5A2557FC910026637D /* IksmResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IksmResultData.swift; sourceTree = "<group>"; };
+		98675F5D255832A30026637D /* IksmGesoTownData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IksmGesoTownData.swift; sourceTree = "<group>"; };
 		986784FC25013BD1003A5560 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		987E5A452514EE87007A560E /* GesoTownTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GesoTownTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				986784FD25013BD1003A5560 /* WebKit.framework in Frameworks */,
+				98644B36251A3BBD002B755F /* WebKit.framework in Frameworks */,
 				1EA9DBE7F529CF4A51472A25 /* Pods_SplatoonGearOrderAPP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +79,9 @@
 			isa = PBXGroup;
 			children = (
 				985F353624FE681200AFC146 /* Stage.swift */,
+				985852362506577C004D2927 /* Iksm.swift */,
+				98675F5A2557FC910026637D /* IksmResultData.swift */,
+				98675F5D255832A30026637D /* IksmGesoTownData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				986659AF24FD97A600116F03 /* StageScheduleTableViewCell.xib */,
+				987E5A452514EE87007A560E /* GesoTownTableViewCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -205,7 +217,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "原直也";
 				TargetAttributes = {
 					9866598724FD901D00116F03 = {
@@ -239,6 +251,7 @@
 				986659A124FD90ED00116F03 /* StageSchedule.storyboard in Resources */,
 				9863AC3725012EF500A74FC6 /* FetchIksm_sessionWebView.storyboard in Resources */,
 				9866599824FD901E00116F03 /* LaunchScreen.storyboard in Resources */,
+				987E5A462514EE87007A560E /* GesoTownTableViewCell.xib in Resources */,
 				986659A924FD927700116F03 /* GesoTown.storyboard in Resources */,
 				9866599524FD901E00116F03 /* Assets.xcassets in Resources */,
 				986659A724FD921800116F03 /* BaseTabBar.storyboard in Resources */,
@@ -295,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98675F5B2557FC910026637D /* IksmResultData.swift in Sources */,
 				986659B524FD9D9300116F03 /* StageScheduleTableViewCell.swift in Sources */,
 				9863AC3D2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift in Sources */,
 				986659AB24FD92B700116F03 /* BaseTabBarViewController.swift in Sources */,
@@ -305,6 +319,8 @@
 				9866598C24FD901D00116F03 /* AppDelegate.swift in Sources */,
 				9866598E24FD901D00116F03 /* SceneDelegate.swift in Sources */,
 				986659AD24FD931D00116F03 /* GesoTownViewController.swift in Sources */,
+				985852372506577C004D2927 /* Iksm.swift in Sources */,
+				98675F5E255832A30026637D /* IksmGesoTownData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +364,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -408,6 +425,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -441,6 +459,7 @@
 			baseConfigurationReference = 419497693202610DDD66B6A5 /* Pods-SplatoonGearOrderAPP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FB9J7G99N9;
 				INFOPLIST_FILE = SplatoonGearOrderAPP/Info.plist;
@@ -450,6 +469,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.naoya97316.SplatoonGearOrderAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -460,6 +480,7 @@
 			baseConfigurationReference = 8275C34979BF22D83038D777 /* Pods-SplatoonGearOrderAPP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FB9J7G99N9;
 				INFOPLIST_FILE = SplatoonGearOrderAPP/Info.plist;
@@ -469,6 +490,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.naoya97316.SplatoonGearOrderAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

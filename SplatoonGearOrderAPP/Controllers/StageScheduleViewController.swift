@@ -8,8 +8,10 @@
 
 import UIKit
 import Alamofire
+import AudioToolbox
 
 class StageScheduleViewController: UIViewController{
+    let test = ["1","2","3","4","5"]
     
     private let CustomCell = "CustomCell"
     private var StageCount = [StageInfo]()
@@ -17,16 +19,26 @@ class StageScheduleViewController: UIViewController{
     private var GachiStages = [StageInfo]()
     private var LeagueStages = [StageInfo]()
     
+    private let refreshCtl  = UIRefreshControl()
+    private var indicatorBackgroundView: UIView!
+    private var indicator: UIActivityIndicatorView!
+
     @IBOutlet weak var StageScheduleTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         StageScheduleTableView.delegate = self
         StageScheduleTableView.dataSource = self
         StageScheduleTableView.register(UINib(nibName: "StageScheduleTableViewCell", bundle: nil),forCellReuseIdentifier:CustomCell)
-        
+        StageScheduleTableView.refreshControl = refreshCtl
+        refreshCtl.addTarget(self, action: #selector(refreshTableView(sender:)), for: .valueChanged)
         fetchStageInfo()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        fetchStageInfo()
+    }
+    
     func fetchStageInfo(){
+        showIndicator()
         let urlString = "https://spla2.yuu26.com/schedule"
         let request = AF.request(urlString)
         
@@ -42,20 +54,52 @@ class StageScheduleViewController: UIViewController{
                 self.LeagueStages = stages.result.league
                 
                 self.StageScheduleTableView.reloadData()
+                self.StageScheduleTableView.alpha = 1
             } catch {
                 print("変換に失敗しました",error)
             }
-
         }
+        indicator?.stopAnimating()
+        indicatorBackgroundView.alpha = 0
+    }
+    
+    @objc func refreshTableView(sender: UIRefreshControl) {
+        StageScheduleTableView.reloadData()
+        AudioServicesPlaySystemSound(1519)
+        self.refreshCtl.endRefreshing()
+    }
+    
+    func showIndicator(){
+        StageScheduleTableView.alpha = 0
+        //インジケータビューの背景
+        indicatorBackgroundView = UIView(frame: self.view.bounds)
+        indicatorBackgroundView.backgroundColor = UIColor.black
+        indicatorBackgroundView.alpha = 0.4
+        indicatorBackgroundView?.tag = 100100
+
+         indicator = UIActivityIndicatorView()
+         indicator.style = .large
+         indicator?.center = self.view.center
+         indicator?.color = UIColor.white
+         // アニメーション停止と同時に隠す設定
+         indicator?.hidesWhenStopped = true
+
+         // 作成したviewを表示
+         indicatorBackgroundView?.addSubview(indicator!)
+         self.view.addSubview(indicatorBackgroundView!)
+
+         indicator?.startAnimating()
     }
 }
 
 
 
 extension StageScheduleViewController: UITableViewDelegate,UITableViewDataSource{
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return RegularStages.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = StageScheduleTableView.dequeueReusableCell(withIdentifier: CustomCell)as! StageScheduleTableViewCell
@@ -63,8 +107,11 @@ extension StageScheduleViewController: UITableViewDelegate,UITableViewDataSource
         cell.RegularStage = RegularStages[indexPath.row]
         cell.GachiStage = GachiStages[indexPath.row]
         cell.LeagueStage = LeagueStages[indexPath.row]
-            return cell
         
+            return cell
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
+
 }

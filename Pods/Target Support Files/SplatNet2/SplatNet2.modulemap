@@ -1,0 +1,6 @@
+framework module SplatNet2 {
+  umbrella header "SplatNet2-umbrella.h"
+
+  export *
+  module * { export * }
+}

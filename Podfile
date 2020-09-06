@@ -8,5 +8,7 @@ target 'SplatoonGearOrderAPP' do
   # Pods for SplatoonGearOrderAPP
   pod 'SDWebImage', '~> 5.0'
   pod 'Alamofire', '~>5.2'
+  pod  'SwiftyJSON'
+  pod 'SplatNet2', '~> 0.1'
 
 end
