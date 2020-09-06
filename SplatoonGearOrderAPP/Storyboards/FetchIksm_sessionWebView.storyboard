@@ -8,14 +8,15 @@
     </dependencies>
     <scenes>
         <!--Fetch Iksm session Web View Controller-->
-        <scene sceneID="lBp-92-zWW">
+        <scene sceneID="ev5-rd-H1o">
             <objects>
-                <viewController storyboardIdentifier="FetchIksm_sessionWebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gge-FY-vwO" customClass="FetchIksm_sessionWebViewController" customModule="SplatoonGearOrderAPP" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="01P-rx-bEf">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MKV-72-NKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="FetchIksm_sessionWebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="124-2F-CUQ" customClass="FetchIksm_sessionWebViewController" customModule="SplatoonGearOrderAPP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xUW-IC-ahA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBI-Lq-Lc5">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6TB-rh-NoY">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
@@ -26,20 +27,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ZBI-Lq-Lc5" firstAttribute="top" secondItem="Kbp-VE-kvq" secondAttribute="top" id="4zy-1t-rVe"/>
-                            <constraint firstItem="Kbp-VE-kvq" firstAttribute="bottom" secondItem="ZBI-Lq-Lc5" secondAttribute="bottom" id="AiT-p9-iGx"/>
-                            <constraint firstItem="Kbp-VE-kvq" firstAttribute="trailing" secondItem="ZBI-Lq-Lc5" secondAttribute="trailing" id="Tq0-5r-AOG"/>
-                            <constraint firstItem="ZBI-Lq-Lc5" firstAttribute="leading" secondItem="Kbp-VE-kvq" secondAttribute="leading" id="q2n-dk-pj4"/>
+                            <constraint firstItem="6TB-rh-NoY" firstAttribute="top" secondItem="2uA-sH-i36" secondAttribute="top" id="VaE-k0-6JF"/>
+                            <constraint firstItem="6TB-rh-NoY" firstAttribute="leading" secondItem="2uA-sH-i36" secondAttribute="leading" id="pmU-mU-kNh"/>
+                            <constraint firstItem="2uA-sH-i36" firstAttribute="bottom" secondItem="6TB-rh-NoY" secondAttribute="bottom" id="tiy-hC-x8f"/>
+                            <constraint firstItem="2uA-sH-i36" firstAttribute="trailing" secondItem="6TB-rh-NoY" secondAttribute="trailing" id="wEP-RA-lcb"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Kbp-VE-kvq"/>
+                        <viewLayoutGuide key="safeArea" id="2uA-sH-i36"/>
                     </view>
-                    <connections>
-                        <outlet property="webView" destination="ZBI-Lq-Lc5" id="KbN-Mw-2oM"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FGm-KF-7Ul" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-238" y="121"/>
+            <point key="canvasLocation" x="-183" y="111"/>
         </scene>
     </scenes>
 </document>
