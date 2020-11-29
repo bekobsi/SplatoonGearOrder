@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1EA9DBE7F529CF4A51472A25 /* Pods_SplatoonGearOrderAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2574046EC4120A142FB25E /* Pods_SplatoonGearOrderAPP.framework */; };
+		985852372506577C004D2927 /* Iksm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985852362506577C004D2927 /* Iksm.swift */; };
+		985A31802500D8FF00507C33 /* UIImage-Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985A317F2500D8FF00507C33 /* UIImage-Extention.swift */; };
+		985F353724FE681200AFC146 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F353624FE681200AFC146 /* Stage.swift */; };
+		985F353A24FE894F00AFC146 /* UIColor-Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F353924FE894F00AFC146 /* UIColor-Extention.swift */; };
+		9863AC3725012EF500A74FC6 /* FetchIksm_sessionWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9863AC3625012EF500A74FC6 /* FetchIksm_sessionWebView.storyboard */; };
+		9863AC3D2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863AC3C2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift */; };
+		98644B36251A3BBD002B755F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 986784FC25013BD1003A5560 /* WebKit.framework */; };
+		9866598C24FD901D00116F03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866598B24FD901D00116F03 /* AppDelegate.swift */; };
+		9866598E24FD901D00116F03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866598D24FD901D00116F03 /* SceneDelegate.swift */; };
+		9866599524FD901E00116F03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9866599424FD901E00116F03 /* Assets.xcassets */; };
+		9866599824FD901E00116F03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9866599624FD901E00116F03 /* LaunchScreen.storyboard */; };
+		986659A124FD90ED00116F03 /* StageSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986659A024FD90ED00116F03 /* StageSchedule.storyboard */; };
+		986659A424FD912A00116F03 /* StageScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986659A324FD912A00116F03 /* StageScheduleViewController.swift */; };
+		986659A724FD921800116F03 /* BaseTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986659A624FD921800116F03 /* BaseTabBar.storyboard */; };
+		986659A924FD927700116F03 /* GesoTown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986659A824FD927700116F03 /* GesoTown.storyboard */; };
+		986659AB24FD92B700116F03 /* BaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986659AA24FD92B700116F03 /* BaseTabBarViewController.swift */; };
+		986659AD24FD931D00116F03 /* GesoTownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986659AC24FD931D00116F03 /* GesoTownViewController.swift */; };
+		986659B024FD97A600116F03 /* StageScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 986659AF24FD97A600116F03 /* StageScheduleTableViewCell.xib */; };
+		986659B524FD9D9300116F03 /* StageScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986659B424FD9D9300116F03 /* StageScheduleTableViewCell.swift */; };
+		98675F5B2557FC910026637D /* IksmResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98675F5A2557FC910026637D /* IksmResultData.swift */; };
+		98675F5E255832A30026637D /* IksmGesoTownData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98675F5D255832A30026637D /* IksmGesoTownData.swift */; };
+		987E5A462514EE87007A560E /* GesoTownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 987E5A452514EE87007A560E /* GesoTownTableViewCell.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1F2574046EC4120A142FB25E /* Pods_SplatoonGearOrderAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SplatoonGearOrderAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		419497693202610DDD66B6A5 /* Pods-SplatoonGearOrderAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SplatoonGearOrderAPP.debug.xcconfig"; path = "Target Support Files/Pods-SplatoonGearOrderAPP/Pods-SplatoonGearOrderAPP.debug.xcconfig"; sourceTree = "<group>"; };
+		8275C34979BF22D83038D777 /* Pods-SplatoonGearOrderAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SplatoonGearOrderAPP.release.xcconfig"; path = "Target Support Files/Pods-SplatoonGearOrderAPP/Pods-SplatoonGearOrderAPP.release.xcconfig"; sourceTree = "<group>"; };
+		985852362506577C004D2927 /* Iksm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iksm.swift; sourceTree = "<group>"; };
+		985A317F2500D8FF00507C33 /* UIImage-Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extention.swift"; sourceTree = "<group>"; };
+		985F353624FE681200AFC146 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
+		985F353924FE894F00AFC146 /* UIColor-Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extention.swift"; sourceTree = "<group>"; };
+		9863AC3625012EF500A74FC6 /* FetchIksm_sessionWebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FetchIksm_sessionWebView.storyboard; sourceTree = "<group>"; };
+		9863AC3C2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchIksm_sessionWebViewController.swift; sourceTree = "<group>"; };
+		9866598824FD901D00116F03 /* SplatoonGearOrderAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplatoonGearOrderAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9866598B24FD901D00116F03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9866598D24FD901D00116F03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9866599424FD901E00116F03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9866599724FD901E00116F03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9866599924FD901E00116F03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		986659A024FD90ED00116F03 /* StageSchedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StageSchedule.storyboard; sourceTree = "<group>"; };
+		986659A324FD912A00116F03 /* StageScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageScheduleViewController.swift; sourceTree = "<group>"; };
+		986659A624FD921800116F03 /* BaseTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BaseTabBar.storyboard; sourceTree = "<group>"; };
+		986659A824FD927700116F03 /* GesoTown.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GesoTown.storyboard; sourceTree = "<group>"; };
+		986659AA24FD92B700116F03 /* BaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewController.swift; sourceTree = "<group>"; };
+		986659AC24FD931D00116F03 /* GesoTownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesoTownViewController.swift; sourceTree = "<group>"; };
+		986659AF24FD97A600116F03 /* StageScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StageScheduleTableViewCell.xib; sourceTree = "<group>"; };
+		986659B424FD9D9300116F03 /* StageScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		98675F5A2557FC910026637D /* IksmResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IksmResultData.swift; sourceTree = "<group>"; };
+		98675F5D255832A30026637D /* IksmGesoTownData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IksmGesoTownData.swift; sourceTree = "<group>"; };
+		986784FC25013BD1003A5560 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		987E5A452514EE87007A560E /* GesoTownTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GesoTownTableViewCell.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9866598524FD901D00116F03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98644B36251A3BBD002B755F /* WebKit.framework in Frameworks */,
+				1EA9DBE7F529CF4A51472A25 /* Pods_SplatoonGearOrderAPP.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		985F353224FE671400AFC146 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				985F353624FE681200AFC146 /* Stage.swift */,
+				985852362506577C004D2927 /* Iksm.swift */,
+				98675F5A2557FC910026637D /* IksmResultData.swift */,
+				98675F5D255832A30026637D /* IksmGesoTownData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		985F353824FE892200AFC146 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				985F353924FE894F00AFC146 /* UIColor-Extention.swift */,
+				985A317F2500D8FF00507C33 /* UIImage-Extention.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9866597F24FD901C00116F03 = {
+			isa = PBXGroup;
+			children = (
+				9866598A24FD901D00116F03 /* SplatoonGearOrderAPP */,
+				9866598924FD901D00116F03 /* Products */,
+				E0ED03796AA02465FF57F552 /* Pods */,
+				EACFA3495A6E57A954FAFD58 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9866598924FD901D00116F03 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9866598824FD901D00116F03 /* SplatoonGearOrderAPP.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9866598A24FD901D00116F03 /* SplatoonGearOrderAPP */ = {
+			isa = PBXGroup;
+			children = (
+				985F353824FE892200AFC146 /* Extensions */,
+				985F353224FE671400AFC146 /* Models */,
+				986659B324FD9D6900116F03 /* Cells */,
+				986659AE24FD978500116F03 /* Xibs */,
+				986659A224FD90F100116F03 /* Controllers */,
+				9866599F24FD906000116F03 /* Storyboards */,
+				9866598B24FD901D00116F03 /* AppDelegate.swift */,
+				9866598D24FD901D00116F03 /* SceneDelegate.swift */,
+				9866599424FD901E00116F03 /* Assets.xcassets */,
+				9866599624FD901E00116F03 /* LaunchScreen.storyboard */,
+				9866599924FD901E00116F03 /* Info.plist */,
+			);
+			path = SplatoonGearOrderAPP;
+			sourceTree = "<group>";
+		};
+		9866599F24FD906000116F03 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				986659A024FD90ED00116F03 /* StageSchedule.storyboard */,
+				986659A824FD927700116F03 /* GesoTown.storyboard */,
+				986659A624FD921800116F03 /* BaseTabBar.storyboard */,
+				9863AC3625012EF500A74FC6 /* FetchIksm_sessionWebView.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		986659A224FD90F100116F03 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				986659A324FD912A00116F03 /* StageScheduleViewController.swift */,
+				986659AC24FD931D00116F03 /* GesoTownViewController.swift */,
+				986659AA24FD92B700116F03 /* BaseTabBarViewController.swift */,
+				9863AC3C2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		986659AE24FD978500116F03 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				986659AF24FD97A600116F03 /* StageScheduleTableViewCell.xib */,
+				987E5A452514EE87007A560E /* GesoTownTableViewCell.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		986659B324FD9D6900116F03 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				986659B424FD9D9300116F03 /* StageScheduleTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E0ED03796AA02465FF57F552 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				419497693202610DDD66B6A5 /* Pods-SplatoonGearOrderAPP.debug.xcconfig */,
+				8275C34979BF22D83038D777 /* Pods-SplatoonGearOrderAPP.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EACFA3495A6E57A954FAFD58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				986784FC25013BD1003A5560 /* WebKit.framework */,
+				1F2574046EC4120A142FB25E /* Pods_SplatoonGearOrderAPP.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9866598724FD901D00116F03 /* SplatoonGearOrderAPP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9866599C24FD901E00116F03 /* Build configuration list for PBXNativeTarget "SplatoonGearOrderAPP" */;
+			buildPhases = (
+				DC16F43156D149A6FDF235AF /* [CP] Check Pods Manifest.lock */,
+				9866598424FD901D00116F03 /* Sources */,
+				9866598524FD901D00116F03 /* Frameworks */,
+				9866598624FD901D00116F03 /* Resources */,
+				37D8C22C2CD0E7573B82568D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SplatoonGearOrderAPP;
+			productName = SplatoonGearOrderAPP;
+			productReference = 9866598824FD901D00116F03 /* SplatoonGearOrderAPP.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9866598024FD901C00116F03 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1200;
+				ORGANIZATIONNAME = "原直也";
+				TargetAttributes = {
+					9866598724FD901D00116F03 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = 9866598324FD901D00116F03 /* Build configuration list for PBXProject "SplatoonGearOrderAPP" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9866597F24FD901C00116F03;
+			productRefGroup = 9866598924FD901D00116F03 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9866598724FD901D00116F03 /* SplatoonGearOrderAPP */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9866598624FD901D00116F03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				986659A124FD90ED00116F03 /* StageSchedule.storyboard in Resources */,
+				9863AC3725012EF500A74FC6 /* FetchIksm_sessionWebView.storyboard in Resources */,
+				9866599824FD901E00116F03 /* LaunchScreen.storyboard in Resources */,
+				987E5A462514EE87007A560E /* GesoTownTableViewCell.xib in Resources */,
+				986659A924FD927700116F03 /* GesoTown.storyboard in Resources */,
+				9866599524FD901E00116F03 /* Assets.xcassets in Resources */,
+				986659A724FD921800116F03 /* BaseTabBar.storyboard in Resources */,
+				986659B024FD97A600116F03 /* StageScheduleTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37D8C22C2CD0E7573B82568D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SplatoonGearOrderAPP/Pods-SplatoonGearOrderAPP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SplatoonGearOrderAPP/Pods-SplatoonGearOrderAPP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SplatoonGearOrderAPP/Pods-SplatoonGearOrderAPP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC16F43156D149A6FDF235AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SplatoonGearOrderAPP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9866598424FD901D00116F03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98675F5B2557FC910026637D /* IksmResultData.swift in Sources */,
+				986659B524FD9D9300116F03 /* StageScheduleTableViewCell.swift in Sources */,
+				9863AC3D2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift in Sources */,
+				986659AB24FD92B700116F03 /* BaseTabBarViewController.swift in Sources */,
+				985F353A24FE894F00AFC146 /* UIColor-Extention.swift in Sources */,
+				986659A424FD912A00116F03 /* StageScheduleViewController.swift in Sources */,
+				985A31802500D8FF00507C33 /* UIImage-Extention.swift in Sources */,
+				985F353724FE681200AFC146 /* Stage.swift in Sources */,
+				9866598C24FD901D00116F03 /* AppDelegate.swift in Sources */,
+				9866598E24FD901D00116F03 /* SceneDelegate.swift in Sources */,
+				986659AD24FD931D00116F03 /* GesoTownViewController.swift in Sources */,
+				985852372506577C004D2927 /* Iksm.swift in Sources */,
+				98675F5E255832A30026637D /* IksmGesoTownData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9866599624FD901E00116F03 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9866599724FD901E00116F03 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9866599A24FD901E00116F03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9866599B24FD901E00116F03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9866599D24FD901E00116F03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 419497693202610DDD66B6A5 /* Pods-SplatoonGearOrderAPP.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FB9J7G99N9;
+				INFOPLIST_FILE = SplatoonGearOrderAPP/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.naoya97316.SplatoonGearOrderAPP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9866599E24FD901E00116F03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8275C34979BF22D83038D777 /* Pods-SplatoonGearOrderAPP.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FB9J7G99N9;
+				INFOPLIST_FILE = SplatoonGearOrderAPP/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.naoya97316.SplatoonGearOrderAPP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9866598324FD901D00116F03 /* Build configuration list for PBXProject "SplatoonGearOrderAPP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9866599A24FD901E00116F03 /* Debug */,
+				9866599B24FD901E00116F03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9866599C24FD901E00116F03 /* Build configuration list for PBXNativeTarget "SplatoonGearOrderAPP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9866599D24FD901E00116F03 /* Debug */,
+				9866599E24FD901E00116F03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9866598024FD901C00116F03 /* Project object */;
+}
