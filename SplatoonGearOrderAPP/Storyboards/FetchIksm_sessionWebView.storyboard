@@ -12,10 +12,7 @@
         <!--Fetch Iksm session Web View Controller-->
         <scene sceneID="ev5-rd-H1o">
             <objects>
-<<<<<<< HEAD
-=======
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKV-72-NKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
->>>>>>> a03a64ad942a0bd58f714ed830c56a7481875434
                 <viewController storyboardIdentifier="FetchIksm_sessionWebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="124-2F-CUQ" customClass="FetchIksm_sessionWebViewController" customModule="SplatoonGearOrderAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xUW-IC-ahA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -38,18 +35,15 @@
                             <constraint firstItem="2uA-sH-i36" firstAttribute="bottom" secondItem="6TB-rh-NoY" secondAttribute="bottom" id="tiy-hC-x8f"/>
                             <constraint firstItem="2uA-sH-i36" firstAttribute="trailing" secondItem="6TB-rh-NoY" secondAttribute="trailing" id="wEP-RA-lcb"/>
                         </constraints>
-<<<<<<< HEAD
                     </view>
                     <connections>
                         <outlet property="webView" destination="6TB-rh-NoY" id="g7y-jM-Rcw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKV-72-NKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-=======
                         <viewLayoutGuide key="safeArea" id="2uA-sH-i36"/>
                     </view>
                 </viewController>
->>>>>>> a03a64ad942a0bd58f714ed830c56a7481875434
             </objects>
             <point key="canvasLocation" x="-183" y="111"/>
         </scene>
