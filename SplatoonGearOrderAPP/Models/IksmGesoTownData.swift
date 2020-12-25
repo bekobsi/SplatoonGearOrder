@@ -7,6 +7,7 @@
 //
 
 import Foundation
+<<<<<<< HEAD
 
 class iksmGesoTownData: Decodable {
     let ordered_info: ordered_info
@@ -49,3 +50,5 @@ class skill: Decodable {
     let name: String
     let image: String
 }
+=======
+>>>>>>> a03a64ad942a0bd58f714ed830c56a7481875434

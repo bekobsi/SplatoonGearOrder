@@ -7,6 +7,7 @@
 //
 
 import Foundation
+<<<<<<< HEAD
 
 class iksmData : Decodable {
     let results: [results]
@@ -48,3 +49,5 @@ class weapon : Decodable {
 class name : Decodable {
     let name: String
 }
+=======
+>>>>>>> a03a64ad942a0bd58f714ed830c56a7481875434
