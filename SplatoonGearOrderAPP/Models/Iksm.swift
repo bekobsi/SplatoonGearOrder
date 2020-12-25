@@ -7,7 +7,6 @@
 //
 
 import Foundation
-<<<<<<< HEAD
 import Alamofire
 import SwiftyJSON
 
@@ -346,5 +345,3 @@ class Iksm {
         return json!["hash"].stringValue
     }
 }
-=======
->>>>>>> a03a64ad942a0bd58f714ed830c56a7481875434
