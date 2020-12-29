@@ -12,7 +12,6 @@
         <!--Fetch Iksm session Web View Controller-->
         <scene sceneID="ev5-rd-H1o">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MKV-72-NKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="FetchIksm_sessionWebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="124-2F-CUQ" customClass="FetchIksm_sessionWebViewController" customModule="SplatoonGearOrderAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xUW-IC-ahA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -41,9 +40,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKV-72-NKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                        <viewLayoutGuide key="safeArea" id="2uA-sH-i36"/>
-                    </view>
-                </viewController>
             </objects>
             <point key="canvasLocation" x="-183" y="111"/>
         </scene>
