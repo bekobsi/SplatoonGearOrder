@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-SplatoonGearOrderAPP/Pods-SplatoonGearOrderAPP-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/SplatNet2/SplatNet2.framework
+${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework

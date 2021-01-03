@@ -10,5 +10,5 @@ target 'SplatoonGearOrderAPP' do
   pod 'Alamofire', '~>5.2'
   pod  'SwiftyJSON'
   pod 'SplatNet2', '~> 0.1'
-
+  pod 'NCMB', :git => 'https://github.com/NIFCLOUD-mbaas/ncmb_swift.git'
 end
