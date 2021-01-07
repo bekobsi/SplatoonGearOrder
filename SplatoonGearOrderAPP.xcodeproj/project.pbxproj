@@ -202,6 +202,7 @@
 				9866598524FD901D00116F03 /* Frameworks */,
 				9866598624FD901D00116F03 /* Resources */,
 				37D8C22C2CD0E7573B82568D /* [CP] Embed Pods Frameworks */,
+				98AD440225A5EB600050D599 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -280,6 +281,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SplatoonGearOrderAPP/Pods-SplatoonGearOrderAPP-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		98AD440225A5EB600050D599 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    swiftlint autocorrect --format\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		DC16F43156D149A6FDF235AF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

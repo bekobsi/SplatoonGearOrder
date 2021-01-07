@@ -8,22 +8,24 @@
 
 import Foundation
 
-class Stage: Decodable{
+class Stage: Decodable {
     let result: StageRule
 }
-class StageRule: Decodable{
+
+class StageRule: Decodable {
     let regular: [StageInfo]
     let gachi: [StageInfo]
     let league: [StageInfo]
 }
-class StageInfo: Decodable{
+
+class StageInfo: Decodable {
     let rule: String
     let maps_ex: [MapInfo]
     let start: String
     let end: String
 }
 
-class MapInfo: Decodable{
+class MapInfo: Decodable {
     let name: String
     let image: String
 }

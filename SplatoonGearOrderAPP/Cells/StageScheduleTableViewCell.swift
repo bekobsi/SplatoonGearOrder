@@ -6,35 +6,32 @@
 //  Copyright © 2020 原直也. All rights reserved.
 //
 
-import UIKit
 import SDWebImage
+import UIKit
 
 class StageScheduleTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var CellSpaceImageView: UIImageView!
-    @IBOutlet weak var StageOpenTimeLabel: UILabel!
+    @IBOutlet var CellSpaceImageView: UIImageView!
+    @IBOutlet var StageOpenTimeLabel: UILabel!
     
+    @IBOutlet var FastRegularStageNameLabel: UILabel!
+    @IBOutlet var FastRegularStageImageView: UIImageView!
+    @IBOutlet var SecondRegularStageNameLabel: UILabel!
+    @IBOutlet var SecondRegularStageImageView: UIImageView!
     
-    @IBOutlet weak var FastRegularStageNameLabel: UILabel!
-    @IBOutlet weak var FastRegularStageImageView: UIImageView!
-    @IBOutlet weak var SecondRegularStageNameLabel: UILabel!
-    @IBOutlet weak var SecondRegularStageImageView: UIImageView!
+    @IBOutlet var GachiStageRuleLabel: UILabel!
+    @IBOutlet var FastGachiStageNameLabel: UILabel!
+    @IBOutlet var FastGachiStageImageView: UIImageView!
+    @IBOutlet var SecondGachiStageLabel: UILabel!
+    @IBOutlet var SecondGachiStageImageView: UIImageView!
     
-    @IBOutlet weak var GachiStageRuleLabel: UILabel!
-    @IBOutlet weak var FastGachiStageNameLabel: UILabel!
-    @IBOutlet weak var FastGachiStageImageView: UIImageView!
-    @IBOutlet weak var SecondGachiStageLabel: UILabel!
-    @IBOutlet weak var SecondGachiStageImageView: UIImageView!
+    @IBOutlet var LeagueStageRuleLabel: UILabel!
+    @IBOutlet var FastLeagueStageNameLabel: UILabel!
+    @IBOutlet var FastLeagueStageImageView: UIImageView!
+    @IBOutlet var SecondLeagueStageNameLabel: UILabel!
+    @IBOutlet var SecondLeagueStageImageView: UIImageView!
     
-    
-    @IBOutlet weak var LeagueStageRuleLabel: UILabel!
-    @IBOutlet weak var FastLeagueStageNameLabel: UILabel!
-    @IBOutlet weak var FastLeagueStageImageView: UIImageView!
-    @IBOutlet weak var SecondLeagueStageNameLabel: UILabel!
-    @IBOutlet weak var SecondLeagueStageImageView: UIImageView!
-    
-    var RegularStage: StageInfo?{
-        didSet{
+    var RegularStage: StageInfo? {
+        didSet {
             var imageURL = URL(string: RegularStage?.maps_ex[0].image ?? "")
             FastRegularStageImageView.sd_setImage(with: imageURL)
             FastRegularStageImageView.layer.cornerRadius = 25
@@ -60,8 +57,8 @@ class StageScheduleTableViewCell: UITableViewCell {
         }
     }
     
-    var GachiStage: StageInfo?{
-        didSet{
+    var GachiStage: StageInfo? {
+        didSet {
             GachiStageRuleLabel.text = GachiStage?.rule
             
             var imageURL = URL(string: GachiStage?.maps_ex[0].image ?? "")
@@ -81,8 +78,8 @@ class StageScheduleTableViewCell: UITableViewCell {
         }
     }
     
-    var LeagueStage: StageInfo?{
-        didSet{
+    var LeagueStage: StageInfo? {
+        didSet {
             LeagueStageRuleLabel.text = LeagueStage?.rule
             
             var imageURL = URL(string: LeagueStage?.maps_ex[0].image ?? "")
@@ -99,15 +96,14 @@ class StageScheduleTableViewCell: UITableViewCell {
             
             FastLeagueStageNameLabel.text = LeagueStage?.maps_ex[0].name
             SecondLeagueStageNameLabel.text = LeagueStage?.maps_ex[1].name
-            
         }
     }
 
-    func StageOpenTime(start: String,end: String) -> String{
+    func StageOpenTime(start: String, end: String) -> String {
         let month = start[start.index(start.startIndex, offsetBy: 5) ..< start.index(start.startIndex, offsetBy: 7)]
         let day = start[start.index(start.startIndex, offsetBy: 8) ..< start.index(start.startIndex, offsetBy: 10)]
         let startTime = start[start.index(start.startIndex, offsetBy: 11) ..< start.index(start.startIndex, offsetBy: 16)]
-        let endTime = end[end.index(end.startIndex, offsetBy: 11) ..< end.index(end.startIndex,offsetBy:16)]
+        let endTime = end[end.index(end.startIndex, offsetBy: 11) ..< end.index(end.startIndex, offsetBy: 16)]
         
         return "\(month)月\(day)日 \(startTime)~\(endTime)"
     }
