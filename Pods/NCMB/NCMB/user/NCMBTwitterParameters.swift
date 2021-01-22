@@ -1,12 +1,12 @@
 /*
  Copyright 2019 FUJITSU CLOUD TECHNOLOGIES LIMITED All Rights Reserved.
- 
+
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
- 
+
  http://www.apache.org/licenses/LICENSE-2.0
- 
+
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,32 +15,31 @@
  */
 
 /// SNS認証 Twitter認証で用いるパラメタを保持する構造体です。
-public struct NCMBTwitterParameters : NCMBSnsInfoProtocol {
-
-    static let PARAMETER_ID : String = "id"
-    static let PARAMETER_SCREEN_NAME : String = "screen_name"
-    static let PARAMETER_OAUTH_CONSUMER_KEY : String = "oauth_consumer_key"
-    static let PARAMETER_CONSUMER_SECRET : String = "consumer_secret"
-    static let PARAMETER_OAUTH_TOKEN : String = "oauth_token"
-    static let PARAMETER_OAUTH_TOKEN_SECRET : String = "oauth_token_secret"
+public struct NCMBTwitterParameters: NCMBSnsInfoProtocol {
+    static let PARAMETER_ID: String = "id"
+    static let PARAMETER_SCREEN_NAME: String = "screen_name"
+    static let PARAMETER_OAUTH_CONSUMER_KEY: String = "oauth_consumer_key"
+    static let PARAMETER_CONSUMER_SECRET: String = "consumer_secret"
+    static let PARAMETER_OAUTH_TOKEN: String = "oauth_token"
+    static let PARAMETER_OAUTH_TOKEN_SECRET: String = "oauth_token_secret"
 
     /// Twitter IDです。
-    public var id : String
+    public var id: String
 
     /// 名前です。
-    public var screenName : String
+    public var screenName: String
 
     /// コンシューマーキーです。
-    public var oauthConsumerKey : String
+    public var oauthConsumerKey: String
 
     /// コンシューマーシークレットキーです。
-    public var consumerSecret : String
+    public var consumerSecret: String
 
     /// トークンです。
-    public var oauthToken : String
+    public var oauthToken: String
 
     /// トークンシークレットです。
-    public var oauthTokenSecret : String
+    public var oauthTokenSecret: String
 
     /// イニシャライズです。
     ///
@@ -51,12 +50,13 @@ public struct NCMBTwitterParameters : NCMBSnsInfoProtocol {
     /// - Parameter oauthToken: トークン
     /// - Parameter oauthTokenSecret: トークンシークレット
     public init(
-            id: String,
-            screenName: String,
-            oauthConsumerKey: String,
-            consumerSecret: String,
-            oauthToken: String,
-            oauthTokenSecret: String) {
+        id: String,
+        screenName: String,
+        oauthConsumerKey: String,
+        consumerSecret: String,
+        oauthToken: String,
+        oauthTokenSecret: String
+    ) {
         self.id = id
         self.screenName = screenName
         self.oauthConsumerKey = oauthConsumerKey
@@ -65,21 +65,18 @@ public struct NCMBTwitterParameters : NCMBSnsInfoProtocol {
         self.oauthTokenSecret = oauthTokenSecret
     }
 
-    var type : NCMBSNSType {
-        get {
-            return NCMBSNSType.twitter
-        }
+    var type: NCMBSNSType {
+        return NCMBSNSType.twitter
     }
 
-    func toObject() -> [String : Any] {
-        var object : [String : Any] = [:]
-        object[NCMBTwitterParameters.PARAMETER_ID] = self.id
-        object[NCMBTwitterParameters.PARAMETER_SCREEN_NAME] = self.screenName
-        object[NCMBTwitterParameters.PARAMETER_OAUTH_CONSUMER_KEY] = self.oauthConsumerKey
-        object[NCMBTwitterParameters.PARAMETER_CONSUMER_SECRET] = self.consumerSecret
-        object[NCMBTwitterParameters.PARAMETER_OAUTH_TOKEN] = self.oauthToken
-        object[NCMBTwitterParameters.PARAMETER_OAUTH_TOKEN_SECRET] = self.oauthTokenSecret
+    func toObject() -> [String: Any] {
+        var object: [String: Any] = [:]
+        object[NCMBTwitterParameters.PARAMETER_ID] = id
+        object[NCMBTwitterParameters.PARAMETER_SCREEN_NAME] = screenName
+        object[NCMBTwitterParameters.PARAMETER_OAUTH_CONSUMER_KEY] = oauthConsumerKey
+        object[NCMBTwitterParameters.PARAMETER_CONSUMER_SECRET] = consumerSecret
+        object[NCMBTwitterParameters.PARAMETER_OAUTH_TOKEN] = oauthToken
+        object[NCMBTwitterParameters.PARAMETER_OAUTH_TOKEN_SECRET] = oauthTokenSecret
         return object
     }
-
 }

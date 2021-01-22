@@ -1,12 +1,12 @@
 /*
  Copyright 2019 FUJITSU CLOUD TECHNOLOGIES LIMITED All Rights Reserved.
- 
+
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
- 
+
  http://www.apache.org/licenses/LICENSE-2.0
- 
+
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -14,19 +14,18 @@
  limitations under the License.
  */
 
-
 /// APIエラーを表す構造体です。
-public struct NCMBApiError : Error {
-    private let code : String
-    private let error : String
+public struct NCMBApiError: Error {
+    private let code: String
+    private let error: String
 
-    init(body: [String : Any]) {
-        self.code = NCMBApiError.getItem(body: body, key: "code")
-        self.error = NCMBApiError.getItem(body: body, key: "error")
+    init(body: [String: Any]) {
+        code = NCMBApiError.getItem(body: body, key: "code")
+        error = NCMBApiError.getItem(body: body, key: "error")
     }
 
-    static func getItem(body: [String : Any], key : String) -> String {
-        if let value : Any = body[key] {
+    static func getItem(body: [String: Any], key: String) -> String {
+        if let value: Any = body[key] {
             let valueText = value as? String
             if let valueText = valueText {
                 return valueText
@@ -36,16 +35,12 @@ public struct NCMBApiError : Error {
     }
 
     /// エラーコードです。
-    public var errorCode : NCMBApiErrorCode {
-        get {
-            return NCMBApiErrorCode(code: self.code)
-        }
+    public var errorCode: NCMBApiErrorCode {
+        return NCMBApiErrorCode(code: code)
     }
 
     /// エラーメッセージです。
-    public var message : String {
-        get {
-            return error
-        }
+    public var message: String {
+        return error
     }
 }

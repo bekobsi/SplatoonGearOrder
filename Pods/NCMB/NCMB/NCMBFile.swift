@@ -1,12 +1,12 @@
 /*
  Copyright 2019 FUJITSU CLOUD TECHNOLOGIES LIMITED All Rights Reserved.
- 
+
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
- 
+
  http://www.apache.org/licenses/LICENSE-2.0
- 
+
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,44 +17,38 @@
 import Foundation
 
 /// ファイルストアへの操作を行うクラスです。
-public class NCMBFile : NCMBBase {
-    static let CLASSNAME : String = "file"
+public class NCMBFile: NCMBBase {
+    static let CLASSNAME: String = "file"
 
-    static let FIELDNAME_FILENAME : String = "fileName"
-    static let FIELDNAME_MIMETYPE : String = "mimeType"
-    static let FIELDNAME_FILESIZE : String = "fileSize"
-    private var _fileName : String
+    static let FIELDNAME_FILENAME: String = "fileName"
+    static let FIELDNAME_MIMETYPE: String = "mimeType"
+    static let FIELDNAME_FILESIZE: String = "fileSize"
+    private var _fileName: String
 
     /// ファイル名です。
-    public var fileName : String {
+    public var fileName: String {
         get {
-            return self._fileName
+            return _fileName
         }
         set {
-            self._fileName = newValue
+            _fileName = newValue
             self[NCMBFile.FIELDNAME_FILENAME] = newValue
         }
     }
 
     /// ファイルを検索するためのクエリです。
-    public class var query : NCMBQuery<NCMBFile> {
-        get {
-            return NCMBQuery<NCMBFile>(service: NCMBFileService())
-        }
+    public class var query: NCMBQuery<NCMBFile> {
+        return NCMBQuery<NCMBFile>(service: NCMBFileService())
     }
 
     /// MIME-TYPEです。
-    public var mimeType : String? {
-        get {
-            return self[NCMBFile.FIELDNAME_MIMETYPE]
-        }
+    public var mimeType: String? {
+        return self[NCMBFile.FIELDNAME_MIMETYPE]
     }
 
     /// ファイルサイズ（バイト単位）です。
-    public var fileSize : Int? {
-        get {
-            return self[NCMBFile.FIELDNAME_FILESIZE]
-        }
+    public var fileSize: Int? {
+        return self[NCMBFile.FIELDNAME_FILESIZE]
     }
 
     /// イニシャライズです。
@@ -63,8 +57,8 @@ public class NCMBFile : NCMBBase {
     /// - Parameter className: データストアのクラス名
     /// - Parameter fields: フィールド内容
     /// - Parameter modifiedFieldKeys: 更新フィールド名一覧
-    required init(className: String, fields: [String : Any], modifiedFieldKeys: Set<String> = []) {
-        self._fileName = ""
+    required init(className: String, fields: [String: Any], modifiedFieldKeys: Set<String> = []) {
+        _fileName = ""
         super.init(className: className, fields: fields, modifiedFieldKeys: modifiedFieldKeys)
     }
 
@@ -73,7 +67,7 @@ public class NCMBFile : NCMBBase {
     /// - Parameter fileName: ファイル名
     /// - Parameter acl: ACL
     public init(fileName: String, acl: NCMBACL? = nil) {
-        self._fileName = fileName
+        _fileName = fileName
         super.init(className: NCMBFile.CLASSNAME)
         self[NCMBFile.FIELDNAME_FILENAME] = fileName
         self.acl = acl
@@ -83,7 +77,7 @@ public class NCMBFile : NCMBBase {
     ///
     /// - Parameter field: フィールド名
     /// - Returns: ユーザーが設定可能なフィールドの場合は `true` 、それ以外では `false` 。
-    override func isIgnoredKey(field: String) -> Bool {
+    override func isIgnoredKey(field _: String) -> Bool {
         return true
     }
 
@@ -91,9 +85,9 @@ public class NCMBFile : NCMBBase {
     ///
     /// - Returns: リクエストが成功した場合は `.success` 、 失敗した場合は `.failure<Error>`
     public func fetch() -> NCMBResult<Data?> {
-        var result : NCMBResult<Data?> = NCMBResult.failure(NCMBApiErrorCode.genericError)
+        var result: NCMBResult<Data?> = NCMBResult.failure(NCMBApiErrorCode.genericError)
         let semaphore = DispatchSemaphore(value: 0)
-        fetchInBackground(callback: {(res: NCMBResult<Data?>) -> Void in
+        fetchInBackground(callback: { (res: NCMBResult<Data?>) -> Void in
             result = res
             semaphore.signal()
         })
@@ -104,19 +98,18 @@ public class NCMBFile : NCMBBase {
     /// 設定されたファイル名のファイルを非同期処理にて取得します。
     ///
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
-    public func fetchInBackground(callback: @escaping NCMBHandler<Data?> ) -> Void {
+    public func fetchInBackground(callback: @escaping NCMBHandler<Data?>) {
         NCMBFileService().fetch(
-                file: self,
-                callback: {(result: NCMBResult<NCMBResponse>) -> Void in
-            switch result {
+            file: self,
+            callback: { (result: NCMBResult<NCMBResponse>) -> Void in
+                switch result {
                 case let .success(response):
                     callback(NCMBResult<Data?>.success(response.body))
-                    break
                 case let .failure(error):
                     callback(NCMBResult<Data?>.failure(error))
-                    break
+                }
             }
-        })
+        )
     }
 
     /// 設定されたファイル名のファイルを同期処理にて取得します。
@@ -124,9 +117,9 @@ public class NCMBFile : NCMBBase {
     /// - Parameter data: ファイルデータ
     /// - Returns: リクエストが成功した場合は `.success` 、 失敗した場合は `.failure<Error>`
     public func save(data: Data) -> NCMBResult<Void> {
-        var result : NCMBResult<Void> = NCMBResult<Void>.failure(NCMBApiErrorCode.genericError)
+        var result = NCMBResult<Void>.failure(NCMBApiErrorCode.genericError)
         let semaphore = DispatchSemaphore(value: 0)
-        saveInBackground(data: data, callback: {(res: NCMBResult<Void>) -> Void in
+        saveInBackground(data: data, callback: { (res: NCMBResult<Void>) -> Void in
             result = res
             semaphore.signal()
         })
@@ -138,29 +131,28 @@ public class NCMBFile : NCMBBase {
     ///
     /// - Parameter data: ファイルデータ
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
-    public func saveInBackground(data: Data, callback: @escaping NCMBHandler<Void> ) -> Void {
+    public func saveInBackground(data: Data, callback: @escaping NCMBHandler<Void>) {
         NCMBFileService().save(
-                file: self,
-                data: data,
-                callback: {(result: NCMBResult<NCMBResponse>) -> Void in
-            switch result {
-                case .success(_):
+            file: self,
+            data: data,
+            callback: { (result: NCMBResult<NCMBResponse>) -> Void in
+                switch result {
+                case .success:
                     callback(NCMBResult<Void>.success(()))
-                    break
                 case let .failure(error):
                     callback(NCMBResult<Void>.failure(error))
-                    break
+                }
             }
-        })
+        )
     }
 
     /// ファイルのACLを同期処理にて更新します。
     ///
     /// - Returns: リクエストが成功した場合は `.success` 、 失敗した場合は `.failure<Error>`
     public func update() -> NCMBResult<Void> {
-        var result : NCMBResult<Void> = NCMBResult<Void>.failure(NCMBApiErrorCode.genericError)
+        var result = NCMBResult<Void>.failure(NCMBApiErrorCode.genericError)
         let semaphore = DispatchSemaphore(value: 0)
-        updateInBackground(callback: {(res: NCMBResult<Void>) -> Void in
+        updateInBackground(callback: { (res: NCMBResult<Void>) -> Void in
             result = res
             semaphore.signal()
         })
@@ -171,15 +163,13 @@ public class NCMBFile : NCMBBase {
     /// ファイルのACLを非同期処理にて更新します。
     ///
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
-    public func updateInBackground(callback: @escaping NCMBHandler<Void> ) -> Void {
-        NCMBFileService().update(file: self, callback: {(result: NCMBResult<NCMBResponse>) -> Void in
+    public func updateInBackground(callback: @escaping NCMBHandler<Void>) {
+        NCMBFileService().update(file: self, callback: { (result: NCMBResult<NCMBResponse>) -> Void in
             switch result {
-                case .success(_):
-                    callback(NCMBResult<Void>.success(()))
-                    break
-                case let .failure(error):
-                    callback(NCMBResult<Void>.failure(error))
-                    break
+            case .success:
+                callback(NCMBResult<Void>.success(()))
+            case let .failure(error):
+                callback(NCMBResult<Void>.failure(error))
             }
         })
     }
@@ -188,9 +178,9 @@ public class NCMBFile : NCMBBase {
     ///
     /// - Returns: リクエストが成功した場合は `.success` 、 失敗した場合は `.failure<Error>`
     public func delete() -> NCMBResult<Void> {
-        var result : NCMBResult<Void> = NCMBResult<Void>.failure(NCMBApiErrorCode.genericError)
+        var result = NCMBResult<Void>.failure(NCMBApiErrorCode.genericError)
         let semaphore = DispatchSemaphore(value: 0)
-        deleteInBackground(callback: {(res: NCMBResult<Void>) -> Void in
+        deleteInBackground(callback: { (res: NCMBResult<Void>) -> Void in
             result = res
             semaphore.signal()
         })
@@ -201,15 +191,13 @@ public class NCMBFile : NCMBBase {
     /// 設定されたファイル名のファイルを非同期処理にて削除します。
     ///
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
-    public func deleteInBackground(callback: @escaping NCMBHandler<Void> ) -> Void {
-        NCMBFileService().delete(file: self, callback: {(result: NCMBResult<NCMBResponse>) -> Void in
+    public func deleteInBackground(callback: @escaping NCMBHandler<Void>) {
+        NCMBFileService().delete(file: self, callback: { (result: NCMBResult<NCMBResponse>) -> Void in
             switch result {
-                case .success(_):
-                    callback(NCMBResult<Void>.success(()))
-                    break
-                case let .failure(error):
-                    callback(NCMBResult<Void>.failure(error))
-                    break
+            case .success:
+                callback(NCMBResult<Void>.success(()))
+            case let .failure(error):
+                callback(NCMBResult<Void>.failure(error))
             }
         })
     }

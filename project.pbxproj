@@ -205,6 +205,7 @@
 				9866598524FD901D00116F03 /* Frameworks */,
 				9866598624FD901D00116F03 /* Resources */,
 				37D8C22C2CD0E7573B82568D /* [CP] Embed Pods Frameworks */,
+				9895E20E25BAEE33001BF9BF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -283,6 +284,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SplatoonGearOrderAPP/Pods-SplatoonGearOrderAPP-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9895E20E25BAEE33001BF9BF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "   \"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n";
 		};
 		DC16F43156D149A6FDF235AF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

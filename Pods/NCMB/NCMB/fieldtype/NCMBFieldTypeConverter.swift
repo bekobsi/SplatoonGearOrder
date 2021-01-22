@@ -1,12 +1,12 @@
 /*
  Copyright 2019 FUJITSU CLOUD TECHNOLOGIES LIMITED All Rights Reserved.
- 
+
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
- 
+
  http://www.apache.org/licenses/LICENSE-2.0
- 
+
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,7 +17,6 @@
 import Foundation
 
 class NCMBFieldTypeConverter {
-
     class func convertToFieldValue(object: Any) -> Any? {
         if let incrementOperator = NCMBIncrementOperator.createInstance(object: object) {
             return incrementOperator
@@ -32,11 +31,11 @@ class NCMBFieldTypeConverter {
             return removeOperator
         }
         if let addRelationOperator = NCMBAddRelationOperator.createInstance(object: object) {
-             return addRelationOperator
+            return addRelationOperator
         }
-         if let removeRelationOperator = NCMBRemoveRelationOperator.createInstance(object: object) {
-             return removeRelationOperator
-         }
+        if let removeRelationOperator = NCMBRemoveRelationOperator.createInstance(object: object) {
+            return removeRelationOperator
+        }
         if let dateField = NCMBDateField.createInstance(object: object) {
             return dateField.date
         }
@@ -55,7 +54,7 @@ class NCMBFieldTypeConverter {
         return nil
     }
 
-    class func converToObject(value: Any) -> [String : Any]? {
+    class func converToObject(value: Any) -> [String: Any]? {
         if let incrementOperator = value as? NCMBIncrementOperator {
             return incrementOperator.toObject()
         }
@@ -68,12 +67,12 @@ class NCMBFieldTypeConverter {
         if let removeOperator = value as? NCMBRemoveOperator {
             return removeOperator.toObject()
         }
-         if let addRelationOperator = value as? NCMBAddRelationOperator {
-             return addRelationOperator.toObject()
+        if let addRelationOperator = value as? NCMBAddRelationOperator {
+            return addRelationOperator.toObject()
         }
-         if let removeRelationOperator = value as? NCMBRemoveRelationOperator {
-             return removeRelationOperator.toObject()
-         }
+        if let removeRelationOperator = value as? NCMBRemoveRelationOperator {
+            return removeRelationOperator.toObject()
+        }
         if let date = value as? Date {
             return NCMBDateField.convertObject(date: date)
         }

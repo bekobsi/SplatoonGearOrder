@@ -16,12 +16,12 @@
 
 /// フィールドが持つ配列に要素を追加する処理を行うための構造体です。
 public struct NCMBAddRelationOperator {
-    static let TYPENAME : String = "AddRelation"
-    static let CLASSNAME_FIELD_NAME : String = "className"
-    static let CLASSNAME_OBJECTID : String = "objects"
+    static let TYPENAME: String = "AddRelation"
+    static let CLASSNAME_FIELD_NAME: String = "className"
+    static let CLASSNAME_OBJECTID: String = "objects"
 
     /// フィールドへの追加対象の要素配列を定義
-    public var elements : [NCMBPointer]
+    public var elements: [NCMBPointer]
 
     /// イニシャライズです。
     ///
@@ -32,9 +32,9 @@ public struct NCMBAddRelationOperator {
 
     // 渡されたJsonオブジェクトをNCMBAddRelationOperatorに変換する
     static func createInstance(object: Any) -> NCMBAddRelationOperator? {
-        if let object = object as? [String : Any] {
+        if let object = object as? [String: Any] {
             if checkType(object: object) {
-            // AddRelationか確認
+                // AddRelationか確認
                 if let elements = getElements(object: object) {
                     return NCMBAddRelationOperator(elements: elements)
                 }
@@ -42,39 +42,37 @@ public struct NCMBAddRelationOperator {
         }
         return nil
     }
-    
+
     // 渡されたJsonオブジェクトがcreateInstanceで変換可能かチェック
-    private static func checkType(object: [String : Any]) -> Bool {
+    private static func checkType(object: [String: Any]) -> Bool {
         return NCMBFieldTypeUtil.checkOperationField(object: object, typename: TYPENAME)
     }
-        
+
     // 渡されたJsonオブジェクトから使用するメンバ変数elementsを取得
-    private static func getElements(object : [String : Any]) -> [NCMBPointer]? {
-        if let elements = object["objects"]{
-            if let elements = elements as? Array<Any>{
-                var pointers : Array<NCMBPointer> = []
-                for data in elements{
-                    if let element = NCMBPointer.createInstance(object: data){
+    private static func getElements(object: [String: Any]) -> [NCMBPointer]? {
+        if let elements = object["objects"] {
+            if let elements = elements as? [Any] {
+                var pointers: [NCMBPointer] = []
+                for data in elements {
+                    if let element = NCMBPointer.createInstance(object: data) {
                         pointers.append(element)
                     }
                 }
                 return pointers
             }
-            
         }
         return nil
     }
 
     // Jsonオブジェクトを返す。辞書型にする。
-    func toObject() -> [String : Any] {
-        var object : [String : Any] = NCMBFieldTypeUtil.createOperatorObjectBase(typename: NCMBAddRelationOperator.TYPENAME)
+    func toObject() -> [String: Any] {
+        var object: [String: Any] = NCMBFieldTypeUtil.createOperatorObjectBase(typename: NCMBAddRelationOperator.TYPENAME)
         // オブジェクト内のポインタをStringにする
-        var values : [[String : Any]] = []
-        for data in elements{
-                values.append(data.toObject())
+        var values: [[String: Any]] = []
+        for data in elements {
+            values.append(data.toObject())
         }
         object[NCMBAddRelationOperator.CLASSNAME_OBJECTID] = values
         return object
     }
-
 }

@@ -11,11 +11,13 @@ import Foundation
 class Stage: Decodable {
     let result: StageRule
 }
+
 class StageRule: Decodable {
     let regular: [StageInfo]
     let gachi: [StageInfo]
     let league: [StageInfo]
 }
+
 class StageInfo: Decodable {
     let rule: String
     let maps_ex: [MapInfo]

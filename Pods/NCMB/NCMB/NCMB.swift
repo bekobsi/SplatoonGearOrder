@@ -18,48 +18,40 @@ import Foundation
 
 /// 共通情報を管理するクラスです。
 public class NCMB {
-    public static let SDK_VERSION : String = "1.1.2"
-    static let METADATA_PREFIX : String = "com.nifcloud.mbaas."
-    public static let DEFAULT_DOMAIN_URL : String = "https://mbaas.api.nifcloud.com/"
-    public static let DEFAULT_API_VERSION : String = "2013-09-01"
-    public static let DEFAULT_SCRIPT_ENDPOINT : String = "https://script.mbaas.api.nifcloud.com/"
-    public static let DEFAULT_SCRIPT_API_VERSION : String = "2015-09-01"
+    public static let SDK_VERSION: String = "1.1.2"
+    static let METADATA_PREFIX: String = "com.nifcloud.mbaas."
+    public static let DEFAULT_DOMAIN_URL: String = "https://mbaas.api.nifcloud.com/"
+    public static let DEFAULT_API_VERSION: String = "2013-09-01"
+    public static let DEFAULT_SCRIPT_ENDPOINT: String = "https://script.mbaas.api.nifcloud.com/"
+    public static let DEFAULT_SCRIPT_API_VERSION: String = "2015-09-01"
 
     private static let shared = NCMB()
-    private var _domainURL : String = DEFAULT_DOMAIN_URL
-    private var _apiVersion : String = DEFAULT_API_VERSION
-    private var _applicationKey : String = ""
-    private var _clientKey : String = ""
+    private var _domainURL: String = DEFAULT_DOMAIN_URL
+    private var _apiVersion: String = DEFAULT_API_VERSION
+    private var _applicationKey: String = ""
+    private var _clientKey: String = ""
 
     /// イニシャライズです。
     private init() {}
 
     /// エンドポイントURLです。
-    class var domainURL : String {
-        get {
-            return getInstance()._domainURL
-        }
+    class var domainURL: String {
+        return getInstance()._domainURL
     }
 
     /// APIバージョンです。
-    class var apiVersion : String {
-        get {
-            return getInstance()._apiVersion
-        }
+    class var apiVersion: String {
+        return getInstance()._apiVersion
     }
 
     /// アプリケーションキーです。
-    class var applicationKey : String {
-        get {
-            return getInstance()._applicationKey
-        }
+    class var applicationKey: String {
+        return getInstance()._applicationKey
     }
 
     /// クライアントキーです。
-    class var clientKey : String {
-        get {
-            return getInstance()._clientKey
-        }
+    class var clientKey: String {
+        return getInstance()._clientKey
     }
 
     /// イニシャライズです。
@@ -74,8 +66,8 @@ public class NCMB {
         applicationKey: String,
         clientKey: String,
         domainURL: String = DEFAULT_DOMAIN_URL,
-        apiVersion : String = DEFAULT_API_VERSION) {
-
+        apiVersion: String = DEFAULT_API_VERSION
+    ) {
         shared._applicationKey = applicationKey
         shared._clientKey = clientKey
         shared._domainURL = domainURL
@@ -88,5 +80,4 @@ public class NCMB {
     private class func getInstance() -> NCMB {
         return shared
     }
-
 }

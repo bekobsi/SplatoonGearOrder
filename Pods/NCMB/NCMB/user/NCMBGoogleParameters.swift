@@ -1,12 +1,12 @@
 /*
  Copyright 2019 FUJITSU CLOUD TECHNOLOGIES LIMITED All Rights Reserved.
- 
+
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
- 
+
  http://www.apache.org/licenses/LICENSE-2.0
- 
+
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,16 +15,15 @@
  */
 
 /// SNS認証 Google認証で用いるパラメタを保持する構造体です。
-public struct NCMBGoogleParameters : NCMBSnsInfoProtocol {
-
-    static let PARAMETER_ID : String = "id"
-    static let PARAMETER_ACCESS_TOKEN : String = "access_token"
+public struct NCMBGoogleParameters: NCMBSnsInfoProtocol {
+    static let PARAMETER_ID: String = "id"
+    static let PARAMETER_ACCESS_TOKEN: String = "access_token"
 
     /// ユーザーIDです。
-    public var id : String
+    public var id: String
 
     /// アクセストークンです。
-    public var accessToken : String
+    public var accessToken: String
 
     /// イニシャライズです。
     ///
@@ -35,17 +34,14 @@ public struct NCMBGoogleParameters : NCMBSnsInfoProtocol {
         self.accessToken = accessToken
     }
 
-    var type : NCMBSNSType {
-        get {
-            return NCMBSNSType.google
-        }
+    var type: NCMBSNSType {
+        return NCMBSNSType.google
     }
 
-    func toObject() -> [String : Any] {
-        var object : [String : Any] = [:]
-        object[NCMBGoogleParameters.PARAMETER_ID] = self.id
-        object[NCMBGoogleParameters.PARAMETER_ACCESS_TOKEN] = self.accessToken
+    func toObject() -> [String: Any] {
+        var object: [String: Any] = [:]
+        object[NCMBGoogleParameters.PARAMETER_ID] = id
+        object[NCMBGoogleParameters.PARAMETER_ACCESS_TOKEN] = accessToken
         return object
     }
-
 }

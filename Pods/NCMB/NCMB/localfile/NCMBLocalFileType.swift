@@ -1,12 +1,12 @@
 /*
  Copyright 2019 FUJITSU CLOUD TECHNOLOGIES LIMITED All Rights Reserved.
- 
+
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
- 
+
  http://www.apache.org/licenses/LICENSE-2.0
- 
+
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,24 +16,24 @@
 
 import Foundation
 
-enum NCMBLocalFileType : String {
+enum NCMBLocalFileType: String {
     // rawValue にはファイルごとの path を持たせる
-    case currentInstallation = "currentInstallation"
-    case currentUser = "currentUser"
+    case currentInstallation
+    case currentUser
 
-    private var path : String {
-        return self.rawValue
+    private var path: String {
+        return rawValue
     }
 
-    var message : String {
+    var message: String {
         switch self {
-            case .currentInstallation: return "current installation"
-            case .currentUser: return "current user"
+        case .currentInstallation: return "current installation"
+        case .currentUser: return "current user"
         }
     }
 
     func getURL(base: URL) -> URL {
-        let url : URL = base.appendingPathComponent(self.path)
+        let url: URL = base.appendingPathComponent(path)
         return url
     }
 }

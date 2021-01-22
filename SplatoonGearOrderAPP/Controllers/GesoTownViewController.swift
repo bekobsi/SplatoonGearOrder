@@ -14,21 +14,21 @@ import WebKit
 class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControllerDelegate {
     let date = Date()
     let dateFormatter = DateFormatter()
-    
+
     var session_token = ""
     var iksm_session = ""
-    
+
     let now_day = Date(timeIntervalSinceNow: 60 * 60 * 9)
     let UD = UserDefaults.standard
-    
+
     @IBOutlet var webOpenButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         webOpenButton.addTarget(self, action: #selector(openWebview), for: .touchUpInside)
-        
+
         dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMdHms", options: 0, locale: Locale(identifier: "ja_JP"))
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         session_token = UD.string(forKey: "session_token") ?? ""
@@ -38,17 +38,17 @@ class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControll
         fetchBattleResultData(Iksm_session: iksm_session)
         fetchGesoTownData(Iksm_session: iksm_session)
     }
-    
+
 //    前回利用日から1日経過しているかを判別するメソッド
     private func TimeFromTheRequiredUsageDate() {
         let calender = Calendar.current
-        
+
 //        前回利用日から今後の処理を分岐
         if UD.object(forKey: "lastUseDate") != nil {
             let lastUseDate = UD.object(forKey: "lastUseDate") as! Date
             let now = calender.component(.day, from: now_day)
             let LastUseDate = calender.component(.day, from: lastUseDate)
-            
+
             if now != LastUseDate {
                 print("前回利用日から日付が変わっています")
                 do {
@@ -77,11 +77,11 @@ class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControll
             })
             alert.addAction(cancelAction)
             alert.addAction(defaultAction)
-            
+
             present(alert, animated: true, completion: nil)
         }
     }
-    
+
     private func fetchBattleResultData(Iksm_session: String) {
         let url = URL(string: "https://app.splatoon2.nintendo.net/api/results")!
         let cookieHeader = ["Set-Cookie": Iksm_session]
@@ -99,7 +99,7 @@ class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControll
         }
         task.resume()
     }
-    
+
     private func fetchGesoTownData(Iksm_session: String) {
         let url = URL(string: "https://app.splatoon2.nintendo.net/api/onlineshop/merchandises")!
         let cookieHeder = ["Set-cookie": Iksm_session]

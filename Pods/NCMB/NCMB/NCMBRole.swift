@@ -1,12 +1,12 @@
 /*
  Copyright 2019 FUJITSU CLOUD TECHNOLOGIES LIMITED All Rights Reserved.
- 
+
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
- 
+
  http://www.apache.org/licenses/LICENSE-2.0
- 
+
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,10 +16,9 @@
 
 import Foundation
 
-///　会員管理のロールを操作するためのクラスです。
-public class NCMBRole : NCMBBase {
-
-    static let CLASSNAME : String = "role"
+/// 　会員管理のロールを操作するためのクラスです。
+public class NCMBRole: NCMBBase {
+    static let CLASSNAME: String = "role"
     static let FIELDNAME_ROLE_NAME = "roleName"
     static let FIELDNAME_BELONG_ROLE = "belongRole"
     static let FIELDNAME_BELONG_USER = "belongUser"
@@ -30,14 +29,14 @@ public class NCMBRole : NCMBBase {
     /// - Parameter className: データストアのクラス名
     /// - Parameter fields: フィールド内容
     /// - Parameter modifiedFieldKeys: 更新フィールド名一覧
-    required init(className: String, fields: [String : Any], modifiedFieldKeys: Set<String> = []) {
+    required init(className: String, fields: [String: Any], modifiedFieldKeys: Set<String> = []) {
         super.init(className: className, fields: fields, modifiedFieldKeys: modifiedFieldKeys)
     }
 
     /// ロール名称です。
-    public var roleName : String? {
+    public var roleName: String? {
         get {
-            if let roleName : Any = self[NCMBRole.FIELDNAME_ROLE_NAME] {
+            if let roleName: Any = self[NCMBRole.FIELDNAME_ROLE_NAME] {
                 if let roleName = roleName as? String {
                     return roleName
                 }
@@ -50,10 +49,8 @@ public class NCMBRole : NCMBBase {
     }
 
     /// ロールを検索するためのクエリです。
-    public class var query : NCMBQuery<NCMBRole> {
-        get {
-            return NCMBQuery<NCMBRole>(service: NCMBRoleService())
-        }
+    public class var query: NCMBQuery<NCMBRole> {
+        return NCMBQuery<NCMBRole>(service: NCMBRoleService())
     }
 
     /// イニシャライズです。
@@ -77,7 +74,7 @@ public class NCMBRole : NCMBBase {
     ///
     /// - Parameter user: ユーザー
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
-    public func addUserInBackground(user: NCMBUser, callback: @escaping NCMBHandler<Void> ) -> Void {
+    public func addUserInBackground(user: NCMBUser, callback: @escaping NCMBHandler<Void>) {
         let users: [NCMBUser] = [user]
         saveInBackgroundCore(addUsers: users, callback: callback)
     }
@@ -94,7 +91,7 @@ public class NCMBRole : NCMBBase {
     ///
     /// - Parameter users: ユーザーの配列
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
-    public func addUsersInBackground(users: [NCMBUser], callback: @escaping NCMBHandler<Void> ) -> Void {
+    public func addUsersInBackground(users: [NCMBUser], callback: @escaping NCMBHandler<Void>) {
         saveInBackgroundCore(addUsers: users, callback: callback)
     }
 
@@ -111,7 +108,7 @@ public class NCMBRole : NCMBBase {
     ///
     /// - Parameter user: ユーザー
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
-    public func removeUserInBackground(user: NCMBUser, callback: @escaping NCMBHandler<Void> ) -> Void {
+    public func removeUserInBackground(user: NCMBUser, callback: @escaping NCMBHandler<Void>) {
         let users: [NCMBUser] = [user]
         saveInBackgroundCore(removeUsers: users, callback: callback)
     }
@@ -128,7 +125,7 @@ public class NCMBRole : NCMBBase {
     ///
     /// - Parameter users: ユーザーの配列
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
-    public func removeUsersInBackground(users: [NCMBUser], callback: @escaping NCMBHandler<Void> ) -> Void {
+    public func removeUsersInBackground(users: [NCMBUser], callback: @escaping NCMBHandler<Void>) {
         saveInBackgroundCore(removeUsers: users, callback: callback)
     }
 
@@ -145,7 +142,7 @@ public class NCMBRole : NCMBBase {
     ///
     /// - Parameter role: 子ロール
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
-    public func addRoleInBackground(role: NCMBRole, callback: @escaping NCMBHandler<Void> ) -> Void {
+    public func addRoleInBackground(role: NCMBRole, callback: @escaping NCMBHandler<Void>) {
         let roles: [NCMBRole] = [role]
         saveInBackgroundCore(addRoles: roles, callback: callback)
     }
@@ -162,7 +159,7 @@ public class NCMBRole : NCMBBase {
     ///
     /// - Parameter roles: 子ロールの配列
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
-    public func addRolesInBackground(roles: [NCMBRole], callback: @escaping NCMBHandler<Void> ) -> Void {
+    public func addRolesInBackground(roles: [NCMBRole], callback: @escaping NCMBHandler<Void>) {
         saveInBackgroundCore(addRoles: roles, callback: callback)
     }
 
@@ -179,7 +176,7 @@ public class NCMBRole : NCMBBase {
     ///
     /// - Parameter role: 子ロール
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
-    public func removeRoleInBackground(role: NCMBRole, callback: @escaping NCMBHandler<Void> ) -> Void {
+    public func removeRoleInBackground(role: NCMBRole, callback: @escaping NCMBHandler<Void>) {
         let roles: [NCMBRole] = [role]
         saveInBackgroundCore(removeRoles: roles, callback: callback)
     }
@@ -196,7 +193,7 @@ public class NCMBRole : NCMBBase {
     ///
     /// - Parameter roles: 子ロールの配列
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
-    public func removeRolesInBackground(roles: [NCMBRole], callback: @escaping NCMBHandler<Void> ) -> Void {
+    public func removeRolesInBackground(roles: [NCMBRole], callback: @escaping NCMBHandler<Void>) {
         saveInBackgroundCore(removeRoles: roles, callback: callback)
     }
 
@@ -204,9 +201,9 @@ public class NCMBRole : NCMBBase {
     ///
     /// - Returns: リクエストが成功した場合は `.success` 、 失敗した場合は `.failure<Error>`
     public func fetch() -> NCMBResult<Void> {
-        var result : NCMBResult<Void> = NCMBResult<Void>.failure(NCMBApiErrorCode.genericError)
+        var result = NCMBResult<Void>.failure(NCMBApiErrorCode.genericError)
         let semaphore = DispatchSemaphore(value: 0)
-        fetchInBackground(callback: {(res: NCMBResult<Void>) -> Void in
+        fetchInBackground(callback: { (res: NCMBResult<Void>) -> Void in
             result = res
             semaphore.signal()
         })
@@ -217,17 +214,15 @@ public class NCMBRole : NCMBBase {
     /// 設定されたオブジェクトIDに対応するロールを非同期処理にて取得します。
     ///
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
-    public func fetchInBackground(callback: @escaping NCMBHandler<Void> ) -> Void {
-        NCMBRoleService().fetch(object: self, callback: {(result: NCMBResult<NCMBResponse>) -> Void in
+    public func fetchInBackground(callback: @escaping NCMBHandler<Void>) {
+        NCMBRoleService().fetch(object: self, callback: { (result: NCMBResult<NCMBResponse>) -> Void in
             switch result {
-                case let .success(response):
-                    self.removeAllFields()
-                    self.reflectResponse(response: response)
-                    callback(NCMBResult<Void>.success(()))
-                    break
-                case let .failure(error):
-                    callback(NCMBResult<Void>.failure(error))
-                    break
+            case let .success(response):
+                self.removeAllFields()
+                self.reflectResponse(response: response)
+                callback(NCMBResult<Void>.success(()))
+            case let .failure(error):
+                callback(NCMBResult<Void>.failure(error))
             }
         })
     }
@@ -242,7 +237,7 @@ public class NCMBRole : NCMBBase {
     /// ロールを非同期処理にて保存します。
     ///
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
-    public func saveInBackground(callback: @escaping NCMBHandler<Void> ) -> Void {
+    public func saveInBackground(callback: @escaping NCMBHandler<Void>) {
         saveInBackgroundCore(callback: callback)
     }
 
@@ -254,21 +249,23 @@ public class NCMBRole : NCMBBase {
     /// - Parameter removeRoles: 削除する子ロールの配列
     /// - Returns: リクエストが成功した場合は `.success` 、 失敗した場合は `.failure<Error>`
     func saveCore(
-            addUsers: [NCMBUser] = [],
-            removeUsers: [NCMBUser] = [],
-            addRoles: [NCMBRole] = [],
-            removeRoles: [NCMBRole] = []) -> NCMBResult<Void> {
-        var result : NCMBResult<Void> = NCMBResult<Void>.failure(NCMBApiErrorCode.genericError)
+        addUsers: [NCMBUser] = [],
+        removeUsers: [NCMBUser] = [],
+        addRoles: [NCMBRole] = [],
+        removeRoles: [NCMBRole] = []
+    ) -> NCMBResult<Void> {
+        var result = NCMBResult<Void>.failure(NCMBApiErrorCode.genericError)
         let semaphore = DispatchSemaphore(value: 0)
         saveInBackgroundCore(
-                addUsers: addUsers,
-                removeUsers: removeUsers,
-                addRoles: addRoles,
-                removeRoles: removeRoles,
-                callback: {(res: NCMBResult<Void>) -> Void in
-            result = res
-            semaphore.signal()
-        })
+            addUsers: addUsers,
+            removeUsers: removeUsers,
+            addRoles: addRoles,
+            removeRoles: removeRoles,
+            callback: { (res: NCMBResult<Void>) -> Void in
+                result = res
+                semaphore.signal()
+            }
+        )
         _ = semaphore.wait(timeout: DispatchTime.distantFuture)
         return result
     }
@@ -281,11 +278,12 @@ public class NCMBRole : NCMBBase {
     /// - Parameter removeRoles: 削除する子ロールの配列
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
     func saveInBackgroundCore(
-            addUsers: [NCMBUser] = [],
-            removeUsers: [NCMBUser] = [],
-            addRoles: [NCMBRole] = [],
-            removeRoles: [NCMBRole] = [],
-            callback: @escaping NCMBHandler<Void> ) -> Void {
+        addUsers: [NCMBUser] = [],
+        removeUsers: [NCMBUser] = [],
+        addRoles: [NCMBRole] = [],
+        removeRoles: [NCMBRole] = [],
+        callback: @escaping NCMBHandler<Void>
+    ) {
         let roleRelationOperator = createBelongItems(className: NCMBRole.CLASSNAME, add: addRoles, remove: removeRoles)
         if let roleRelationOperator = roleRelationOperator {
             self[NCMBRole.FIELDNAME_BELONG_ROLE] = roleRelationOperator
@@ -294,15 +292,13 @@ public class NCMBRole : NCMBBase {
         if let userRelationOperator = userRelationOperator {
             self[NCMBRole.FIELDNAME_BELONG_USER] = userRelationOperator
         }
-        NCMBRoleService().save(object: self, callback: {(result: NCMBResult<NCMBResponse>) -> Void in
+        NCMBRoleService().save(object: self, callback: { (result: NCMBResult<NCMBResponse>) -> Void in
             switch result {
-                case let .success(response):
-                    self.reflectResponse(response: response)
-                    callback(NCMBResult<Void>.success(()))
-                    break
-                case let .failure(error):
-                    callback(NCMBResult<Void>.failure(error))
-                    break
+            case let .success(response):
+                self.reflectResponse(response: response)
+                callback(NCMBResult<Void>.success(()))
+            case let .failure(error):
+                callback(NCMBResult<Void>.failure(error))
             }
         })
     }
@@ -311,9 +307,9 @@ public class NCMBRole : NCMBBase {
     ///
     /// - Returns: リクエストが成功した場合は `.success` 、 失敗した場合は `.failure<Error>`
     public func delete() -> NCMBResult<Void> {
-        var result : NCMBResult<Void> = NCMBResult<Void>.failure(NCMBApiErrorCode.genericError)
+        var result = NCMBResult<Void>.failure(NCMBApiErrorCode.genericError)
         let semaphore = DispatchSemaphore(value: 0)
-        deleteInBackground(callback: {(res: NCMBResult<Void>) -> Void in
+        deleteInBackground(callback: { (res: NCMBResult<Void>) -> Void in
             result = res
             semaphore.signal()
         })
@@ -324,17 +320,15 @@ public class NCMBRole : NCMBBase {
     /// ロールを非同期処理にて削除します
     ///
     /// - Parameter callback: レスポンス取得後に実行されるコールバックです。
-    public func deleteInBackground(callback: @escaping NCMBHandler<Void> ) -> Void {
-        NCMBRoleService().delete(object: self, callback: {(result: NCMBResult<NCMBResponse>) -> Void in
+    public func deleteInBackground(callback: @escaping NCMBHandler<Void>) {
+        NCMBRoleService().delete(object: self, callback: { (result: NCMBResult<NCMBResponse>) -> Void in
             switch result {
-                case .success(_):
-                    self.removeAllFields()
-                    self.removeAllModifiedFieldKeys()
-                    callback(NCMBResult<Void>.success(()))
-                    break
-                case let .failure(error):
-                    callback(NCMBResult<Void>.failure(error))
-                    break
+            case .success:
+                self.removeAllFields()
+                self.removeAllModifiedFieldKeys()
+                callback(NCMBResult<Void>.success(()))
+            case let .failure(error):
+                callback(NCMBResult<Void>.failure(error))
             }
         })
     }

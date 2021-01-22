@@ -20,20 +20,20 @@ class FetchIksm_sessionWebViewController: UIViewController, WKNavigationDelegate
     private let iksm = Iksm()
     private var auth_code_verifer = ""
     private var session_token_code = ""
-    
+
     private var indicatorBackgroundView: UIView!
     private var indicator: UIActivityIndicatorView!
 
     private var response = JSON()
     private var userdefaults = UserDefaults.standard
-    
+
     var delegate: FetchIksm_sessionWebViewControllerDelegate?
     @IBOutlet var webView: WKWebView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.navigationDelegate = self
-        
+
         setUpViews()
         if userdefaults.string(forKey: "session_token") == "" {
             print("session_tokenが取得されていません")
@@ -42,7 +42,7 @@ class FetchIksm_sessionWebViewController: UIViewController, WKNavigationDelegate
             openWebview()
         }
     }
-    
+
     // webViewNavigationInfo
     private func setUpViews() {
         webView.navigationDelegate = self
@@ -54,7 +54,7 @@ class FetchIksm_sessionWebViewController: UIViewController, WKNavigationDelegate
     @objc func tappedNavLeftBarButton() {
         dismiss(animated: true, completion: nil)
     }
-    
+
     private func openWebview() {
         do {
             let auth = try fetch_auth_code()
@@ -67,8 +67,8 @@ class FetchIksm_sessionWebViewController: UIViewController, WKNavigationDelegate
             webView.load(urlRequest)
         } catch {}
     }
-    
-    func webView(_ webView: WKWebView,
+
+    func webView(_: WKWebView,
                  decidePolicyFor navigationAction: WKNavigationAction,
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void)
     {
@@ -77,13 +77,13 @@ class FetchIksm_sessionWebViewController: UIViewController, WKNavigationDelegate
             print("session_token_code取得に成功しました。")
             do {
                 fetchSession_token_code(session_token_codeURL: session_token_codeURL)
-                
+
                 response = try SplatNet2.getSessionToken(session_token_code, auth_code_verifer)
                 let session_token = response["session_token"].stringValue
-                
+
                 let iksm_session = try SplatNet2.genIksmSession(session_token)["iksm_session"].stringValue
                 print("iksm_session", iksm_session)
-                
+
                 delegate?.returnData(session_token: session_token, iksm_session: iksm_session)
                 dismiss(animated: true, completion: nil)
             } catch {
@@ -94,13 +94,13 @@ class FetchIksm_sessionWebViewController: UIViewController, WKNavigationDelegate
 
         decisionHandler(.allow)
     }
-    
+
     func fetch_auth_code() throws -> JSON {
         let url = "https://salmonia.mydns.jp/"
         var json: JSON?
         AF.request(url).responseJSON(queue: queue) { response in
             switch response.result {
-            case .success(let value):
+            case let .success(value):
                 json = JSON(value)
             case .failure:
                 break
@@ -113,7 +113,7 @@ class FetchIksm_sessionWebViewController: UIViewController, WKNavigationDelegate
         }
         return json!
     }
-    
+
     func fetchSession_token_code(session_token_codeURL: String) {
         var count = 0
         while session_token_codeURL.prefix(count).contains("session_token_code=") == false {
@@ -126,13 +126,13 @@ class FetchIksm_sessionWebViewController: UIViewController, WKNavigationDelegate
         }
         session_token_code = String(session_token_code.dropLast(count + 6))
     }
-    
+
     func showIndicator() {
         // インジケータビューの背景
         indicatorBackgroundView = UIView(frame: view.bounds)
         indicatorBackgroundView.backgroundColor = UIColor.black
         indicatorBackgroundView.alpha = 0.4
-        indicatorBackgroundView?.tag = 100100
+        indicatorBackgroundView?.tag = 100_100
 
         indicator = UIActivityIndicatorView()
         indicator.style = .large
