@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K3b-UP-4Jm">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Stage Schedule View Controller-->
+        <scene sceneID="Wjr-wb-uBG">
+            <objects>
+                <viewController storyboardIdentifier="StageScheduleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="K3b-UP-4Jm" customClass="StageScheduleViewController" customModule="SplatoonGearOrderAPP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K5k-5e-2DJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ILg-Hm-uKn">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="j6E-Xo-GSN"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ILg-Hm-uKn" firstAttribute="top" secondItem="j6E-Xo-GSN" secondAttribute="top" id="42A-JZ-jph"/>
+                            <constraint firstItem="j6E-Xo-GSN" firstAttribute="trailing" secondItem="ILg-Hm-uKn" secondAttribute="trailing" id="R97-xW-Zft"/>
+                            <constraint firstItem="ILg-Hm-uKn" firstAttribute="leading" secondItem="j6E-Xo-GSN" secondAttribute="leading" id="aZJ-y1-5ci"/>
+                            <constraint firstItem="j6E-Xo-GSN" firstAttribute="bottom" secondItem="ILg-Hm-uKn" secondAttribute="bottom" id="syn-X7-L2z"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="StageScheduleTableView" destination="ILg-Hm-uKn" id="gWt-R5-Wex"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1qr-Ok-VTy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-65" y="-54"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

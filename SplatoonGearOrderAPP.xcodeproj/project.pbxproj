@@ -30,6 +30,8 @@
 		98675F5B2557FC910026637D /* IksmResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98675F5A2557FC910026637D /* IksmResultData.swift */; };
 		98675F5E255832A30026637D /* IksmGesoTownData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98675F5D255832A30026637D /* IksmGesoTownData.swift */; };
 		987E5A462514EE87007A560E /* GesoTownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 987E5A452514EE87007A560E /* GesoTownTableViewCell.xib */; };
+		988AEDE625B46F9200A53FBF /* CreateNintendoLoginPageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988AEDE525B46F9200A53FBF /* CreateNintendoLoginPageURL.swift */; };
+		988CB86925C827B70086D91B /* GesoTownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988CB86825C827B70086D91B /* GesoTownTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		986784FC25013BD1003A5560 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		9878492B259B61EF00E350A5 /* SplatoonGearOrderAPP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SplatoonGearOrderAPP.entitlements; sourceTree = "<group>"; };
 		987E5A452514EE87007A560E /* GesoTownTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GesoTownTableViewCell.xib; sourceTree = "<group>"; };
+		988AEDE525B46F9200A53FBF /* CreateNintendoLoginPageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNintendoLoginPageURL.swift; sourceTree = "<group>"; };
+		988CB86825C827B70086D91B /* GesoTownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesoTownTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 				985852362506577C004D2927 /* Iksm.swift */,
 				98675F5A2557FC910026637D /* IksmResultData.swift */,
 				98675F5D255832A30026637D /* IksmGesoTownData.swift */,
+				988AEDE525B46F9200A53FBF /* CreateNintendoLoginPageURL.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				986659B424FD9D9300116F03 /* StageScheduleTableViewCell.swift */,
+				988CB86825C827B70086D91B /* GesoTownTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -202,7 +208,7 @@
 				9866598524FD901D00116F03 /* Frameworks */,
 				9866598624FD901D00116F03 /* Resources */,
 				37D8C22C2CD0E7573B82568D /* [CP] Embed Pods Frameworks */,
-				98AD440225A5EB600050D599 /* Swiftlint */,
+				9895E20E25BAEE33001BF9BF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -282,7 +288,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SplatoonGearOrderAPP/Pods-SplatoonGearOrderAPP-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		98AD440225A5EB600050D599 /* Swiftlint */ = {
+		9895E20E25BAEE33001BF9BF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -291,14 +297,13 @@
 			);
 			inputPaths = (
 			);
-			name = Swiftlint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    swiftlint autocorrect --format\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "   \"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n";
 		};
 		DC16F43156D149A6FDF235AF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -333,6 +338,8 @@
 				986659B524FD9D9300116F03 /* StageScheduleTableViewCell.swift in Sources */,
 				9863AC3D2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift in Sources */,
 				986659AB24FD92B700116F03 /* BaseTabBarViewController.swift in Sources */,
+				988AEDE625B46F9200A53FBF /* CreateNintendoLoginPageURL.swift in Sources */,
+				988CB86925C827B70086D91B /* GesoTownTableViewCell.swift in Sources */,
 				985F353A24FE894F00AFC146 /* UIColor-Extention.swift in Sources */,
 				986659A424FD912A00116F03 /* StageScheduleViewController.swift in Sources */,
 				985A31802500D8FF00507C33 /* UIImage-Extention.swift in Sources */,

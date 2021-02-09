@@ -59,6 +59,7 @@
 		98675F5A2557FC910026637D /* IksmResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IksmResultData.swift; sourceTree = "<group>"; };
 		98675F5D255832A30026637D /* IksmGesoTownData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IksmGesoTownData.swift; sourceTree = "<group>"; };
 		986784FC25013BD1003A5560 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		9878492B259B61EF00E350A5 /* SplatoonGearOrderAPP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SplatoonGearOrderAPP.entitlements; sourceTree = "<group>"; };
 		987E5A452514EE87007A560E /* GesoTownTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GesoTownTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +117,7 @@
 		9866598A24FD901D00116F03 /* SplatoonGearOrderAPP */ = {
 			isa = PBXGroup;
 			children = (
+				9878492B259B61EF00E350A5 /* SplatoonGearOrderAPP.entitlements */,
 				985F353824FE892200AFC146 /* Extensions */,
 				985F353224FE671400AFC146 /* Models */,
 				986659B324FD9D6900116F03 /* Cells */,
@@ -200,6 +202,7 @@
 				9866598524FD901D00116F03 /* Frameworks */,
 				9866598624FD901D00116F03 /* Resources */,
 				37D8C22C2CD0E7573B82568D /* [CP] Embed Pods Frameworks */,
+				98AD440225A5EB600050D599 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -278,6 +281,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SplatoonGearOrderAPP/Pods-SplatoonGearOrderAPP-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		98AD440225A5EB600050D599 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    swiftlint autocorrect --format\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		DC16F43156D149A6FDF235AF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -459,6 +480,7 @@
 			baseConfigurationReference = 419497693202610DDD66B6A5 /* Pods-SplatoonGearOrderAPP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SplatoonGearOrderAPP/SplatoonGearOrderAPP.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FB9J7G99N9;
@@ -480,6 +502,7 @@
 			baseConfigurationReference = 8275C34979BF22D83038D777 /* Pods-SplatoonGearOrderAPP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SplatoonGearOrderAPP/SplatoonGearOrderAPP.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FB9J7G99N9;

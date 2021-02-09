@@ -1,15 +1,17 @@
 PODS:
-  - Alamofire (5.4.0)
-  - SDWebImage (5.10.2):
-    - SDWebImage/Core (= 5.10.2)
-  - SDWebImage/Core (5.10.2)
-  - SplatNet2 (0.1.6):
-    - Alamofire (= 5.4.0)
+  - Alamofire (5.2.2)
+  - NCMB (1.1.2)
+  - SDWebImage (5.8.4):
+    - SDWebImage/Core (= 5.8.4)
+  - SDWebImage/Core (5.8.4)
+  - SplatNet2 (0.1.5):
+    - Alamofire (= 5.2.2)
     - SwiftyJSON (= 5.0.0)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - NCMB (from `https://github.com/NIFCLOUD-mbaas/ncmb_swift.git`)
   - SDWebImage (~> 5.0)
   - SplatNet2 (~> 0.1)
   - SwiftyJSON
@@ -21,12 +23,22 @@ SPEC REPOS:
     - SplatNet2
     - SwiftyJSON
 
+EXTERNAL SOURCES:
+  NCMB:
+    :git: https://github.com/NIFCLOUD-mbaas/ncmb_swift.git
+
+CHECKOUT OPTIONS:
+  NCMB:
+    :commit: c0a233c3d8c9b7151493da0d9420fc472d10f1b9
+    :git: https://github.com/NIFCLOUD-mbaas/ncmb_swift.git
+
 SPEC CHECKSUMS:
-  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
-  SDWebImage: b969dcfc02c40a5da71eac0b03b8f1a0c794a86f
-  SplatNet2: 00ff4ba8276aad3cee41bdb65e48ec31b8805183
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  NCMB: 71a6dc3bce6124739ef9d287fb8811664ae0968b
+  SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
+  SplatNet2: 42cb12294cf240044359c9258cd91e269ab56635
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 5cba45c185e09929c29faf669b4e52781a5fe272
+PODFILE CHECKSUM: f09e6db02f972b6619195eabe15f0f85a8e7667b
 
 COCOAPODS: 1.9.3

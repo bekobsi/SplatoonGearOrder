@@ -92,12 +92,8 @@ public class Request {
         var redirectHandler: RedirectHandler?
         /// `CachedResponseHandler` provided to handle response caching.
         var cachedResponseHandler: CachedResponseHandler?
-        /// Queue and closure called when the `Request` is able to create a cURL description of itself.
-        var cURLHandler: (queue: DispatchQueue, handler: (String) -> Void)?
-        /// Queue and closure called when the `Request` creates a `URLRequest`.
-        var urlRequestHandler: (queue: DispatchQueue, handler: (URLRequest) -> Void)?
-        /// Queue and closure called when the `Request` creates a `URLSessionTask`.
-        var urlSessionTaskHandler: (queue: DispatchQueue, handler: (URLSessionTask) -> Void)?
+        /// Closure called when the `Request` is able to create a cURL description of itself.
+        var cURLHandler: ((String) -> Void)?
         /// Response serialization closures that handle response parsing.
         var responseSerializers: [() -> Void] = []
         /// Response serialization completion closures executed once all response serializers are complete.
@@ -261,7 +257,8 @@ public class Request {
          serializationQueue: DispatchQueue,
          eventMonitor: EventMonitor?,
          interceptor: RequestInterceptor?,
-         delegate: RequestDelegate) {
+         delegate: RequestDelegate)
+    {
         self.id = id
         self.underlyingQueue = underlyingQueue
         self.serializationQueue = serializationQueue
@@ -341,10 +338,6 @@ public class Request {
     func didCreateURLRequest(_ request: URLRequest) {
         dispatchPrecondition(condition: .onQueue(underlyingQueue))
 
-        $mutableState.read { state in
-            state.urlRequestHandler?.queue.async { state.urlRequestHandler?.handler(request) }
-        }
-
         eventMonitor?.request(self, didCreateURLRequest: request)
 
         callCURLHandlerIfNecessary()
@@ -355,8 +348,7 @@ public class Request {
         $mutableState.write { mutableState in
             guard let cURLHandler = mutableState.cURLHandler else { return }
 
-            cURLHandler.queue.async { cURLHandler.handler(self.cURLDescription()) }
-
+            self.underlyingQueue.async { cURLHandler(self.cURLDescription()) }
             mutableState.cURLHandler = nil
         }
     }
@@ -367,13 +359,7 @@ public class Request {
     func didCreateTask(_ task: URLSessionTask) {
         dispatchPrecondition(condition: .onQueue(underlyingQueue))
 
-        $mutableState.write { state in
-            state.tasks.append(task)
-
-            guard let urlSessionTaskHandler = state.urlSessionTaskHandler else { return }
-
-            urlSessionTaskHandler.queue.async { urlSessionTaskHandler.handler(task) }
-        }
+        $mutableState.write { $0.tasks.append(task) }
 
         eventMonitor?.request(self, didCreateTask: task)
     }
@@ -650,7 +636,7 @@ public class Request {
     ///   - session: `URLSession` which creates the `URLSessionTask`.
     ///
     /// - Returns:   The `URLSessionTask` created.
-    func task(for request: URLRequest, using session: URLSession) -> URLSessionTask {
+    func task(for _: URLRequest, using _: URLSession) -> URLSessionTask {
         fatalError("Subclasses must override.")
     }
 
@@ -827,36 +813,11 @@ public class Request {
         return self
     }
 
-    // MARK: - Lifetime APIs
-
     /// Sets a handler to be called when the cURL description of the request is available.
     ///
     /// - Note: When waiting for a `Request`'s `URLRequest` to be created, only the last `handler` will be called.
     ///
-    /// - Parameters:
-    ///   - queue:   `DispatchQueue` on which `handler` will be called.
-    ///   - handler: Closure to be called when the cURL description is available.
-    ///
-    /// - Returns:           The instance.
-    @discardableResult
-    public func cURLDescription(on queue: DispatchQueue, calling handler: @escaping (String) -> Void) -> Self {
-        $mutableState.write { mutableState in
-            if mutableState.requests.last != nil {
-                queue.async { handler(self.cURLDescription()) }
-            } else {
-                mutableState.cURLHandler = (queue, handler)
-            }
-        }
-
-        return self
-    }
-
-    /// Sets a handler to be called when the cURL description of the request is available.
-    ///
-    /// - Note: When waiting for a `Request`'s `URLRequest` to be created, only the last `handler` will be called.
-    ///
-    /// - Parameter handler: Closure to be called when the cURL description is available. Called on the instance's
-    ///                      `underlyingQueue` by default.
+    /// - Parameter handler: Closure to be called when the cURL description is available.
     ///
     /// - Returns:           The instance.
     @discardableResult
@@ -865,54 +826,8 @@ public class Request {
             if mutableState.requests.last != nil {
                 underlyingQueue.async { handler(self.cURLDescription()) }
             } else {
-                mutableState.cURLHandler = (underlyingQueue, handler)
+                mutableState.cURLHandler = handler
             }
-        }
-
-        return self
-    }
-
-    /// Sets a closure to called whenever Alamofire creates a `URLRequest` for this instance.
-    ///
-    /// - Note: This closure will be called multiple times if the instance adapts incoming `URLRequest`s or is retried.
-    ///
-    /// - Parameters:
-    ///   - queue:   `DispatchQueue` on which `handler` will be called. `.main` by default.
-    ///   - handler: Closure to be called when a `URLRequest` is available.
-    ///
-    /// - Returns:   The instance.
-    @discardableResult
-    public func onURLRequestCreation(on queue: DispatchQueue = .main, perform handler: @escaping (URLRequest) -> Void) -> Self {
-        $mutableState.write { state in
-            if let request = state.requests.last {
-                queue.async { handler(request) }
-            }
-
-            state.urlRequestHandler = (queue, handler)
-        }
-
-        return self
-    }
-
-    /// Sets a closure to be called whenever the instance creates a `URLSessionTask`.
-    ///
-    /// - Note: This API should only be used to provide `URLSessionTask`s to existing API, like `NSFileProvider`. It
-    ///         **SHOULD NOT** be used to interact with tasks directly, as that may be break Alamofire features.
-    ///         Additionally, this closure may be called multiple times if the instance is retried.
-    ///
-    /// - Parameters:
-    ///   - queue:   `DispatchQueue` on which `handler` will be called. `.main` by default.
-    ///   - handler: Closure to be called when the `URLSessionTask` is available.
-    ///
-    /// - Returns:   The instance.
-    @discardableResult
-    public func onURLSessionTaskCreation(on queue: DispatchQueue = .main, perform handler: @escaping (URLSessionTask) -> Void) -> Self {
-        $mutableState.write { state in
-            if let task = state.tasks.last {
-                queue.async { handler(task) }
-            }
-
-            state.urlSessionTaskHandler = (queue, handler)
         }
 
         return self
@@ -930,7 +845,7 @@ public class Request {
 // MARK: - Protocol Conformances
 
 extension Request: Equatable {
-    public static func ==(lhs: Request, rhs: Request) -> Bool {
+    public static func == (lhs: Request, rhs: Request) -> Bool {
         lhs.id == rhs.id
     }
 }
@@ -955,11 +870,11 @@ extension Request: CustomStringConvertible {
     }
 }
 
-extension Request {
+public extension Request {
     /// cURL representation of the instance.
     ///
     /// - Returns: The cURL equivalent of the instance.
-    public func cURLDescription() -> String {
+    func cURLDescription() -> String {
         guard
             let request = lastRequest,
             let url = request.url,
@@ -992,7 +907,8 @@ extension Request {
         if let configuration = delegate?.sessionConfiguration, configuration.httpShouldSetCookies {
             if
                 let cookieStorage = configuration.httpCookieStorage,
-                let cookies = cookieStorage.cookies(for: url), !cookies.isEmpty {
+                let cookies = cookieStorage.cookies(for: url), !cookies.isEmpty
+            {
                 let allCookies = cookies.map { "\($0.name)=\($0.value)" }.joined(separator: ";")
 
                 components.append("-b \"\(allCookies)\"")
@@ -1091,7 +1007,8 @@ public class DataRequest: Request {
          serializationQueue: DispatchQueue,
          eventMonitor: EventMonitor?,
          interceptor: RequestInterceptor?,
-         delegate: RequestDelegate) {
+         delegate: RequestDelegate)
+    {
         self.convertible = convertible
 
         super.init(id: id,
@@ -1271,7 +1188,8 @@ public final class DataStreamRequest: Request {
          serializationQueue: DispatchQueue,
          eventMonitor: EventMonitor?,
          interceptor: RequestInterceptor?,
-         delegate: RequestDelegate) {
+         delegate: RequestDelegate)
+    {
         self.convertible = convertible
         self.automaticallyCancelOnStreamError = automaticallyCancelOnStreamError
 
@@ -1370,7 +1288,8 @@ public final class DataStreamRequest: Request {
     }
 
     func appendStreamCompletion<Success, Failure>(on queue: DispatchQueue,
-                                                  stream: @escaping Handler<Success, Failure>) {
+                                                  stream: @escaping Handler<Success, Failure>)
+    {
         appendResponseSerializer {
             self.underlyingQueue.async {
                 self.responseSerializerDidComplete {
@@ -1391,7 +1310,8 @@ public final class DataStreamRequest: Request {
     }
 
     func enqueueCompletion<Success, Failure>(on queue: DispatchQueue,
-                                             stream: @escaping Handler<Success, Failure>) {
+                                             stream: @escaping Handler<Success, Failure>)
+    {
         queue.async {
             do {
                 let completion = Completion(request: self.request,
@@ -1406,30 +1326,30 @@ public final class DataStreamRequest: Request {
     }
 }
 
-extension DataStreamRequest.Stream {
+public extension DataStreamRequest.Stream {
     /// Incoming `Result` values from `Event.stream`.
-    public var result: Result<Success, Failure>? {
+    var result: Result<Success, Failure>? {
         guard case let .stream(result) = event else { return nil }
 
         return result
     }
 
     /// `Success` value of the instance, if any.
-    public var value: Success? {
+    var value: Success? {
         guard case let .success(value) = result else { return nil }
 
         return value
     }
 
     /// `Failure` value of the instance, if any.
-    public var error: Failure? {
+    var error: Failure? {
         guard case let .failure(error) = result else { return nil }
 
         return error
     }
 
     /// `Completion` value of the instance, if any.
-    public var completion: DataStreamRequest.Completion? {
+    var completion: DataStreamRequest.Completion? {
         guard case let .complete(completion) = event else { return nil }
 
         return completion
@@ -1459,11 +1379,8 @@ public class DownloadRequest: Request {
 
     /// A closure executed once a `DownloadRequest` has successfully completed in order to determine where to move the
     /// temporary file written to during the download process. The closure takes two arguments: the temporary file URL
-    /// and the `HTTPURLResponse`, and returns two values: the file URL where the temporary file should be moved and
+    /// and the URL response, and returns a two arguments: the file URL where the temporary file should be moved and
     /// the options defining how the file should be moved.
-    ///
-    /// - Note: Downloads from a local `file://` `URL`s do not use the `Destination` closure, as those downloads do not
-    ///         return an `HTTPURLResponse`. Instead the file is merely moved within the temporary directory.
     public typealias Destination = (_ temporaryURL: URL,
                                     _ response: HTTPURLResponse) -> (destinationURL: URL, options: Options)
 
@@ -1478,7 +1395,8 @@ public class DownloadRequest: Request {
     /// - Returns: The `Destination` closure.
     public class func suggestedDownloadDestination(for directory: FileManager.SearchPathDirectory = .documentDirectory,
                                                    in domain: FileManager.SearchPathDomainMask = .userDomainMask,
-                                                   options: Options = []) -> Destination {
+                                                   options: Options = []) -> Destination
+    {
         { temporaryURL, response in
             let directoryURLs = FileManager.default.urls(for: directory, in: domain)
             let url = directoryURLs.first?.appendingPathComponent(response.suggestedFilename!) ?? temporaryURL
@@ -1492,16 +1410,10 @@ public class DownloadRequest: Request {
     /// with this destination must be additionally moved if they should survive the system reclamation of temporary
     /// space.
     static let defaultDestination: Destination = { url, _ in
-        (defaultDestinationURL(url), [])
-    }
-
-    /// Default `URL` creation closure. Creates a `URL` in the temporary directory with `Alamofire_` prepended to the
-    /// provided file name.
-    static let defaultDestinationURL: (URL) -> URL = { url in
         let filename = "Alamofire_\(url.lastPathComponent)"
         let destination = url.deletingLastPathComponent().appendingPathComponent(filename)
 
-        return destination
+        return (destination, [])
     }
 
     // MARK: Downloadable
@@ -1562,7 +1474,8 @@ public class DownloadRequest: Request {
          eventMonitor: EventMonitor?,
          interceptor: RequestInterceptor?,
          delegate: RequestDelegate,
-         destination: @escaping Destination) {
+         destination: @escaping Destination)
+    {
         self.downloadable = downloadable
         self.destination = destination
 
@@ -1779,7 +1692,8 @@ public class UploadRequest: DataRequest {
          eventMonitor: EventMonitor?,
          interceptor: RequestInterceptor?,
          fileManager: FileManager,
-         delegate: RequestDelegate) {
+         delegate: RequestDelegate)
+    {
         upload = convertible
         self.fileManager = fileManager
 

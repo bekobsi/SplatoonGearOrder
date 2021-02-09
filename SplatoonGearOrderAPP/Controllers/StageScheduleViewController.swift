@@ -11,8 +11,6 @@ import AudioToolbox
 import UIKit
 
 class StageScheduleViewController: UIViewController {
-    let test = ["1", "2", "3", "4", "5"]
-
     private let CustomCell = "CustomCell"
     private var StageCount = [StageInfo]()
     private var RegularStages = [StageInfo]()
@@ -34,7 +32,7 @@ class StageScheduleViewController: UIViewController {
         fetchStageInfo()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_: Bool) {
         fetchStageInfo()
     }
 
@@ -64,7 +62,7 @@ class StageScheduleViewController: UIViewController {
         indicatorBackgroundView.alpha = 0
     }
 
-    @objc func refreshTableView(sender: UIRefreshControl) {
+    @objc func refreshTableView(sender _: UIRefreshControl) {
         StageScheduleTableView.reloadData()
         AudioServicesPlaySystemSound(1519)
         refreshCtl.endRefreshing()
@@ -76,7 +74,7 @@ class StageScheduleViewController: UIViewController {
         indicatorBackgroundView = UIView(frame: view.bounds)
         indicatorBackgroundView.backgroundColor = UIColor.black
         indicatorBackgroundView.alpha = 0.4
-        indicatorBackgroundView?.tag = 100100
+        indicatorBackgroundView?.tag = 100_100
 
         indicator = UIActivityIndicatorView()
         indicator.style = .large
@@ -94,11 +92,11 @@ class StageScheduleViewController: UIViewController {
 }
 
 extension StageScheduleViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return RegularStages.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = StageScheduleTableView.dequeueReusableCell(withIdentifier: CustomCell) as! StageScheduleTableViewCell
 
         cell.RegularStage = RegularStages[indexPath.row]
@@ -108,7 +106,7 @@ extension StageScheduleViewController: UITableViewDelegate, UITableViewDataSourc
         return cell
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         return 300
     }
 }

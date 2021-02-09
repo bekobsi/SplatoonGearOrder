@@ -210,7 +210,7 @@ public class AuthenticationInterceptor<AuthenticatorType>: RequestInterceptor wh
         var refreshWindow: RefreshWindow?
 
         var adaptOperations: [AdaptOperation] = []
-        var requestsToRetry: [(RetryResult) -> Void] = []
+        var requestsToRetry: [(Alamofire.RetryResult) -> Void] = []
     }
 
     // MARK: Properties
@@ -240,7 +240,8 @@ public class AuthenticationInterceptor<AuthenticatorType>: RequestInterceptor wh
     ///   - refreshWindow: The `RefreshWindow` used to identify excessive refresh calls. `RefreshWindow()` by default.
     public init(authenticator: AuthenticatorType,
                 credential: Credential? = nil,
-                refreshWindow: RefreshWindow? = RefreshWindow()) {
+                refreshWindow: RefreshWindow? = RefreshWindow())
+    {
         self.authenticator = authenticator
         mutableState.credential = credential
         mutableState.refreshWindow = refreshWindow
@@ -338,16 +339,14 @@ public class AuthenticationInterceptor<AuthenticatorType>: RequestInterceptor wh
         mutableState.refreshTimestamps.append(ProcessInfo.processInfo.systemUptime)
         mutableState.isRefreshing = true
 
-        // Dispatch to queue to hop out of the lock in case authenticator.refresh is implemented synchronously.
-        queue.async {
-            self.authenticator.refresh(credential, for: session) { result in
-                self.$mutableState.write { mutableState in
-                    switch result {
-                    case let .success(credential):
-                        self.handleRefreshSuccess(credential, insideLock: &mutableState)
-                    case let .failure(error):
-                        self.handleRefreshFailure(error, insideLock: &mutableState)
-                    }
+        authenticator.refresh(credential, for: session) { result in
+            self.$mutableState.write { mutableState in
+                switch result {
+                case let .success(credential):
+                    self.handleRefreshSuccess(credential, insideLock: &mutableState)
+
+                case let .failure(error):
+                    self.handleRefreshFailure(error, insideLock: &mutableState)
                 }
             }
         }
