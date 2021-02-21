@@ -33,7 +33,7 @@ class StageScheduleTableViewCell: UITableViewCell {
     var RegularStage: StageInfo? {
         didSet {
 //            var imageId:String = (String(describing: RegularStage?.maps_ex[0].id))
-            var stageImage = UIImage(named: "\(RegularStage?.maps_ex[0].id ?? 1)")
+            var stageImage = UIImage(named: RegularStage?.maps_ex[0].id.description ?? "1")
             FastRegularStageImageView.image = stageImage
             FastRegularStageImageView.layer.cornerRadius = 25
             FastRegularStageImageView.layer.borderColor = UIColor.rgb(red: 230, green: 230, blue: 230).cgColor
@@ -63,7 +63,7 @@ class StageScheduleTableViewCell: UITableViewCell {
         didSet {
             GachiStageRuleLabel.text = GachiStage?.rule
 
-            var stageImage = UIImage(named: "\(GachiStage?.maps_ex[0].id ?? 1)")
+            var stageImage = UIImage(named: GachiStage?.maps_ex[0].id.description ?? "1")
             FastGachiStageImageView.image = stageImage
             FastGachiStageImageView.layer.cornerRadius = 25
             FastGachiStageImageView.layer.borderColor = UIColor.rgb(red: 230, green: 230, blue: 230).cgColor
@@ -84,7 +84,7 @@ class StageScheduleTableViewCell: UITableViewCell {
         didSet {
             LeagueStageRuleLabel.text = LeagueStage?.rule
 
-            var stageImage = UIImage(named: "\(LeagueStage?.maps_ex[0].id ?? 1)")
+            var stageImage = UIImage(named: LeagueStage?.maps_ex[0].id.description ?? "1")
             FastLeagueStageImageView.image = stageImage
             FastLeagueStageImageView.layer.cornerRadius = 25
             FastLeagueStageImageView.layer.borderColor = UIColor.rgb(red: 230, green: 230, blue: 230).cgColor
