@@ -1,9 +1,9 @@
 //
-//  IksmGesoTownData.swift
+//  Gesotown.swift
 //  SplatoonGearOrderAPP
 //
-//  Created by 原直也 on 2020/11/08.
-//  Copyright © 2020 原直也. All rights reserved.
+//  Created by 原直也 on 2021/02/21.
+//  Copyright © 2021 原直也. All rights reserved.
 //
 
 import Foundation
@@ -23,12 +23,14 @@ class ordered_info: Decodable {
 // 現在GesoTownで頼めるギア一覧
 class merchandises: Decodable {
     let skill: skill
+    let end_time: Double
     let gear: gear
     let price: Int
 }
 
 // 細かいギア情報
 class gear: Decodable {
+    // ギア画像
     let thumbnail: String
     let rarity: Int
     let brand: brand

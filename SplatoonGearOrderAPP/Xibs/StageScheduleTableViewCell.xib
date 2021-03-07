@@ -10,11 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="416" id="HAC-S3-8aQ" customClass="StageScheduleTableViewCell" customModule="SplatoonGearOrderAPP" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="532" height="416"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="350" id="HAC-S3-8aQ" customClass="StageScheduleTableViewCell" customModule="SplatoonGearOrderAPP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="844" height="350"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HAC-S3-8aQ" id="uS2-g2-cue">
-                <rect key="frame" x="0.0" y="0.0" width="532" height="416"/>
+                <rect key="frame" x="0.0" y="0.0" width="844" height="350"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hCN-sn-nsA">
@@ -36,20 +36,19 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="avt-4e-dgh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="0.094117647058823528" green="0.84705882352941175" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bI-ve-rDe">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ムツゴ楼" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bI-ve-rDe">
                                         <rect key="frame" x="0.0" y="50" width="374" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="IWp-xF-hzJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8ep-2O-qzs">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8ep-2O-qzs">
                                         <rect key="frame" x="0.0" y="70" width="374" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="BFp-jn-SRe"/>
@@ -61,7 +60,6 @@
                                             <constraint firstAttribute="height" constant="20" id="0Nt-8j-56Y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8e4-de-C84">
@@ -83,16 +81,15 @@
                                             <constraint firstAttribute="height" constant="50" id="KSl-FL-Mv9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <color key="textColor" red="0.96078431372549022" green="0.29411764705882354" blue="0.058823529411764705" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.96078431372549022" green="0.29411764705882354" blue="0.058823529411764705" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKI-z2-1LC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コンブトラック" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKI-z2-1LC">
                                         <rect key="frame" x="0.0" y="50" width="374" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="pjA-2N-LuR"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kje-j6-lPd">
@@ -127,7 +124,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="sP6-mC-SXf"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="0.94509803920000002" green="0.18039215689999999" blue="0.49019607840000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -194,6 +191,7 @@
                 <outlet property="FastRegularStageNameLabel" destination="7bI-ve-rDe" id="dGi-l3-ijd"/>
                 <outlet property="GachiStageRuleLabel" destination="8XR-6c-HbT" id="ddA-L3-M2L"/>
                 <outlet property="LeagueStageRuleLabel" destination="eMS-iP-HEA" id="RoY-CH-Qqi"/>
+                <outlet property="RegularStageRuleLabel" destination="k33-bg-CHe" id="sid-0Q-hvU"/>
                 <outlet property="SecondGachiStageImageView" destination="nQx-AF-qhj" id="PlY-b1-hW5"/>
                 <outlet property="SecondGachiStageLabel" destination="57G-0q-JvK" id="1f5-aB-S9e"/>
                 <outlet property="SecondLeagueStageImageView" destination="RLq-Ob-obB" id="AvW-tt-rq0"/>
@@ -202,7 +200,7 @@
                 <outlet property="SecondRegularStageNameLabel" destination="ycb-aR-Otj" id="4OQ-Zt-hi6"/>
                 <outlet property="StageOpenTimeLabel" destination="yjE-J5-bDo" id="y2q-69-qpv"/>
             </connections>
-            <point key="canvasLocation" x="176.81159420289856" y="150.66964285714286"/>
+            <point key="canvasLocation" x="402.89855072463769" y="128.57142857142856"/>
         </tableViewCell>
     </objects>
 </document>

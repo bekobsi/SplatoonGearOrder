@@ -6,13 +6,13 @@
 //  Copyright © 2020 原直也. All rights reserved.
 //
 
-import SDWebImage
 import UIKit
 
 class StageScheduleTableViewCell: UITableViewCell {
     @IBOutlet var CellSpaceImageView: UIImageView!
     @IBOutlet var StageOpenTimeLabel: UILabel!
 
+    @IBOutlet var RegularStageRuleLabel: UILabel!
     @IBOutlet var FastRegularStageNameLabel: UILabel!
     @IBOutlet var FastRegularStageImageView: UIImageView!
     @IBOutlet var SecondRegularStageNameLabel: UILabel!
@@ -32,14 +32,14 @@ class StageScheduleTableViewCell: UITableViewCell {
 
     var RegularStage: StageInfo? {
         didSet {
-//            var imageId:String = (String(describing: RegularStage?.maps_ex[0].id))
+            RegularStageRuleLabel.font = UIFont(name: "Optima-ExtraBlack", size: 17)
             var stageImage = UIImage(named: RegularStage?.maps_ex[0].id.description ?? "1")
             FastRegularStageImageView.image = stageImage
             FastRegularStageImageView.layer.cornerRadius = 25
             FastRegularStageImageView.layer.borderColor = UIColor.rgb(red: 230, green: 230, blue: 230).cgColor
             FastRegularStageImageView.layer.borderWidth = 1
 
-            stageImage = UIImage(named: "\(RegularStage?.maps_ex[1].id ?? 1)")
+            stageImage = UIImage(named: RegularStage?.maps_ex[1].id.description ?? "1")
 
             SecondRegularStageImageView.image = stageImage
             SecondRegularStageImageView.layer.cornerRadius = 25
@@ -61,6 +61,7 @@ class StageScheduleTableViewCell: UITableViewCell {
 
     var GachiStage: StageInfo? {
         didSet {
+            GachiStageRuleLabel.font = UIFont(name: "Optima-ExtraBlack", size: 17)
             GachiStageRuleLabel.text = GachiStage?.rule
 
             var stageImage = UIImage(named: GachiStage?.maps_ex[0].id.description ?? "1")
@@ -69,7 +70,7 @@ class StageScheduleTableViewCell: UITableViewCell {
             FastGachiStageImageView.layer.borderColor = UIColor.rgb(red: 230, green: 230, blue: 230).cgColor
             FastGachiStageImageView.layer.borderWidth = 1
 
-            stageImage = UIImage(named: "\(GachiStage?.maps_ex[1].id ?? 1)")
+            stageImage = UIImage(named: GachiStage?.maps_ex[1].id.description ?? "1")
             SecondGachiStageImageView.image = stageImage
             SecondGachiStageImageView.layer.cornerRadius = 25
             SecondGachiStageImageView.layer.borderColor = UIColor.rgb(red: 230, green: 230, blue: 230).cgColor
@@ -82,6 +83,7 @@ class StageScheduleTableViewCell: UITableViewCell {
 
     var LeagueStage: StageInfo? {
         didSet {
+            LeagueStageRuleLabel.font = UIFont(name: "Optima-ExtraBlack", size: 17)
             LeagueStageRuleLabel.text = LeagueStage?.rule
 
             var stageImage = UIImage(named: LeagueStage?.maps_ex[0].id.description ?? "1")
@@ -90,7 +92,7 @@ class StageScheduleTableViewCell: UITableViewCell {
             FastLeagueStageImageView.layer.borderColor = UIColor.rgb(red: 230, green: 230, blue: 230).cgColor
             FastLeagueStageImageView.layer.borderWidth = 1
 
-            stageImage = UIImage(named: "\(LeagueStage?.maps_ex[1].id ?? 1)")
+            stageImage = UIImage(named: LeagueStage?.maps_ex[1].id.description ?? "1")
             SecondLeagueStageImageView.image = stageImage
             SecondLeagueStageImageView.layer.cornerRadius = 25
             SecondLeagueStageImageView.layer.borderColor = UIColor.rgb(red: 230, green: 230, blue: 230).cgColor

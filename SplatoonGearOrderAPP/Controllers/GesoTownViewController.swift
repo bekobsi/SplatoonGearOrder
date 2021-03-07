@@ -6,26 +6,33 @@
 //  Copyright © 2020 原直也. All rights reserved.
 //
 
+import Alamofire
+import AudioToolbox
 import SafariServices
 import SplatNet2
 import SwiftyJSON
 import UIKit
 import WebKit
 class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControllerDelegate {
-    let date = Date()
-    let dateFormatter = DateFormatter()
-    let now_day = Date(timeIntervalSinceNow: 60 * 60 * 9)
-    let UD = UserDefaults.standard
+    private let CustomCell = "CustomCell"
+    private let date = Date()
+    private let dateFormatter = DateFormatter()
+    private let now_day = Date(timeIntervalSinceNow: 60 * 60 * 9)
+    private let UD = UserDefaults.standard
 
-    var session_token = ""
-    var iksm_session = ""
+    private var refreshCtl = UIRefreshControl()
+    private var session_token = ""
+    private var iksm_session = ""
+    private var GesoTownDatas = [merchandises]()
 
     @IBOutlet var GesoTownTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        GesoTownTableView.delegate = self
-//        GesoTownTableView.dataSource = self
-
+        GesoTownTableView.delegate = self
+        GesoTownTableView.dataSource = self
+        GesoTownTableView.register(UINib(nibName: "GesoTownTableViewCell", bundle: nil), forCellReuseIdentifier: CustomCell)
+        GesoTownTableView.refreshControl = refreshCtl
+        refreshCtl.addTarget(self, action: #selector(refreshTableView(sender:)), for: .valueChanged)
         dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMdHms", options: 0, locale: Locale(identifier: "ja_JP"))
     }
 
@@ -37,6 +44,13 @@ class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControll
         print("iksm_session", iksm_session)
         fetchBattleResultData(Iksm_session: iksm_session)
         fetchGesoTownData(Iksm_session: iksm_session)
+        fetchGesoTownData(Iksm_session: iksm_session)
+    }
+
+    @objc func refreshTableView(sender _: UIRefreshControl) {
+        GesoTownTableView.reloadData()
+        AudioServicesPlaySystemSound(1519)
+        refreshCtl.endRefreshing()
     }
 
 //    前回利用日から1日経過しているかを判別するメソッド
@@ -82,6 +96,7 @@ class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControll
         }
     }
 
+    // バトル結果を取得する関数
     private func fetchBattleResultData(Iksm_session: String) {
         let url = URL(string: "https://app.splatoon2.nintendo.net/api/results")!
         let cookieHeader = ["Set-Cookie": Iksm_session]
@@ -93,29 +108,26 @@ class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControll
             do {
                 let result = try JSONDecoder().decode(iksmData.self, from: data)
 //                print(result)
-            } catch let e {
-                print(e)
+            } catch {
+                print(error)
             }
         }
         task.resume()
     }
 
+    // GesoTownの商品情報を取得しGesoTownTableViewを更新する
     private func fetchGesoTownData(Iksm_session: String) {
         let url = URL(string: "https://app.splatoon2.nintendo.net/api/onlineshop/merchandises")!
-        let cookieHeder = ["Set-cookie": Iksm_session]
-        let cookie = HTTPCookie.cookies(withResponseHeaderFields: cookieHeder, for: url)
-        HTTPCookieStorage.shared.setCookies(cookie, for: url, mainDocumentURL: url)
-
-        let task = URLSession.shared.dataTask(with: url) { (data: Data?, _: URLResponse?, _: Error?) in
-            guard let data = data else { return }
-            do {
-                let GesoTownData = try JSONDecoder().decode(iksmGesoTownData.self, from: data)
-                print("GesoTownData", GesoTownData.merchandises[0].gear.name)
-            } catch let e {
-                print(e)
-            }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        urlRequest.setValue("Iksm_session", forHTTPHeaderField: Iksm_session)
+        urlRequest.httpShouldHandleCookies = true
+        AF.request(urlRequest).responseJSON { response in
+            guard let json = response.data else { return }
+            let GesoTownData = try! JSONDecoder().decode(iksmGesoTownData.self, from: json)
+            self.GesoTownDatas = GesoTownData.merchandises
+            self.GesoTownTableView.reloadData()
         }
-        task.resume()
     }
 
     @objc func openWebview() {
@@ -134,15 +146,14 @@ class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControll
     }
 }
 
-// extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource{
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 1
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        return
-//    }
-//
-//
-//
-// }
+extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return GesoTownDatas.count
+    }
+
+    func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = GesoTownTableView.dequeueReusableCell(withIdentifier: CustomCell) as! GesoTownTableViewCell
+        cell.gesoTownInfo = GesoTownDatas[indexPath.row]
+        return cell
+    }
+}
