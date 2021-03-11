@@ -13,3 +13,10 @@ target 'SplatoonGearOrderAPP' do
   pod 'NCMB', :git => 'https://github.com/NIFCLOUD-mbaas/ncmb_swift.git'
   pod 'SwiftFormat/CLI'
 end
+#post_install do |installer|
+#  installer.pods_project.targets.each do |target|
+#    target.build_configurations.each do |config|
+#      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+#    end
+#  end
+#end

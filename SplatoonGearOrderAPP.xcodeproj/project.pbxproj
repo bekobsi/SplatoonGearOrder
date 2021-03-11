@@ -28,8 +28,11 @@
 		986659B024FD97A600116F03 /* StageScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 986659AF24FD97A600116F03 /* StageScheduleTableViewCell.xib */; };
 		986659B524FD9D9300116F03 /* StageScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986659B424FD9D9300116F03 /* StageScheduleTableViewCell.swift */; };
 		98675F5B2557FC910026637D /* IksmResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98675F5A2557FC910026637D /* IksmResultData.swift */; };
+		987C1B9325F6315700A6FF1C /* OrderingItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C1B9225F6315700A6FF1C /* OrderingItemViewController.swift */; };
 		987E5A462514EE87007A560E /* GesoTownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 987E5A452514EE87007A560E /* GesoTownTableViewCell.xib */; };
 		98835CB425E7DC3A000CE81B /* TimeTypeConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98835CB325E7DC3A000CE81B /* TimeTypeConversion.swift */; };
+		9887B4AA25FA306100B1A1A1 /* SectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9887B4A925FA306100B1A1A1 /* SectionTableViewCell.xib */; };
+		9887B4AD25FA317C00B1A1A1 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9887B4AC25FA317C00B1A1A1 /* SectionTableViewCell.swift */; };
 		988AEDE625B46F9200A53FBF /* CreateNintendoLoginPageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988AEDE525B46F9200A53FBF /* CreateNintendoLoginPageURL.swift */; };
 		988CB86925C827B70086D91B /* GesoTownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988CB86825C827B70086D91B /* GesoTownTableViewCell.swift */; };
 		98B45EF025E2ACE600597F2B /* Gesotown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B45EEF25E2ACE600597F2B /* Gesotown.swift */; };
@@ -62,8 +65,11 @@
 		98675F5A2557FC910026637D /* IksmResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IksmResultData.swift; sourceTree = "<group>"; };
 		986784FC25013BD1003A5560 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		9878492B259B61EF00E350A5 /* SplatoonGearOrderAPP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SplatoonGearOrderAPP.entitlements; sourceTree = "<group>"; };
+		987C1B9225F6315700A6FF1C /* OrderingItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderingItemViewController.swift; sourceTree = "<group>"; };
 		987E5A452514EE87007A560E /* GesoTownTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GesoTownTableViewCell.xib; sourceTree = "<group>"; };
 		98835CB325E7DC3A000CE81B /* TimeTypeConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTypeConversion.swift; sourceTree = "<group>"; };
+		9887B4A925FA306100B1A1A1 /* SectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTableViewCell.xib; sourceTree = "<group>"; };
+		9887B4AC25FA317C00B1A1A1 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 		988AEDE525B46F9200A53FBF /* CreateNintendoLoginPageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNintendoLoginPageURL.swift; sourceTree = "<group>"; };
 		988CB86825C827B70086D91B /* GesoTownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesoTownTableViewCell.swift; sourceTree = "<group>"; };
 		98B45EEF25E2ACE600597F2B /* Gesotown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesotown.swift; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 			children = (
 				986659A324FD912A00116F03 /* StageScheduleViewController.swift */,
 				986659AC24FD931D00116F03 /* GesoTownViewController.swift */,
+				987C1B9225F6315700A6FF1C /* OrderingItemViewController.swift */,
 				986659AA24FD92B700116F03 /* BaseTabBarViewController.swift */,
 				9863AC3C2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift */,
 			);
@@ -168,6 +175,7 @@
 			children = (
 				986659AF24FD97A600116F03 /* StageScheduleTableViewCell.xib */,
 				987E5A452514EE87007A560E /* GesoTownTableViewCell.xib */,
+				9887B4A925FA306100B1A1A1 /* SectionTableViewCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -177,6 +185,7 @@
 			children = (
 				986659B424FD9D9300116F03 /* StageScheduleTableViewCell.swift */,
 				988CB86825C827B70086D91B /* GesoTownTableViewCell.swift */,
+				9887B4AC25FA317C00B1A1A1 /* SectionTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -266,6 +275,7 @@
 				987E5A462514EE87007A560E /* GesoTownTableViewCell.xib in Resources */,
 				986659A924FD927700116F03 /* GesoTown.storyboard in Resources */,
 				9866599524FD901E00116F03 /* Assets.xcassets in Resources */,
+				9887B4AA25FA306100B1A1A1 /* SectionTableViewCell.xib in Resources */,
 				986659A724FD921800116F03 /* BaseTabBar.storyboard in Resources */,
 				986659B024FD97A600116F03 /* StageScheduleTableViewCell.xib in Resources */,
 			);
@@ -306,7 +316,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "   \"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n";
+			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n";
 		};
 		DC16F43156D149A6FDF235AF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -349,8 +359,10 @@
 				985F353724FE681200AFC146 /* Stage.swift in Sources */,
 				98835CB425E7DC3A000CE81B /* TimeTypeConversion.swift in Sources */,
 				9866598C24FD901D00116F03 /* AppDelegate.swift in Sources */,
+				987C1B9325F6315700A6FF1C /* OrderingItemViewController.swift in Sources */,
 				9866598E24FD901D00116F03 /* SceneDelegate.swift in Sources */,
 				986659AD24FD931D00116F03 /* GesoTownViewController.swift in Sources */,
+				9887B4AD25FA317C00B1A1A1 /* SectionTableViewCell.swift in Sources */,
 				985852372506577C004D2927 /* Iksm.swift in Sources */,
 				98B45EF025E2ACE600597F2B /* Gesotown.swift in Sources */,
 			);
@@ -407,6 +419,8 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -468,6 +482,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -479,6 +495,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -495,11 +512,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FB9J7G99N9;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = SplatoonGearOrderAPP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.naoya97316.SplatoonGearOrderAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -517,11 +536,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FB9J7G99N9;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = SplatoonGearOrderAPP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.naoya97316.SplatoonGearOrderAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

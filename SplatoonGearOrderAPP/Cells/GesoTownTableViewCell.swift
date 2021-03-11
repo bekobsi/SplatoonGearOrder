@@ -23,15 +23,38 @@ class GesoTownTableViewCell: UITableViewCell {
             GearNameLabel.text = gesoTownInfo?.gear.name
             GearFeeLabel.text = gesoTownInfo?.price.description
             GearFeeLabel.font = UIFont(name: "ArialRoundedMTBold", size: 15)
-
             GearOrderDeadlineLabel.text = GearOrderDeadlineTime
+
             let nintendoURL = "https://app.splatoon2.nintendo.net"
-            guard let gearImageViewURL = gesoTownInfo?.gear.thumbnail else { return }
-            GearImageView.sd_setImage(with: URL(string: nintendoURL + gearImageViewURL))
-            MainGearPowerImage.sd_setImage(with: URL(string: "https://app.splatoon2.nintendo.net\(gesoTownInfo?.skill.image ?? "")"))
+            guard let gearImageURL = gesoTownInfo?.gear.thumbnail else { return }
+            guard let gearSkillImageURL = gesoTownInfo?.skill.image else { return }
+            guard let gearFrequentSkillImageURL = gesoTownInfo?.gear.brand.frequent_skill.image else { return }
+
+            GearImageView.sd_setImage(with: URL(string: nintendoURL + gearImageURL))
+            MainGearPowerImage.sd_setImage(with: URL(string: nintendoURL + gearSkillImageURL))
             MainGearPowerImage.layer.cornerRadius = MainGearPowerImage.frame.size.width * 0.5
-            FrequentSkill_ImageView.sd_setImage(with: URL(string: "https://app.splatoon2.nintendo.net\(gesoTownInfo?.gear.brand.frequent_skill.image ?? "")"))
+            FrequentSkill_ImageView.sd_setImage(with: URL(string: nintendoURL + gearFrequentSkillImageURL))
             FrequentSkill_ImageView.layer.cornerRadius = FrequentSkill_ImageView.frame.size.width * 0.5
+        }
+    }
+
+    var orderedInfo: ordered_info? {
+        didSet {
+            let nintendoURL = "https://app.splatoon2.nintendo.net"
+            guard let orderedItemURL = orderedInfo?.gear.thumbnail else { return }
+            guard let orderedItemSkillImageURL = orderedInfo?.skill.image else { return }
+            guard let orderedFrequentSkillImageURL = orderedInfo?.gear.brand.frequent_skill.image else { return }
+
+            GearImageView.sd_setImage(with: URL(string: nintendoURL + orderedItemURL))
+            MainGearPowerImage.sd_setImage(with: URL(string: nintendoURL + orderedItemSkillImageURL))
+            MainGearPowerImage.layer.cornerRadius = MainGearPowerImage.frame.size.width * 0.5
+            FrequentSkill_ImageView.sd_setImage(with: URL(string: nintendoURL + orderedFrequentSkillImageURL))
+            FrequentSkill_ImageView.layer.cornerRadius = FrequentSkill_ImageView.frame.size.width * 0.5
+
+            GearNameLabel.text = orderedInfo?.gear.name
+            GearFeeLabel.text = orderedInfo?.price.description
+            GearFeeLabel.font = UIFont(name: "ArialRoundedMTBold", size: 15)
+            GearOrderDeadlineLabel.text = ""
         }
     }
 }

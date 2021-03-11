@@ -13,6 +13,7 @@ import SplatNet2
 import SwiftyJSON
 import UIKit
 import WebKit
+
 class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControllerDelegate {
     private let CustomCell = "CustomCell"
     private let date = Date()
@@ -24,6 +25,8 @@ class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControll
     private var session_token = ""
     private var iksm_session = ""
     private var GesoTownDatas = [merchandises]()
+    private var orderingItem: merchandises?
+    private var orderedItem: ordered_info?
 
     @IBOutlet var GesoTownTableView: UITableView!
     override func viewDidLoad() {
@@ -44,11 +47,10 @@ class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControll
         print("iksm_session", iksm_session)
         fetchBattleResultData(Iksm_session: iksm_session)
         fetchGesoTownData(Iksm_session: iksm_session)
-        fetchGesoTownData(Iksm_session: iksm_session)
     }
 
     @objc func refreshTableView(sender _: UIRefreshControl) {
-        GesoTownTableView.reloadData()
+        fetchGesoTownData(Iksm_session: iksm_session)
         AudioServicesPlaySystemSound(1519)
         refreshCtl.endRefreshing()
     }
@@ -126,6 +128,7 @@ class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControll
             guard let json = response.data else { return }
             let GesoTownData = try! JSONDecoder().decode(iksmGesoTownData.self, from: json)
             self.GesoTownDatas = GesoTownData.merchandises
+            self.orderedItem = GesoTownData.ordered_info
             self.GesoTownTableView.reloadData()
         }
     }
@@ -155,5 +158,16 @@ extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = GesoTownTableView.dequeueReusableCell(withIdentifier: CustomCell) as! GesoTownTableViewCell
         cell.gesoTownInfo = GesoTownDatas[indexPath.row]
         return cell
+    }
+
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let gesoTownItem = GesoTownDatas[indexPath.row]
+        orderingItem = gesoTownItem
+        let orderingItemViewController = storyboard?.instantiateViewController(withIdentifier: "OrderingItemViewController") as! OrderingItemViewController
+        let nav = UINavigationController(rootViewController: orderingItemViewController)
+        nav.modalPresentationStyle = .fullScreen
+        orderingItemViewController.orderingItem = orderingItem
+        orderingItemViewController.orderedItem = orderedItem
+        present(nav, animated: true, completion: nil)
     }
 }
