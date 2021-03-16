@@ -33,7 +33,6 @@ class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControll
         super.viewDidLoad()
         GesoTownTableView.delegate = self
         GesoTownTableView.dataSource = self
-        GesoTownTableView.register(UINib(nibName: "GesoTownTableViewCell", bundle: nil), forCellReuseIdentifier: CustomCell)
         GesoTownTableView.refreshControl = refreshCtl
         refreshCtl.addTarget(self, action: #selector(refreshTableView(sender:)), for: .valueChanged)
         dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMdHms", options: 0, locale: Locale(identifier: "ja_JP"))
@@ -149,19 +148,32 @@ class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControll
     }
 }
 
+// MARK: - - TableView Extension
+
 extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return GesoTownDatas.count
+        return GesoTownDatas.count + 1
     }
 
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = GesoTownTableView.dequeueReusableCell(withIdentifier: CustomCell) as! GesoTownTableViewCell
-        cell.gesoTownInfo = GesoTownDatas[indexPath.row]
-        return cell
+        switch indexPath.row {
+        case 0:
+            GesoTownTableView.register(UINib(nibName: "SectionTableViewCell", bundle: nil), forCellReuseIdentifier: CustomCell)
+            let cell = GesoTownTableView.dequeueReusableCell(withIdentifier: CustomCell) as! SectionTableViewCell
+            cell.SectionNameLabel.text = "商品一覧"
+            return cell
+        default:
+            GesoTownTableView.register(UINib(nibName: "GesoTownTableViewCell", bundle: nil), forCellReuseIdentifier: CustomCell)
+
+            let cell = GesoTownTableView.dequeueReusableCell(withIdentifier: CustomCell) as! GesoTownTableViewCell
+            cell.gesoTownInfo = GesoTownDatas[indexPath.row - 1]
+            return cell
+        }
     }
 
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         let gesoTownItem = GesoTownDatas[indexPath.row]
+
         orderingItem = gesoTownItem
         let orderingItemViewController = storyboard?.instantiateViewController(withIdentifier: "OrderingItemViewController") as! OrderingItemViewController
         let nav = UINavigationController(rootViewController: orderingItemViewController)
@@ -169,5 +181,9 @@ extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
         orderingItemViewController.orderingItem = orderingItem
         orderingItemViewController.orderedItem = orderedItem
         present(nav, animated: true, completion: nil)
+    }
+
+    func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
     }
 }

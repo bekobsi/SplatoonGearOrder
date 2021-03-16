@@ -53,6 +53,7 @@ extension OrderingItemViewController: UITableViewDelegate, UITableViewDataSource
 
             cell.gesoTownInfo = orderingItem
             return cell
+
         case 2:
             OrderingItemTableview.register(UINib(nibName: "SectionTableViewCell", bundle: nil), forCellReuseIdentifier: CustomCell)
             let cell = OrderingItemTableview.dequeueReusableCell(withIdentifier: CustomCell) as! SectionTableViewCell
@@ -70,5 +71,9 @@ extension OrderingItemViewController: UITableViewDelegate, UITableViewDataSource
         }
         let cell: UITableViewCell! = nil
         return cell
+    }
+
+    func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
     }
 }

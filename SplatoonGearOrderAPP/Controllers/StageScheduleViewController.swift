@@ -109,4 +109,8 @@ extension StageScheduleViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         return 300
     }
+
+    func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
 }
