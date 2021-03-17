@@ -21,7 +21,6 @@
 #import "SDDiskCache.h"
 #import "SDGraphicsImageRenderer.h"
 #import "SDImageAPNGCoder.h"
-#import "SDImageAWebPCoder.h"
 #import "SDImageCache.h"
 #import "SDImageCacheConfig.h"
 #import "SDImageCacheDefine.h"

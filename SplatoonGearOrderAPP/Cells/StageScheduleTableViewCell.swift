@@ -6,13 +6,13 @@
 //  Copyright © 2020 原直也. All rights reserved.
 //
 
-import SDWebImage
 import UIKit
 
 class StageScheduleTableViewCell: UITableViewCell {
     @IBOutlet var CellSpaceImageView: UIImageView!
     @IBOutlet var StageOpenTimeLabel: UILabel!
 
+    @IBOutlet var RegularStageRuleLabel: UILabel!
     @IBOutlet var FastRegularStageNameLabel: UILabel!
     @IBOutlet var FastRegularStageImageView: UIImageView!
     @IBOutlet var SecondRegularStageNameLabel: UILabel!
@@ -32,14 +32,16 @@ class StageScheduleTableViewCell: UITableViewCell {
 
     var RegularStage: StageInfo? {
         didSet {
-            var imageURL = URL(string: RegularStage?.maps_ex[0].image ?? "")
-            FastRegularStageImageView.sd_setImage(with: imageURL)
+            RegularStageRuleLabel.font = UIFont(name: "Optima-ExtraBlack", size: 17)
+            var stageImage = UIImage(named: RegularStage?.maps_ex[0].id.description ?? "1")
+            FastRegularStageImageView.image = stageImage
             FastRegularStageImageView.layer.cornerRadius = 25
             FastRegularStageImageView.layer.borderColor = UIColor.rgb(red: 230, green: 230, blue: 230).cgColor
             FastRegularStageImageView.layer.borderWidth = 1
 
-            imageURL = URL(string: RegularStage?.maps_ex[1].image ?? "")
-            SecondRegularStageImageView.sd_setImage(with: imageURL)
+            stageImage = UIImage(named: RegularStage?.maps_ex[1].id.description ?? "1")
+
+            SecondRegularStageImageView.image = stageImage
             SecondRegularStageImageView.layer.cornerRadius = 25
             SecondRegularStageImageView.layer.borderColor = UIColor.rgb(red: 230, green: 230, blue: 230).cgColor
             SecondRegularStageImageView.layer.borderWidth = 1
@@ -59,16 +61,17 @@ class StageScheduleTableViewCell: UITableViewCell {
 
     var GachiStage: StageInfo? {
         didSet {
+            GachiStageRuleLabel.font = UIFont(name: "Optima-ExtraBlack", size: 17)
             GachiStageRuleLabel.text = GachiStage?.rule
 
-            var imageURL = URL(string: GachiStage?.maps_ex[0].image ?? "")
-            FastGachiStageImageView.sd_setImage(with: imageURL)
+            var stageImage = UIImage(named: GachiStage?.maps_ex[0].id.description ?? "1")
+            FastGachiStageImageView.image = stageImage
             FastGachiStageImageView.layer.cornerRadius = 25
             FastGachiStageImageView.layer.borderColor = UIColor.rgb(red: 230, green: 230, blue: 230).cgColor
             FastGachiStageImageView.layer.borderWidth = 1
 
-            imageURL = URL(string: GachiStage?.maps_ex[1].image ?? "")
-            SecondGachiStageImageView.sd_setImage(with: imageURL)
+            stageImage = UIImage(named: GachiStage?.maps_ex[1].id.description ?? "1")
+            SecondGachiStageImageView.image = stageImage
             SecondGachiStageImageView.layer.cornerRadius = 25
             SecondGachiStageImageView.layer.borderColor = UIColor.rgb(red: 230, green: 230, blue: 230).cgColor
             SecondGachiStageImageView.layer.borderWidth = 1
@@ -80,16 +83,17 @@ class StageScheduleTableViewCell: UITableViewCell {
 
     var LeagueStage: StageInfo? {
         didSet {
+            LeagueStageRuleLabel.font = UIFont(name: "Optima-ExtraBlack", size: 17)
             LeagueStageRuleLabel.text = LeagueStage?.rule
 
-            var imageURL = URL(string: LeagueStage?.maps_ex[0].image ?? "")
-            FastLeagueStageImageView.sd_setImage(with: imageURL)
+            var stageImage = UIImage(named: LeagueStage?.maps_ex[0].id.description ?? "1")
+            FastLeagueStageImageView.image = stageImage
             FastLeagueStageImageView.layer.cornerRadius = 25
             FastLeagueStageImageView.layer.borderColor = UIColor.rgb(red: 230, green: 230, blue: 230).cgColor
             FastLeagueStageImageView.layer.borderWidth = 1
 
-            imageURL = URL(string: LeagueStage?.maps_ex[1].image ?? "")
-            SecondLeagueStageImageView.sd_setImage(with: imageURL)
+            stageImage = UIImage(named: LeagueStage?.maps_ex[1].id.description ?? "1")
+            SecondLeagueStageImageView.image = stageImage
             SecondLeagueStageImageView.layer.cornerRadius = 25
             SecondLeagueStageImageView.layer.borderColor = UIColor.rgb(red: 230, green: 230, blue: 230).cgColor
             SecondLeagueStageImageView.layer.borderWidth = 1

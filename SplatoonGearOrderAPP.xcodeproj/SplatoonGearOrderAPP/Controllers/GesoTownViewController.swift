@@ -11,7 +11,6 @@ import SplatNet2
 import SwiftyJSON
 import UIKit
 import WebKit
-
 class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControllerDelegate {
     let date = Date()
     let dateFormatter = DateFormatter()

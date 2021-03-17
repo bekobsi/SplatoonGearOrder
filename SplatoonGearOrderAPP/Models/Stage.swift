@@ -26,6 +26,7 @@ class StageInfo: Decodable {
 }
 
 class MapInfo: Decodable {
+    let id: Int
     let name: String
     let image: String
 }

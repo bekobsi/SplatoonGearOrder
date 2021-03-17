@@ -11,8 +11,6 @@ import AudioToolbox
 import UIKit
 
 class StageScheduleViewController: UIViewController {
-    let test = ["1", "2", "3", "4", "5"]
-
     private let CustomCell = "CustomCell"
     private var StageCount = [StageInfo]()
     private var RegularStages = [StageInfo]()
@@ -110,5 +108,9 @@ extension StageScheduleViewController: UITableViewDelegate, UITableViewDataSourc
 
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         return 300
+    }
+
+    func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
     }
 }

@@ -17,13 +17,13 @@ protocol FetchIksm_sessionWebViewControllerDelegate {
 }
 
 class FetchIksm_sessionWebViewController: UIViewController, WKNavigationDelegate {
+    private let createNintendoLoginPageURL = CreateNintendoLoginPageURL()
     private let iksm = Iksm()
     private var auth_code_verifer = ""
     private var session_token_code = ""
 
     private var indicatorBackgroundView: UIView!
     private var indicator: UIActivityIndicatorView!
-
     private var response = JSON()
     private var userdefaults = UserDefaults.standard
 
@@ -56,16 +56,11 @@ class FetchIksm_sessionWebViewController: UIViewController, WKNavigationDelegate
     }
 
     private func openWebview() {
-        do {
-            let auth = try fetch_auth_code()
-            auth_code_verifer = auth["auth_code_verifier"].stringValue
-            let auth_url = auth["auth_url"].stringValue
+//        let url = URL(string: createNintendoLoginPageURL.urlselfEncode())
+        let url = URL(string: "https://accounts.nintendo.com/connect/1.0.0/authorize?state=8ZrmBl2yhUXWkiEurks0PkXh-0BF26__48kOs4SiRTanZTJJ&redirect_uri=npf71b963c1b7b6d119%3A%2F%2Fauth&client_id=71b963c1b7b6d119&scope=openid+user+user.birthday+user.mii+user.screenName&response_type=session_token_code&session_token_code_challenge=IOnJPiv21-wfuJDC2KvvyI-EIlkcg5gPnYhe7mWjp_I&session_token_code_challenge_method=S256&theme=login_form")
 
-            let url = URL(string: auth_url)
-
-            let urlRequest = URLRequest(url: url!)
-            webView.load(urlRequest)
-        } catch {}
+        let urlRequest = URLRequest(url: url!)
+        webView.load(urlRequest)
     }
 
     func webView(_: WKWebView,
@@ -74,10 +69,13 @@ class FetchIksm_sessionWebViewController: UIViewController, WKNavigationDelegate
     {
         guard let session_token_codeURL = navigationAction.request.url?.absoluteString else { return }
         if session_token_codeURL.contains("session_token_code=") == true {
-            print("session_token_code取得に成功しました。")
+            print("session_token_code取得に成功しました。:", session_token_codeURL)
             do {
                 fetchSession_token_code(session_token_codeURL: session_token_codeURL)
-
+//                auth_code_verifer = createNintendoLoginPageURL.randomStringCreate(createLength: 50, numberPullOut: true)
+                auth_code_verifer = "65G4PktrsDKGyIb9CdCI6lQwScL8XkP6tDTvmmIB1o4"
+                print("session_token_codeが生成されました:", session_token_code)
+                print("auth_code_verifer:", auth_code_verifer)
                 response = try SplatNet2.getSessionToken(session_token_code, auth_code_verifer)
                 let session_token = response["session_token"].stringValue
 
@@ -87,31 +85,11 @@ class FetchIksm_sessionWebViewController: UIViewController, WKNavigationDelegate
                 delegate?.returnData(session_token: session_token, iksm_session: iksm_session)
                 dismiss(animated: true, completion: nil)
             } catch {
-                print("catchが呼ばれました")
+                print("catchが呼ばれました", error)
             }
         }
         print("session_token_codeの取得に失敗しました")
-
         decisionHandler(.allow)
-    }
-
-    func fetch_auth_code() throws -> JSON {
-        let url = "https://salmonia.mydns.jp/"
-        var json: JSON?
-        AF.request(url).responseJSON(queue: queue) { response in
-            switch response.result {
-            case let .success(value):
-                json = JSON(value)
-            case .failure:
-                break
-            }
-            semaphore.signal()
-        }
-        semaphore.wait()
-        if json == nil {
-            print("auth_codeの取得に失敗しました")
-        }
-        return json!
     }
 
     func fetchSession_token_code(session_token_codeURL: String) {

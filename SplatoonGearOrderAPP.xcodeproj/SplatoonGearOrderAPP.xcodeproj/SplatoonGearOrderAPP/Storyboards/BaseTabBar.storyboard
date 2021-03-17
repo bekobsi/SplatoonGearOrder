@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TZY-oi-bB6">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Base Tab Bar View Controller-->
+        <scene sceneID="NQg-Sq-dCD">
+            <objects>
+                <tabBarController id="TZY-oi-bB6" customClass="BaseTabBarViewController" customModule="SplatoonGearOrderAPP" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iRb-Ug-BgV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="6uv-YA-Vgb" kind="relationship" relationship="viewControllers" id="W1e-z1-Ksm"/>
+                        <segue destination="Kzd-F5-pSH" kind="relationship" relationship="viewControllers" id="7XX-el-yHb"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yo6-kz-Y7V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-870" y="-128"/>
+        </scene>
+        <!--StageSchedule-->
+        <scene sceneID="Idp-Jm-5k4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="StageSchedule" id="6uv-YA-Vgb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="FYt-Sl-Cl2"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQk-bH-DxJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="50" y="-277"/>
+        </scene>
+        <!--GesoTown-->
+        <scene sceneID="fqD-8O-Rj3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GesoTown" id="Kzd-F5-pSH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="WZz-r1-aUX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9T5-MH-A2D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="50" y="-129"/>
+        </scene>
+    </scenes>
+</document>
