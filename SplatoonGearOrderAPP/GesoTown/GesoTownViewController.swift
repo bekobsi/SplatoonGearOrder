@@ -172,7 +172,7 @@ extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let gesoTownItem = GesoTownDatas[indexPath.row]
+        let gesoTownItem = GesoTownDatas[indexPath.row - 1]
 
         orderingItem = gesoTownItem
         let orderingItemViewController = storyboard?.instantiateViewController(withIdentifier: "OrderingItemViewController") as! OrderingItemViewController

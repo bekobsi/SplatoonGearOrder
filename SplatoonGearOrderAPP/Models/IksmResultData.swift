@@ -8,12 +8,12 @@
 
 import Foundation
 
-class iksmData: Decodable {
+struct iksmData: Decodable {
     let results: [results]
 }
 
 // 各戦績
-class results: Decodable {
+struct results: Decodable {
     let battle_number: String
     let rule: name
     let stage: name
@@ -24,7 +24,7 @@ class results: Decodable {
 }
 
 // プレイヤーの戦績
-class player_result: Decodable {
+struct player_result: Decodable {
     let assist_count: Int
     let death_count: Int
     let kill_count: Int
@@ -33,18 +33,18 @@ class player_result: Decodable {
 }
 
 // プレイヤーの情報
-class player: Decodable {
+struct player: Decodable {
     let nickname: String
     let weapon: weapon
 }
 
 // 武器の情報
-class weapon: Decodable {
+struct weapon: Decodable {
     let name: String
     let special: name
     let sub: name
 }
 
-class name: Decodable {
+struct name: Decodable {
     let name: String
 }

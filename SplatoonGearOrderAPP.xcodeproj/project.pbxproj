@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -35,6 +35,9 @@
 		9887B4AD25FA317C00B1A1A1 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9887B4AC25FA317C00B1A1A1 /* SectionTableViewCell.swift */; };
 		988AEDE625B46F9200A53FBF /* CreateNintendoLoginPageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988AEDE525B46F9200A53FBF /* CreateNintendoLoginPageURL.swift */; };
 		988CB86925C827B70086D91B /* GesoTownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988CB86825C827B70086D91B /* GesoTownTableViewCell.swift */; };
+		989E14CB2625D387006E3397 /* StageSchedulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989E14CA2625D387006E3397 /* StageSchedulePresenter.swift */; };
+		989E14CE262F0F85006E3397 /* FetchStageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989E14CD262F0F85006E3397 /* FetchStageInfo.swift */; };
+		989E14DB2632FA5A006E3397 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 989E14DA2632FA5A006E3397 /* RxSwift */; };
 		98B45EF025E2ACE600597F2B /* Gesotown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B45EEF25E2ACE600597F2B /* Gesotown.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +75,8 @@
 		9887B4AC25FA317C00B1A1A1 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 		988AEDE525B46F9200A53FBF /* CreateNintendoLoginPageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNintendoLoginPageURL.swift; sourceTree = "<group>"; };
 		988CB86825C827B70086D91B /* GesoTownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesoTownTableViewCell.swift; sourceTree = "<group>"; };
+		989E14CA2625D387006E3397 /* StageSchedulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageSchedulePresenter.swift; sourceTree = "<group>"; };
+		989E14CD262F0F85006E3397 /* FetchStageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchStageInfo.swift; sourceTree = "<group>"; };
 		98B45EEF25E2ACE600597F2B /* Gesotown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesotown.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				989E14DB2632FA5A006E3397 /* RxSwift in Frameworks */,
 				98644B36251A3BBD002B755F /* WebKit.framework in Frameworks */,
 				1EA9DBE7F529CF4A51472A25 /* Pods_SplatoonGearOrderAPP.framework in Frameworks */,
 			);
@@ -94,6 +100,7 @@
 				985F353624FE681200AFC146 /* Stage.swift */,
 				985852362506577C004D2927 /* Iksm.swift */,
 				98675F5A2557FC910026637D /* IksmResultData.swift */,
+				989E14CD262F0F85006E3397 /* FetchStageInfo.swift */,
 				988AEDE525B46F9200A53FBF /* CreateNintendoLoginPageURL.swift */,
 				98B45EEF25E2ACE600597F2B /* Gesotown.swift */,
 				98835CB325E7DC3A000CE81B /* TimeTypeConversion.swift */,
@@ -136,38 +143,18 @@
 				985F353224FE671400AFC146 /* Models */,
 				986659B324FD9D6900116F03 /* Cells */,
 				986659AE24FD978500116F03 /* Xibs */,
-				986659A224FD90F100116F03 /* Controllers */,
-				9866599F24FD906000116F03 /* Storyboards */,
-				9866598B24FD901D00116F03 /* AppDelegate.swift */,
+				989E14BC2625C9CA006E3397 /* BaseTabBar */,
+				989E14B92625C038006E3397 /* StageSchedule */,
+				989E14BA2625C078006E3397 /* GesoTown */,
+				989E14BD2625D2F2006E3397 /* OrderingItem */,
+				989E14BB2625C09C006E3397 /* FetchIksm_sessionWeb */,
 				9866598D24FD901D00116F03 /* SceneDelegate.swift */,
+				9866598B24FD901D00116F03 /* AppDelegate.swift */,
 				9866599424FD901E00116F03 /* Assets.xcassets */,
 				9866599624FD901E00116F03 /* LaunchScreen.storyboard */,
 				9866599924FD901E00116F03 /* Info.plist */,
 			);
 			path = SplatoonGearOrderAPP;
-			sourceTree = "<group>";
-		};
-		9866599F24FD906000116F03 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				986659A024FD90ED00116F03 /* StageSchedule.storyboard */,
-				986659A824FD927700116F03 /* GesoTown.storyboard */,
-				986659A624FD921800116F03 /* BaseTabBar.storyboard */,
-				9863AC3625012EF500A74FC6 /* FetchIksm_sessionWebView.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		986659A224FD90F100116F03 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				986659A324FD912A00116F03 /* StageScheduleViewController.swift */,
-				986659AC24FD931D00116F03 /* GesoTownViewController.swift */,
-				987C1B9225F6315700A6FF1C /* OrderingItemViewController.swift */,
-				986659AA24FD92B700116F03 /* BaseTabBarViewController.swift */,
-				9863AC3C2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		986659AE24FD978500116F03 /* Xibs */ = {
@@ -188,6 +175,51 @@
 				9887B4AC25FA317C00B1A1A1 /* SectionTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		989E14B92625C038006E3397 /* StageSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				986659A024FD90ED00116F03 /* StageSchedule.storyboard */,
+				986659A324FD912A00116F03 /* StageScheduleViewController.swift */,
+				989E14CA2625D387006E3397 /* StageSchedulePresenter.swift */,
+			);
+			path = StageSchedule;
+			sourceTree = "<group>";
+		};
+		989E14BA2625C078006E3397 /* GesoTown */ = {
+			isa = PBXGroup;
+			children = (
+				986659AC24FD931D00116F03 /* GesoTownViewController.swift */,
+				986659A824FD927700116F03 /* GesoTown.storyboard */,
+			);
+			path = GesoTown;
+			sourceTree = "<group>";
+		};
+		989E14BB2625C09C006E3397 /* FetchIksm_sessionWeb */ = {
+			isa = PBXGroup;
+			children = (
+				9863AC3625012EF500A74FC6 /* FetchIksm_sessionWebView.storyboard */,
+				9863AC3C2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift */,
+			);
+			path = FetchIksm_sessionWeb;
+			sourceTree = "<group>";
+		};
+		989E14BC2625C9CA006E3397 /* BaseTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				986659AA24FD92B700116F03 /* BaseTabBarViewController.swift */,
+				986659A624FD921800116F03 /* BaseTabBar.storyboard */,
+			);
+			path = BaseTabBar;
+			sourceTree = "<group>";
+		};
+		989E14BD2625D2F2006E3397 /* OrderingItem */ = {
+			isa = PBXGroup;
+			children = (
+				987C1B9225F6315700A6FF1C /* OrderingItemViewController.swift */,
+			);
+			path = OrderingItem;
 			sourceTree = "<group>";
 		};
 		E0ED03796AA02465FF57F552 /* Pods */ = {
@@ -227,6 +259,9 @@
 			dependencies = (
 			);
 			name = SplatoonGearOrderAPP;
+			packageProductDependencies = (
+				989E14DA2632FA5A006E3397 /* RxSwift */,
+			);
 			productName = SplatoonGearOrderAPP;
 			productReference = 9866598824FD901D00116F03 /* SplatoonGearOrderAPP.app */;
 			productType = "com.apple.product-type.application";
@@ -255,6 +290,9 @@
 				Base,
 			);
 			mainGroup = 9866597F24FD901C00116F03;
+			packageReferences = (
+				989E14D92632FA5A006E3397 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 9866598924FD901D00116F03 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -354,6 +392,7 @@
 				988AEDE625B46F9200A53FBF /* CreateNintendoLoginPageURL.swift in Sources */,
 				988CB86925C827B70086D91B /* GesoTownTableViewCell.swift in Sources */,
 				985F353A24FE894F00AFC146 /* UIColor-Extention.swift in Sources */,
+				989E14CB2625D387006E3397 /* StageSchedulePresenter.swift in Sources */,
 				986659A424FD912A00116F03 /* StageScheduleViewController.swift in Sources */,
 				985A31802500D8FF00507C33 /* UIImage-Extention.swift in Sources */,
 				985F353724FE681200AFC146 /* Stage.swift in Sources */,
@@ -363,6 +402,7 @@
 				9866598E24FD901D00116F03 /* SceneDelegate.swift in Sources */,
 				986659AD24FD931D00116F03 /* GesoTownViewController.swift in Sources */,
 				9887B4AD25FA317C00B1A1A1 /* SectionTableViewCell.swift in Sources */,
+				989E14CE262F0F85006E3397 /* FetchStageInfo.swift in Sources */,
 				985852372506577C004D2927 /* Iksm.swift in Sources */,
 				98B45EF025E2ACE600597F2B /* Gesotown.swift in Sources */,
 			);
@@ -512,7 +552,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FB9J7G99N9;
-				"EXCLUDED_ARCHS[sdk=*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
 				INFOPLIST_FILE = SplatoonGearOrderAPP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -536,7 +576,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FB9J7G99N9;
-				"EXCLUDED_ARCHS[sdk=*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
 				INFOPLIST_FILE = SplatoonGearOrderAPP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -573,6 +613,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		989E14D92632FA5A006E3397 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		989E14DA2632FA5A006E3397 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 989E14D92632FA5A006E3397 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9866598024FD901C00116F03 /* Project object */;
 }
