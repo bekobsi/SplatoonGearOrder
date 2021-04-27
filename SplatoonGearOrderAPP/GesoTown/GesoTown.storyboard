@@ -5,14 +5,13 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--GesoTown-->
         <scene sceneID="Otf-LX-zrd">
             <objects>
-                <viewController storyboardIdentifier="GesoTownViewController" id="Lsr-B3-E9H" customClass="GesoTownViewController" customModule="SplatoonGearOrderAPP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GesoTownViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lsr-B3-E9H" customClass="GesoTownViewController" customModule="SplatoonGearOrderAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qd9-6s-Iqi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,6 +27,10 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Lsr-B3-E9H" id="0XB-XL-tLF"/>
+                                    <outlet property="delegate" destination="Lsr-B3-E9H" id="bML-3I-gBr"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ugN-wf-OBg"/>
@@ -44,7 +47,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="GesoTownTableView" destination="dwI-8u-xX3" id="Ixg-Ql-9fI"/>
-                        <segue destination="OHb-Ua-y2S" kind="show" id="0iF-Ms-hYs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vcp-4h-EEA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -67,42 +69,5 @@
             </objects>
             <point key="canvasLocation" x="3" y="142"/>
         </scene>
-        <!--Ordering Item View Controller-->
-        <scene sceneID="x2p-FV-de4">
-            <objects>
-                <viewController storyboardIdentifier="OrderingItemViewController" modalPresentationStyle="fullScreen" id="OHb-Ua-y2S" customClass="OrderingItemViewController" customModule="SplatoonGearOrderAPP" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TOz-n5-Huq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Lyf-P5-97X">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="h2w-V1-XEh"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Lyf-P5-97X" firstAttribute="top" secondItem="h2w-V1-XEh" secondAttribute="top" id="2hl-3j-8tr"/>
-                            <constraint firstItem="h2w-V1-XEh" firstAttribute="trailing" secondItem="Lyf-P5-97X" secondAttribute="trailing" id="FE1-bl-9dN"/>
-                            <constraint firstItem="h2w-V1-XEh" firstAttribute="bottom" secondItem="Lyf-P5-97X" secondAttribute="bottom" id="UIg-0b-4m0"/>
-                            <constraint firstItem="Lyf-P5-97X" firstAttribute="leading" secondItem="h2w-V1-XEh" secondAttribute="leading" id="ltC-jy-8uY"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="jNN-bw-WBx"/>
-                    <connections>
-                        <outlet property="OrderingItemTableview" destination="Lyf-P5-97X" id="Xct-Hn-wbc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WaO-sb-RPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1580" y="142"/>
-        </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

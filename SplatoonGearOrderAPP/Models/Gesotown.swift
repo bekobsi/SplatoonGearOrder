@@ -8,28 +8,28 @@
 
 import Foundation
 
-class iksmGesoTownData: Decodable {
+struct iksmGesoTownData: Decodable {
     let ordered_info: ordered_info
     let merchandises: [merchandises]
 }
 
 // 現在頼んでいるギアの詳細
-class ordered_info: Decodable {
+struct ordered_info: Decodable {
+    let skill: skill
     let gear: gear
     let price: Int
-    let skill: skill
 }
 
 // 現在GesoTownで頼めるギア一覧
-class merchandises: Decodable {
+struct merchandises: Decodable {
     let skill: skill
-    let end_time: Double
     let gear: gear
     let price: Int
+    let end_time: Double
 }
 
 // 細かいギア情報
-class gear: Decodable {
+struct gear: Decodable {
     // ギア画像
     let thumbnail: String
     let rarity: Int
@@ -38,20 +38,20 @@ class gear: Decodable {
 }
 
 // ブランドの詳細
-class brand: Decodable {
+struct brand: Decodable {
     let image: String
     let name: String
     let frequent_skill: frequent_skill
 }
 
 // ブランドごとの上がりやすいギアパワー
-class frequent_skill: Decodable {
+struct frequent_skill: Decodable {
     let image: String
     let name: String
 }
 
 // スキルの情報
-class skill: Decodable {
+struct skill: Decodable {
     let name: String
     let image: String
 }

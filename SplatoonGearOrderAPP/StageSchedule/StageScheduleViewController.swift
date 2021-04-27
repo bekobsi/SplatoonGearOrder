@@ -10,13 +10,9 @@ import Alamofire
 import AudioToolbox
 import UIKit
 
-class StageScheduleViewController: UIViewController {
-    private let CustomCell = "CustomCell"
-
+final class StageScheduleViewController: UIViewController {
     private let refreshCtl = UIRefreshControl()
     private var presenter: StageSchedulePresenter!
-    private var indicatorBackgroundView: UIView!
-    private var indicator: UIActivityIndicatorView!
 
     @IBOutlet var StageScheduleTableView: UITableView!
 
@@ -28,7 +24,7 @@ class StageScheduleViewController: UIViewController {
     }
 
     private func setup() {
-        StageScheduleTableView.register(UINib(nibName: "StageScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: CustomCell)
+        StageScheduleTableView.register(UINib(nibName: "StageScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomCell")
         StageScheduleTableView.refreshControl = refreshCtl
         refreshCtl.addTarget(self, action: #selector(refreshTableView(sender:)), for: .valueChanged)
     }
@@ -46,7 +42,7 @@ extension StageScheduleViewController: UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = StageScheduleTableView.dequeueReusableCell(withIdentifier: CustomCell) as! StageScheduleTableViewCell
+        let cell = StageScheduleTableView.dequeueReusableCell(withIdentifier: "CustomCell") as! StageScheduleTableViewCell
 
         cell.RegularStage = presenter.regularStages[indexPath.row]
         cell.GachiStage = presenter.gachiStages[indexPath.row]

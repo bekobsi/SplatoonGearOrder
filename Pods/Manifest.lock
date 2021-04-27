@@ -11,7 +11,6 @@ PODS:
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.2)
   - NCMB (from `https://github.com/NIFCLOUD-mbaas/ncmb_swift.git`)
   - SDWebImage (~> 5.0)
   - SplatNet2 (~> 0.1)
@@ -43,6 +42,6 @@ SPEC CHECKSUMS:
   SwiftFormat: b847ac37506435242af1a2e3b34b1fb31a4d3e6c
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 9d8f15a8644a9cdf943170b2dd7418de03874ef4
+PODFILE CHECKSUM: fc7662fc44c1ef3e4b1c480492ce6fd5b9b7fb50
 
 COCOAPODS: 1.10.1
