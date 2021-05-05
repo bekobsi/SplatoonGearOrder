@@ -126,6 +126,7 @@ extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        GesoTownTableView.deselectRow(at: indexPath, animated: true)
         let selectGear = presenter.GesoTownDatas[indexPath.row - 1]
 
         let storyboard = UIStoryboard(name: "ItemOrder", bundle: nil)
