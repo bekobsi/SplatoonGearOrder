@@ -43,7 +43,6 @@
 		989E150926384549006E3397 /* StageSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986659A024FD90ED00116F03 /* StageSchedule.storyboard */; };
 		989E150D263852FA006E3397 /* ItemOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989E150C263852FA006E3397 /* ItemOrder.storyboard */; };
 		98B45EF025E2ACE600597F2B /* Gesotown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B45EEF25E2ACE600597F2B /* Gesotown.swift */; };
-		98DA2A962642B8B40076AC50 /* LicensePlistCore in Frameworks */ = {isa = PBXBuildFile; productRef = 98DA2A952642B8B40076AC50 /* LicensePlistCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,7 +96,6 @@
 				989E14DB2632FA5A006E3397 /* RxSwift in Frameworks */,
 				989E14F826383F03006E3397 /* Alamofire in Frameworks */,
 				98644B36251A3BBD002B755F /* WebKit.framework in Frameworks */,
-				98DA2A962642B8B40076AC50 /* LicensePlistCore in Frameworks */,
 				1EA9DBE7F529CF4A51472A25 /* Pods_SplatoonGearOrderAPP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,7 +275,6 @@
 			packageProductDependencies = (
 				989E14DA2632FA5A006E3397 /* RxSwift */,
 				989E14F726383F03006E3397 /* Alamofire */,
-				98DA2A952642B8B40076AC50 /* LicensePlistCore */,
 			);
 			productName = SplatoonGearOrderAPP;
 			productReference = 9866598824FD901D00116F03 /* SplatoonGearOrderAPP.app */;
@@ -310,7 +307,6 @@
 			packageReferences = (
 				989E14D92632FA5A006E3397 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				989E14F626383F03006E3397 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				98DA2A942642B8B30076AC50 /* XCRemoteSwiftPackageReference "LicensePlist" */,
 			);
 			productRefGroup = 9866598924FD901D00116F03 /* Products */;
 			projectDirPath = "";
@@ -653,14 +649,6 @@
 				minimumVersion = 5.4.3;
 			};
 		};
-		98DA2A942642B8B30076AC50 /* XCRemoteSwiftPackageReference "LicensePlist" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mono0926/LicensePlist";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.11.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -673,11 +661,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 989E14F626383F03006E3397 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		98DA2A952642B8B40076AC50 /* LicensePlistCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 98DA2A942642B8B30076AC50 /* XCRemoteSwiftPackageReference "LicensePlist" */;
-			productName = LicensePlistCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -27,7 +27,6 @@ class ItemOrderViewController: UIViewController {
         let cancelBarButton = UIBarButtonItem(title: "戻る", style: .plain, target: self, action: #selector(tappedCancelButton))
         navigationItem.leftBarButtonItem = cancelBarButton
         dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMdHms", options: 0, locale: Locale(identifier: "ja_JP"))
-
     }
 
     @objc func tappedCancelButton() {
