@@ -12,8 +12,8 @@
 		985A31802500D8FF00507C33 /* UIImage-Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985A317F2500D8FF00507C33 /* UIImage-Extention.swift */; };
 		985F353724FE681200AFC146 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F353624FE681200AFC146 /* Stage.swift */; };
 		985F353A24FE894F00AFC146 /* UIColor-Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F353924FE894F00AFC146 /* UIColor-Extention.swift */; };
-		9863AC3725012EF500A74FC6 /* FetchIksm_sessionWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9863AC3625012EF500A74FC6 /* FetchIksm_sessionWebView.storyboard */; };
-		9863AC3D2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863AC3C2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift */; };
+		9863AC3725012EF500A74FC6 /* FetchIksm_session.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9863AC3625012EF500A74FC6 /* FetchIksm_session.storyboard */; };
+		9863AC3D2501304000A74FC6 /* FetchIksm_sessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863AC3C2501304000A74FC6 /* FetchIksm_sessionViewController.swift */; };
 		98644B36251A3BBD002B755F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 986784FC25013BD1003A5560 /* WebKit.framework */; };
 		9866598C24FD901D00116F03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866598B24FD901D00116F03 /* AppDelegate.swift */; };
 		9866598E24FD901D00116F03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866598D24FD901D00116F03 /* SceneDelegate.swift */; };
@@ -37,7 +37,7 @@
 		989E14CE262F0F85006E3397 /* FetchStageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989E14CD262F0F85006E3397 /* FetchStageInfo.swift */; };
 		989E14DB2632FA5A006E3397 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 989E14DA2632FA5A006E3397 /* RxSwift */; };
 		989E14DE26345C27006E3397 /* GesoTownPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989E14DD26345C27006E3397 /* GesoTownPresenter.swift */; };
-		989E14E226345EDE006E3397 /* FetchIksm_session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989E14E126345EDE006E3397 /* FetchIksm_session.swift */; };
+		989E14E226345EDE006E3397 /* UpdateIksm_session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989E14E126345EDE006E3397 /* UpdateIksm_session.swift */; };
 		989E14E62636F88F006E3397 /* FetchGesoTownGearDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989E14E52636F88F006E3397 /* FetchGesoTownGearDate.swift */; };
 		989E14F826383F03006E3397 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 989E14F726383F03006E3397 /* Alamofire */; };
 		989E150926384549006E3397 /* StageSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986659A024FD90ED00116F03 /* StageSchedule.storyboard */; };
@@ -53,8 +53,8 @@
 		985A317F2500D8FF00507C33 /* UIImage-Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extention.swift"; sourceTree = "<group>"; };
 		985F353624FE681200AFC146 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		985F353924FE894F00AFC146 /* UIColor-Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extention.swift"; sourceTree = "<group>"; };
-		9863AC3625012EF500A74FC6 /* FetchIksm_sessionWebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FetchIksm_sessionWebView.storyboard; sourceTree = "<group>"; };
-		9863AC3C2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchIksm_sessionWebViewController.swift; sourceTree = "<group>"; };
+		9863AC3625012EF500A74FC6 /* FetchIksm_session.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FetchIksm_session.storyboard; sourceTree = "<group>"; };
+		9863AC3C2501304000A74FC6 /* FetchIksm_sessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchIksm_sessionViewController.swift; sourceTree = "<group>"; };
 		9866598824FD901D00116F03 /* SplatoonGearOrderAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplatoonGearOrderAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9866598B24FD901D00116F03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9866598D24FD901D00116F03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		989E14CA2625D387006E3397 /* StageSchedulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageSchedulePresenter.swift; sourceTree = "<group>"; };
 		989E14CD262F0F85006E3397 /* FetchStageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchStageInfo.swift; sourceTree = "<group>"; };
 		989E14DD26345C27006E3397 /* GesoTownPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesoTownPresenter.swift; sourceTree = "<group>"; };
-		989E14E126345EDE006E3397 /* FetchIksm_session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchIksm_session.swift; sourceTree = "<group>"; };
+		989E14E126345EDE006E3397 /* UpdateIksm_session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateIksm_session.swift; sourceTree = "<group>"; };
 		989E14E52636F88F006E3397 /* FetchGesoTownGearDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchGesoTownGearDate.swift; sourceTree = "<group>"; };
 		989E150C263852FA006E3397 /* ItemOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemOrder.storyboard; sourceTree = "<group>"; };
 		98B45EEF25E2ACE600597F2B /* Gesotown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesotown.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 				98B45EEF25E2ACE600597F2B /* Gesotown.swift */,
 				98835CB325E7DC3A000CE81B /* TimeTypeConversion.swift */,
 				989E14CD262F0F85006E3397 /* FetchStageInfo.swift */,
-				989E14E126345EDE006E3397 /* FetchIksm_session.swift */,
+				989E14E126345EDE006E3397 /* UpdateIksm_session.swift */,
 				989E14E52636F88F006E3397 /* FetchGesoTownGearDate.swift */,
 			);
 			path = Models;
@@ -158,7 +158,7 @@
 				989E14B92625C038006E3397 /* StageSchedule */,
 				989E14BA2625C078006E3397 /* GesoTown */,
 				989E14BD2625D2F2006E3397 /* ItemOrder */,
-				989E14BB2625C09C006E3397 /* FetchIksm_sessionWeb */,
+				989E14BB2625C09C006E3397 /* FetchIksm_session */,
 				9866598D24FD901D00116F03 /* SceneDelegate.swift */,
 				9866598B24FD901D00116F03 /* AppDelegate.swift */,
 				9866599424FD901E00116F03 /* Assets.xcassets */,
@@ -208,13 +208,13 @@
 			path = GesoTown;
 			sourceTree = "<group>";
 		};
-		989E14BB2625C09C006E3397 /* FetchIksm_sessionWeb */ = {
+		989E14BB2625C09C006E3397 /* FetchIksm_session */ = {
 			isa = PBXGroup;
 			children = (
-				9863AC3625012EF500A74FC6 /* FetchIksm_sessionWebView.storyboard */,
-				9863AC3C2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift */,
+				9863AC3625012EF500A74FC6 /* FetchIksm_session.storyboard */,
+				9863AC3C2501304000A74FC6 /* FetchIksm_sessionViewController.swift */,
 			);
-			path = FetchIksm_sessionWeb;
+			path = FetchIksm_session;
 			sourceTree = "<group>";
 		};
 		989E14BC2625C9CA006E3397 /* BaseTabBar */ = {
@@ -323,7 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				989E150926384549006E3397 /* StageSchedule.storyboard in Resources */,
-				9863AC3725012EF500A74FC6 /* FetchIksm_sessionWebView.storyboard in Resources */,
+				9863AC3725012EF500A74FC6 /* FetchIksm_session.storyboard in Resources */,
 				987E5A462514EE87007A560E /* GesoTownTableViewCell.xib in Resources */,
 				986659A924FD927700116F03 /* GesoTown.storyboard in Resources */,
 				9866599524FD901E00116F03 /* Assets.xcassets in Resources */,
@@ -403,12 +403,12 @@
 				98675F5B2557FC910026637D /* IksmResultData.swift in Sources */,
 				986659B524FD9D9300116F03 /* StageScheduleTableViewCell.swift in Sources */,
 				989E14E62636F88F006E3397 /* FetchGesoTownGearDate.swift in Sources */,
-				9863AC3D2501304000A74FC6 /* FetchIksm_sessionWebViewController.swift in Sources */,
+				9863AC3D2501304000A74FC6 /* FetchIksm_sessionViewController.swift in Sources */,
 				986659AB24FD92B700116F03 /* BaseTabBarViewController.swift in Sources */,
 				988AEDE625B46F9200A53FBF /* CreateNintendoLoginPageURL.swift in Sources */,
 				988CB86925C827B70086D91B /* GesoTownTableViewCell.swift in Sources */,
 				985F353A24FE894F00AFC146 /* UIColor-Extention.swift in Sources */,
-				989E14E226345EDE006E3397 /* FetchIksm_session.swift in Sources */,
+				989E14E226345EDE006E3397 /* UpdateIksm_session.swift in Sources */,
 				989E14CB2625D387006E3397 /* StageSchedulePresenter.swift in Sources */,
 				989E14DE26345C27006E3397 /* GesoTownPresenter.swift in Sources */,
 				986659A424FD912A00116F03 /* StageScheduleViewController.swift in Sources */,

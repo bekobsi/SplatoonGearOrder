@@ -12,11 +12,11 @@ import SwiftyJSON
 import UIKit
 import WebKit
 
-protocol FetchIksm_sessionWebViewControllerDelegate {
+protocol FetchIksm_sessionViewControllerDelegate {
     func returnData(session_token: String, iksm_session: String)
 }
 
-class FetchIksm_sessionWebViewController: UIViewController, WKNavigationDelegate {
+class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
     private let createNintendoLoginPageURL = CreateNintendoLoginPageURL()
     private let iksm = Iksm()
     private var auth_code_verifer = ""
@@ -27,7 +27,7 @@ class FetchIksm_sessionWebViewController: UIViewController, WKNavigationDelegate
     private var response = JSON()
     private var userdefaults = UserDefaults.standard
 
-    var delegate: FetchIksm_sessionWebViewControllerDelegate?
+    var delegate: FetchIksm_sessionViewControllerDelegate?
     @IBOutlet var webView: WKWebView!
 
     override func viewDidLoad() {

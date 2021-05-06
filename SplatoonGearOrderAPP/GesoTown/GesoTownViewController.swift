@@ -13,7 +13,7 @@ import SwiftyJSON
 import UIKit
 import WebKit
 
-final class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewControllerDelegate {
+final class GesoTownViewController: UIViewController, FetchIksm_sessionViewControllerDelegate {
     private let CustomCell = "CustomCell"
     private let date = Date()
     private let dateFormatter = DateFormatter()
@@ -87,8 +87,8 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionWebViewCo
 //    }
 
     @objc func openWebview() {
-        let storyboard = UIStoryboard(name: "FetchIksm_sessionWebView", bundle: nil)
-        let fetchIksm_sessionWebViewController = storyboard.instantiateViewController(withIdentifier: "FetchIksm_sessionWebViewController") as! FetchIksm_sessionWebViewController
+        let storyboard = UIStoryboard(name: "FetchIksm_session", bundle: nil)
+        let fetchIksm_sessionWebViewController = storyboard.instantiateViewController(withIdentifier: "FetchIksm_sessionViewController") as! FetchIksm_sessionViewController
         let nav = UINavigationController(rootViewController: fetchIksm_sessionWebViewController)
         nav.modalPresentationStyle = .fullScreen
         fetchIksm_sessionWebViewController.delegate = self
