@@ -26,7 +26,6 @@ final class GesoTownPresenter {
     private let disposeBag = DisposeBag()
 
     private let calender = Calendar.current
-    private let now_day = Date(timeIntervalSinceNow: 60 * 60 * 9)
     init(
         view: GesoTownPrsenterOutput,
         iksm_sessionRepository: Iksm_sessionRepository = SplatNet2Iksm_sessionRepository(),
@@ -52,14 +51,12 @@ final class GesoTownPresenter {
         let lastUseDay = calender.component(.day, from: lastUseDate)
         if today == lastUseDay {
             print("前回利用日から日付が変わっていません")
-            iksm_session = ud.string(forKey: "iksm_session") ?? ""
-            fetchGesoTownGearDate(iksm_session: iksm_session, now: now)
+            fetchGesoTownGearDate()
         } else {
             print("前回利用日から日付が変わっています")
             iksm_sessionUpdate()
             print("presenterIksm_session", iksm_session)
-            fetchGesoTownGearDate(iksm_session: iksm_session, now: now)
-            ud.set(now, forKey: "lastUseDate")
+            fetchGesoTownGearDate()
         }
     }
 
@@ -71,8 +68,8 @@ final class GesoTownPresenter {
             .disposed(by: disposeBag)
     }
 
-    private func fetchGesoTownGearDate(iksm_session: String, now: Date) {
-        gesoTownGearRepository.get(iksm_session: iksm_session, now: now)
+    private func fetchGesoTownGearDate() {
+        gesoTownGearRepository.get()
             .subscribe(onSuccess: { [weak self] iksmGesoTownData in
                 self?.orderedItem = iksmGesoTownData.ordered_info
                 self?.GesoTownDatas = iksmGesoTownData.merchandises

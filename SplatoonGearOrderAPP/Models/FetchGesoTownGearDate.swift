@@ -11,22 +11,25 @@ import Foundation
 import RxSwift
 
 protocol GesoTownGearRepository {
-    func get(iksm_session: String, now: Date) -> Single<iksmGesoTownData>
+    func get() -> Single<iksmGesoTownData>
 }
 
 final class AlamofireGesoTownGearRrepository: GesoTownGearRepository {
-    func get(iksm_session: String, now: Date) -> Single<iksmGesoTownData> {
+    var iksm_session = UserDefaults.standard.string(forKey: "iksm_session") ?? ""
+    let now = Date(timeIntervalSinceNow: 60 * 60 * 9)
+
+    func get() -> Single<iksmGesoTownData> {
         return Single.create { singleEvent in
             let url = URL(string: "https://app.splatoon2.nintendo.net/api/onlineshop/merchandises")!
             var urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = "GET"
-            urlRequest.setValue("Iksm_session", forHTTPHeaderField: iksm_session)
+            urlRequest.setValue("Iksm_session", forHTTPHeaderField: self.iksm_session)
             urlRequest.httpShouldHandleCookies = true
             AF.request(urlRequest).responseJSON { response in
                 do {
                     guard let json = response.data else { return }
                     let gesoTownGearDate = try JSONDecoder().decode(iksmGesoTownData.self, from: json)
-                    UserDefaults.standard.set(now, forKey: "lastUseDate")
+                    UserDefaults.standard.set(self.now, forKey: "lastUseDate")
                     singleEvent(.success(gesoTownGearDate))
                 } catch {
                     singleEvent(.failure(error))
