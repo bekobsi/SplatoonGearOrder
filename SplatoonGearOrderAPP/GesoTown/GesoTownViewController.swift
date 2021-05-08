@@ -114,7 +114,7 @@ extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             GesoTownTableView.register(UINib(nibName: "SectionTableViewCell", bundle: nil), forCellReuseIdentifier: CustomCell)
             let cell = GesoTownTableView.dequeueReusableCell(withIdentifier: CustomCell) as! SectionTableViewCell
-            cell.SectionNameLabel.text = "商品一覧"
+            cell.sectionNameLabel.text = "商品一覧"
             return cell
         default:
             GesoTownTableView.register(UINib(nibName: "GesoTownTableViewCell", bundle: nil), forCellReuseIdentifier: CustomCell)

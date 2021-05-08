@@ -14,7 +14,7 @@ final class StageScheduleViewController: UIViewController {
     private let refreshCtl = UIRefreshControl()
     private var presenter: StageSchedulePresenter!
 
-    @IBOutlet var StageScheduleTableView: UITableView!
+    @IBOutlet var stageScheduleTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +24,8 @@ final class StageScheduleViewController: UIViewController {
     }
 
     private func setup() {
-        StageScheduleTableView.register(UINib(nibName: "StageScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomCell")
-        StageScheduleTableView.refreshControl = refreshCtl
+        stageScheduleTableView.register(UINib(nibName: "StageScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomCell")
+        stageScheduleTableView.refreshControl = refreshCtl
         refreshCtl.addTarget(self, action: #selector(refreshTableView(sender:)), for: .valueChanged)
     }
 
@@ -42,11 +42,11 @@ extension StageScheduleViewController: UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = StageScheduleTableView.dequeueReusableCell(withIdentifier: "CustomCell") as! StageScheduleTableViewCell
+        let cell = stageScheduleTableView.dequeueReusableCell(withIdentifier: "CustomCell") as! StageScheduleTableViewCell
 
-        cell.RegularStage = presenter.regularStages[indexPath.row]
-        cell.GachiStage = presenter.gachiStages[indexPath.row]
-        cell.LeagueStage = presenter.leagueStages[indexPath.row]
+        cell.regularStage = presenter.regularStages[indexPath.row]
+        cell.gachiStage = presenter.gachiStages[indexPath.row]
+        cell.leagueStage = presenter.leagueStages[indexPath.row]
 
         return cell
     }
@@ -62,6 +62,6 @@ extension StageScheduleViewController: UITableViewDelegate, UITableViewDataSourc
 
 extension StageScheduleViewController: StageSchedulePresenterOutput {
     func showStageInfo() {
-        StageScheduleTableView.reloadData()
+        stageScheduleTableView.reloadData()
     }
 }

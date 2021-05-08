@@ -9,10 +9,10 @@
 import UIKit
 
 class SectionTableViewCell: UITableViewCell {
-    @IBOutlet var SectionNameLabel: UILabel!
+    @IBOutlet var sectionNameLabel: UILabel!
     var sectionName: String? {
         didSet {
-            SectionNameLabel.text = sectionName
+            sectionNameLabel.text = sectionName
         }
     }
 }
