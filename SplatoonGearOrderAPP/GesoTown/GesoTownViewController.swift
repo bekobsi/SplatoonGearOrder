@@ -127,8 +127,18 @@ extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         GesoTownTableView.deselectRow(at: indexPath, animated: true)
-        let selectGear = presenter.GesoTownDatas[indexPath.row - 1]
+        presenter.didSelectRow(at: indexPath)
+    }
 
+    func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
+}
+
+// MARK: - GesoTownPresenterOutput Extension
+
+extension GesoTownViewController: GesoTownPrsenterOutput {
+    func transitionToItemOrder(selectGear: merchandises) {
         let storyboard = UIStoryboard(name: "ItemOrder", bundle: nil)
         let itemOrderViewController = storyboard.instantiateViewController(withIdentifier: "ItemOrderViewController") as! ItemOrderViewController
 
@@ -137,13 +147,6 @@ extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(itemOrderViewController, animated: true)
     }
 
-    func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
-        return CGFloat.leastNormalMagnitude
-    }
-}
-
-// MARK:- GesoTownPresenterOutput Extension
-extension GesoTownViewController: GesoTownPrsenterOutput {
     func showGesoTownGear() {
         GesoTownTableView.reloadData()
     }

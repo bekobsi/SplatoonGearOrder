@@ -12,6 +12,7 @@ import RxSwift
 protocol GesoTownPrsenterOutput: AnyObject {
     func noLoginHostory()
     func showGesoTownGear()
+    func transitionToItemOrder(selectGear: merchandises)
 }
 
 final class GesoTownPresenter {
@@ -34,6 +35,11 @@ final class GesoTownPresenter {
         self.view = view
         self.iksm_sessionRepository = iksm_sessionRepository
         self.gesoTownGearRepository = gesoTownGearRepository
+    }
+
+    func didSelectRow(at indexPath: IndexPath) {
+        let selectGear = GesoTownDatas[indexPath.row - 1]
+        view.transitionToItemOrder(selectGear: selectGear)
     }
 
     func timeFromTheRequiredUsageDate() {
