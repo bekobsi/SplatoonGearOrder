@@ -36,6 +36,7 @@ final class StageScheduleViewController: UIViewController {
     }
 }
 
+// MARK:- StageScheduleTableView Extension
 extension StageScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return presenter.regularStages.count
@@ -60,6 +61,7 @@ extension StageScheduleViewController: UITableViewDelegate, UITableViewDataSourc
     }
 }
 
+// MARK:- StageSchedulePresenterOutput Extension
 extension StageScheduleViewController: StageSchedulePresenterOutput {
     func showStageInfo() {
         stageScheduleTableView.reloadData()

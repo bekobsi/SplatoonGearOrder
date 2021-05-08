@@ -54,7 +54,7 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionViewContr
         let alert = UIAlertController(title: "アカウントが設定されていません", message: "この機能を利用するためにはログインが必要です\nアカウントを設定しますか？", preferredStyle: UIAlertController.Style.alert)
 //            OKボタン
         let defaultAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (_: UIAlertAction!) -> Void in
-            self.openWebview()
+            self.openFetchIksm_sessionview()
             print("OK")
         })
 //            キャンセルボタン
@@ -86,7 +86,7 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionViewContr
 //        task.resume()
 //    }
 
-    @objc func openWebview() {
+    @objc func openFetchIksm_sessionview() {
         let storyboard = UIStoryboard(name: "FetchIksm_session", bundle: nil)
         let fetchIksm_sessionWebViewController = storyboard.instantiateViewController(withIdentifier: "FetchIksm_sessionViewController") as! FetchIksm_sessionViewController
         let nav = UINavigationController(rootViewController: fetchIksm_sessionWebViewController)
@@ -102,7 +102,7 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionViewContr
     }
 }
 
-// MARK: - - TableView Extension
+// MARK: - TableView Extension
 
 extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
@@ -134,7 +134,6 @@ extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
 
         itemOrderViewController.selectGear = selectGear
         itemOrderViewController.orderedItem = presenter.orderedItem
-//        present(itemOrderViewController, animated: true, completion: nil)
         navigationController?.pushViewController(itemOrderViewController, animated: true)
     }
 
@@ -143,6 +142,7 @@ extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK:- GesoTownPresenterOutput Extension
 extension GesoTownViewController: GesoTownPrsenterOutput {
     func showGesoTownGear() {
         GesoTownTableView.reloadData()

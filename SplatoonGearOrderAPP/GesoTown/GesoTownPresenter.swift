@@ -27,7 +27,6 @@ final class GesoTownPresenter {
 
     private let calender = Calendar.current
     private let now_day = Date(timeIntervalSinceNow: 60 * 60 * 9)
-//    private let UD = UserDefaults.standard
     init(
         view: GesoTownPrsenterOutput,
         iksm_sessionRepository: Iksm_sessionRepository = SplatNet2Iksm_sessionRepository(),
