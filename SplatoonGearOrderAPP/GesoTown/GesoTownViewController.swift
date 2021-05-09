@@ -16,13 +16,10 @@ import WebKit
 final class GesoTownViewController: UIViewController, FetchIksm_sessionViewControllerDelegate {
     private let CustomCell = "CustomCell"
     private let date = Date()
-    private let dateFormatter = DateFormatter()
     private let now_day = Date(timeIntervalSinceNow: 60 * 60 * 9)
     private let UD = UserDefaults.standard
 
     private var refreshCtl = UIRefreshControl()
-    private var session_token = ""
-    private var iksm_session = ""
 
     private var presenter: GesoTownPresenter!
     func inject(presenter: GesoTownPresenter) {
@@ -41,7 +38,6 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionViewContr
 
         GesoTownTableView.refreshControl = refreshCtl
         refreshCtl.addTarget(self, action: #selector(refreshTableView(sender:)), for: .valueChanged)
-        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMdHms", options: 0, locale: Locale(identifier: "ja_JP"))
     }
 
     @objc func refreshTableView(sender _: UIRefreshControl) {
