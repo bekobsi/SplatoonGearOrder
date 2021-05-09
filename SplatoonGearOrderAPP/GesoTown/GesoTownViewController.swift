@@ -95,6 +95,7 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionViewContr
         present(nav, animated: true, completion: nil)
     }
 
+    // FetchIksm_sessionPresenterが完成したら移行する
     func returnData(session_token: String, iksm_session: String) {
         UD.set(iksm_session, forKey: "iksm_session")
         UD.set(session_token, forKey: "session_token")
