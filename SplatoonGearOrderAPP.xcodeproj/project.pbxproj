@@ -44,6 +44,7 @@
 		989E150D263852FA006E3397 /* ItemOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989E150C263852FA006E3397 /* ItemOrder.storyboard */; };
 		98B45EF025E2ACE600597F2B /* Gesotown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B45EEF25E2ACE600597F2B /* Gesotown.swift */; };
 		98DA2AA42646CFEA0076AC50 /* JapanTimeFromUnixTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AA32646CFEA0076AC50 /* JapanTimeFromUnixTime.swift */; };
+		98DA2AA7264775080076AC50 /* TimeFromTheRequiredUsageDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AA6264775080076AC50 /* TimeFromTheRequiredUsageDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		989E150C263852FA006E3397 /* ItemOrder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemOrder.storyboard; sourceTree = "<group>"; };
 		98B45EEF25E2ACE600597F2B /* Gesotown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesotown.swift; sourceTree = "<group>"; };
 		98DA2AA32646CFEA0076AC50 /* JapanTimeFromUnixTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapanTimeFromUnixTime.swift; sourceTree = "<group>"; };
+		98DA2AA6264775080076AC50 /* TimeFromTheRequiredUsageDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFromTheRequiredUsageDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				989E14E126345EDE006E3397 /* UpdateIksm_session.swift */,
 				989E14E52636F88F006E3397 /* FetchGesoTownGearDate.swift */,
 				98DA2AA32646CFEA0076AC50 /* JapanTimeFromUnixTime.swift */,
+				98DA2AA6264775080076AC50 /* TimeFromTheRequiredUsageDate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				989E14DE26345C27006E3397 /* GesoTownPresenter.swift in Sources */,
 				986659A424FD912A00116F03 /* StageScheduleViewController.swift in Sources */,
 				985A31802500D8FF00507C33 /* UIImage-Extention.swift in Sources */,
+				98DA2AA7264775080076AC50 /* TimeFromTheRequiredUsageDate.swift in Sources */,
 				985F353724FE681200AFC146 /* Stage.swift in Sources */,
 				98DA2AA42646CFEA0076AC50 /* JapanTimeFromUnixTime.swift in Sources */,
 				98835CB425E7DC3A000CE81B /* TimeTypeConversion.swift in Sources */,

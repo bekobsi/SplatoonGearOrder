@@ -16,7 +16,7 @@ protocol GesoTownPresenterInput {
 
 protocol GesoTownPrsenterOutput: AnyObject {
     func noLoginHostory()
-    func showGesoTownGear()
+    func gesoTownTableUpdate()
     func transitionToItemOrder(selectGear: merchandises)
 }
 
@@ -28,6 +28,7 @@ final class GesoTownPresenter {
     private weak var view: GesoTownPrsenterOutput!
     private let iksm_sessionRepository: Iksm_sessionRepository
     private let gesoTownGearRepository: GesoTownGearRepository
+    private let timeFromTheLastUsageDate = TimeFromTheLastUsageDate()
 
     private let disposeBag = DisposeBag()
 
@@ -47,27 +48,18 @@ final class GesoTownPresenter {
         view.transitionToItemOrder(selectGear: selectGear)
     }
 
-    func timeFromTheRequiredUsageDate() {
-        let ud = UserDefaults.standard
-
-        guard let lastUseDate = ud.object(forKey: "lastUseDate") as? Date else {
-            print("前回の利用記録がありません")
+    func alertOrGesoTownTableUpdate() {
+        let string = timeFromTheLastUsageDate.timeFromTheLastUsageDate()
+        switch string {
+        case "前回の利用記録がありません":
             view.noLoginHostory()
-            return
-        }
-
-        let calender = Calendar.current
-        let now = Date(timeIntervalSinceNow: 60 * 60 * 9)
-        let today = calender.component(.day, from: now)
-        let lastUseDay = calender.component(.day, from: lastUseDate)
-        if today == lastUseDay {
-            print("前回利用日から日付が変わっていません")
+        case "前回利用日から日付が変わっていません":
             fetchGesoTownGearDate()
-        } else {
-            print("前回利用日から日付が変わっています")
+        case "前回利用日から日付が変わっています":
             iksm_sessionUpdate()
-            print("presenterIksm_session", iksm_session)
             fetchGesoTownGearDate()
+        default:
+            break
         }
     }
 
@@ -84,7 +76,7 @@ final class GesoTownPresenter {
             .subscribe(onSuccess: { [weak self] iksmGesoTownData in
                 self?.orderedItem = iksmGesoTownData.ordered_info
                 self?.GesoTownDatas = iksmGesoTownData.merchandises
-                self?.view.showGesoTownGear()
+                self?.view.gesoTownTableUpdate()
             })
             .disposed(by: disposeBag)
     }

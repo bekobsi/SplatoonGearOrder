@@ -34,7 +34,7 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionViewContr
 
     private func setup() {
         presenter = GesoTownPresenter(view: self)
-        presenter.timeFromTheRequiredUsageDate()
+        presenter.alertOrGesoTownTableUpdate()
 
         GesoTownTableView.refreshControl = refreshCtl
         refreshCtl.addTarget(self, action: #selector(refreshTableView(sender:)), for: .valueChanged)
@@ -42,7 +42,7 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionViewContr
 
     @objc func refreshTableView(sender _: UIRefreshControl) {
         AudioServicesPlaySystemSound(1519)
-        presenter.timeFromTheRequiredUsageDate()
+        presenter.alertOrGesoTownTableUpdate()
         refreshCtl.endRefreshing()
     }
 
@@ -147,7 +147,7 @@ extension GesoTownViewController: GesoTownPrsenterOutput {
         navigationController?.pushViewController(itemOrderViewController, animated: true)
     }
 
-    func showGesoTownGear() {
+    func gesoTownTableUpdate() {
         GesoTownTableView.reloadData()
     }
 
