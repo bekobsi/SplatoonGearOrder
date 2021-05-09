@@ -25,6 +25,9 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionViewContr
     private var iksm_session = ""
 
     private var presenter: GesoTownPresenter!
+    func inject(presenter: GesoTownPresenter) {
+        self.presenter = presenter
+    }
 
     @IBOutlet var GesoTownTableView: UITableView!
     override func viewDidLoad() {
