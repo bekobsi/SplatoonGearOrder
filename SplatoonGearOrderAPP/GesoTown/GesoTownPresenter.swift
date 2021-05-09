@@ -9,6 +9,11 @@
 import Foundation
 import RxSwift
 
+protocol GesoTownPresenterInput {
+    func timeFromTheRequiredUsageDate()
+    func didSelectRow(at indexPath: IndexPath)
+}
+
 protocol GesoTownPrsenterOutput: AnyObject {
     func noLoginHostory()
     func showGesoTownGear()

@@ -9,6 +9,10 @@
 import Foundation
 import RxSwift
 
+protocol StageSchedulePreseterInput {
+    func fetchStageInfo()
+}
+
 protocol StageSchedulePresenterOutput: AnyObject {
     func showStageInfo()
 }
