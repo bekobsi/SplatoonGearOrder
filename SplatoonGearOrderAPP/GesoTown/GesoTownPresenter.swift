@@ -10,7 +10,9 @@ import Foundation
 import RxSwift
 
 protocol GesoTownPresenterInput {
-    func timeFromTheRequiredUsageDate()
+    var GesoTownDatas: [merchandises] { get }
+    var orderedItem: ordered_info { get }
+    func alertOrGesoTownTableUpdate()
     func didSelectRow(at indexPath: IndexPath)
 }
 
@@ -20,15 +22,15 @@ protocol GesoTownPrsenterOutput: AnyObject {
     func transitionToItemOrder(selectGear: merchandises)
 }
 
-final class GesoTownPresenter {
-    private(set) var iksm_session = ""
-    private(set) var orderedItem: ordered_info?
-    private(set) var GesoTownDatas: [merchandises] = []
+final class GesoTownPresenter: GesoTownPresenterInput {
+    private(set) var iksm_session: String
+    private(set) var orderedItem: ordered_info
+    private(set) var GesoTownDatas: [merchandises]
 
     private weak var view: GesoTownPrsenterOutput!
     private let iksm_sessionRepository: Iksm_sessionRepository
     private let gesoTownGearRepository: GesoTownGearRepository
-    private let timeFromTheLastUsageDate = TimeFromTheLastUsageDate()
+    private let timeFromTheLastUsageDate: TimeFromTheLastUsageDate
 
     private let disposeBag = DisposeBag()
 
@@ -36,11 +38,19 @@ final class GesoTownPresenter {
     init(
         view: GesoTownPrsenterOutput,
         iksm_sessionRepository: Iksm_sessionRepository = SplatNet2Iksm_sessionRepository(),
-        gesoTownGearRepository: GesoTownGearRepository = AlamofireGesoTownGearRrepository()
+        gesoTownGearRepository: GesoTownGearRepository = AlamofireGesoTownGearRrepository(),
+        timeFromTheLastUsageDate: TimeFromTheLastUsageDate,
+        iksm_session: String,
+        orderedItem: ordered_info,
+        GesoTownDatas: [merchandises]
     ) {
         self.view = view
         self.iksm_sessionRepository = iksm_sessionRepository
         self.gesoTownGearRepository = gesoTownGearRepository
+        self.timeFromTheLastUsageDate = timeFromTheLastUsageDate
+        self.iksm_session = iksm_session
+        self.orderedItem = orderedItem
+        self.GesoTownDatas = GesoTownDatas
     }
 
     func didSelectRow(at indexPath: IndexPath) {

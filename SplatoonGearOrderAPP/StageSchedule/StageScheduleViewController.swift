@@ -14,15 +14,14 @@ final class StageScheduleViewController: UIViewController {
     @IBOutlet var stageScheduleTableView: UITableView!
 
     private let refreshCtl = UIRefreshControl()
-    private var presenter: StageSchedulePresenter!
-    func inject(presenter: StageSchedulePresenter) {
+    private var presenter: StageSchedulePresenterInput!
+    func inject(presenter: StageSchedulePresenterInput) {
         self.presenter = presenter
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        presenter = StageSchedulePresenter(view: self)
         presenter.fetchStageInfo()
     }
 
