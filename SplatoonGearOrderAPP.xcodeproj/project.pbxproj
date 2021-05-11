@@ -45,6 +45,7 @@
 		98B45EF025E2ACE600597F2B /* Gesotown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B45EEF25E2ACE600597F2B /* Gesotown.swift */; };
 		98DA2AA42646CFEA0076AC50 /* JapanTimeFromUnixTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AA32646CFEA0076AC50 /* JapanTimeFromUnixTime.swift */; };
 		98DA2AA7264775080076AC50 /* TimeFromTheRequiredUsageDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AA6264775080076AC50 /* TimeFromTheRequiredUsageDate.swift */; };
+		98DA2AB2264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AB1264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		98B45EEF25E2ACE600597F2B /* Gesotown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesotown.swift; sourceTree = "<group>"; };
 		98DA2AA32646CFEA0076AC50 /* JapanTimeFromUnixTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapanTimeFromUnixTime.swift; sourceTree = "<group>"; };
 		98DA2AA6264775080076AC50 /* TimeFromTheRequiredUsageDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFromTheRequiredUsageDate.swift; sourceTree = "<group>"; };
+		98DA2AB1264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchIksm_sessionPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 			children = (
 				9863AC3625012EF500A74FC6 /* FetchIksm_session.storyboard */,
 				9863AC3C2501304000A74FC6 /* FetchIksm_sessionViewController.swift */,
+				98DA2AB1264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift */,
 			);
 			path = FetchIksm_session;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				9863AC3D2501304000A74FC6 /* FetchIksm_sessionViewController.swift in Sources */,
 				986659AB24FD92B700116F03 /* BaseTabBarViewController.swift in Sources */,
 				988AEDE625B46F9200A53FBF /* CreateNintendoLoginPageURL.swift in Sources */,
+				98DA2AB2264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift in Sources */,
 				988CB86925C827B70086D91B /* GesoTownTableViewCell.swift in Sources */,
 				985F353A24FE894F00AFC146 /* UIColor-Extention.swift in Sources */,
 				989E14E226345EDE006E3397 /* UpdateIksm_session.swift in Sources */,

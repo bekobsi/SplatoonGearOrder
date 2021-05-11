@@ -26,6 +26,11 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
     private var indicator: UIActivityIndicatorView!
     private var response = JSON()
     private var userdefaults = UserDefaults.standard
+    
+    private var presenter: FetchIksm_sessionPresenterInput!
+    func inject(presenter: FetchIksm_sessionPresenterInput) {
+        self.presenter = presenter
+    }
 
     var delegate: FetchIksm_sessionViewControllerDelegate?
     @IBOutlet var webView: WKWebView!
@@ -125,4 +130,11 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
 
         indicator?.startAnimating()
     }
+}
+
+extension FetchIksm_sessionViewController: FetchIksm_sessionPresenterOutput {
+    func test2() {
+    }
+    
+    
 }
