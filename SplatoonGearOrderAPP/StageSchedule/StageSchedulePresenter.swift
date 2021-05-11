@@ -9,14 +9,21 @@
 import Foundation
 import RxSwift
 
+protocol StageSchedulePresenterInput {
+    var regularStages: [StageInfo] { get }
+    var gachiStages: [StageInfo] { get }
+    var leagueStages: [StageInfo] { get }
+    func fetchStageInfo()
+}
+
 protocol StageSchedulePresenterOutput: AnyObject {
     func showStageInfo()
 }
 
-final class StageSchedulePresenter {
-    private(set) var regularStages: [StageInfo] = []
-    private(set) var gachiStages: [StageInfo] = []
-    private(set) var leagueStages: [StageInfo] = []
+final class StageSchedulePresenter: StageSchedulePresenterInput {
+    private(set) var regularStages: [StageInfo]
+    private(set) var gachiStages: [StageInfo]
+    private(set) var leagueStages: [StageInfo]
 
     private weak var view: StageSchedulePresenterOutput!
     private let stageRepository: StageRepositry
@@ -25,10 +32,16 @@ final class StageSchedulePresenter {
 
     init(
         view: StageSchedulePresenterOutput,
-        stageReposiory: StageRepositry = AlamofireStageRepository()
+        stageReposiory: StageRepositry = AlamofireStageRepository(),
+        regularStages: [StageInfo],
+        gachiStages: [StageInfo],
+        leagueStages: [StageInfo]
     ) {
         self.view = view
         stageRepository = stageReposiory
+        self.regularStages = regularStages
+        self.gachiStages = gachiStages
+        self.leagueStages = leagueStages
     }
 
     func fetchStageInfo() {

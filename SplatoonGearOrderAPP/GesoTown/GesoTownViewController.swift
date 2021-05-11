@@ -16,15 +16,15 @@ import WebKit
 final class GesoTownViewController: UIViewController, FetchIksm_sessionViewControllerDelegate {
     private let CustomCell = "CustomCell"
     private let date = Date()
-    private let dateFormatter = DateFormatter()
     private let now_day = Date(timeIntervalSinceNow: 60 * 60 * 9)
     private let UD = UserDefaults.standard
 
     private var refreshCtl = UIRefreshControl()
-    private var session_token = ""
-    private var iksm_session = ""
 
-    private var presenter: GesoTownPresenter!
+    private var presenter: GesoTownPresenterInput!
+    func inject(presenter: GesoTownPresenterInput) {
+        self.presenter = presenter
+    }
 
     @IBOutlet var GesoTownTableView: UITableView!
     override func viewDidLoad() {
@@ -33,17 +33,14 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionViewContr
     }
 
     private func setup() {
-        presenter = GesoTownPresenter(view: self)
-        presenter.timeFromTheRequiredUsageDate()
-
+        presenter.alertOrGesoTownTableUpdate()
         GesoTownTableView.refreshControl = refreshCtl
         refreshCtl.addTarget(self, action: #selector(refreshTableView(sender:)), for: .valueChanged)
-        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMdHms", options: 0, locale: Locale(identifier: "ja_JP"))
     }
 
     @objc func refreshTableView(sender _: UIRefreshControl) {
         AudioServicesPlaySystemSound(1519)
-        presenter.timeFromTheRequiredUsageDate()
+        presenter.alertOrGesoTownTableUpdate()
         refreshCtl.endRefreshing()
     }
 
@@ -54,7 +51,7 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionViewContr
         let alert = UIAlertController(title: "アカウントが設定されていません", message: "この機能を利用するためにはログインが必要です\nアカウントを設定しますか？", preferredStyle: UIAlertController.Style.alert)
 //            OKボタン
         let defaultAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (_: UIAlertAction!) -> Void in
-            self.openWebview()
+            self.openFetchIksm_sessionview()
             print("OK")
         })
 //            キャンセルボタン
@@ -86,7 +83,7 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionViewContr
 //        task.resume()
 //    }
 
-    @objc func openWebview() {
+    @objc func openFetchIksm_sessionview() {
         let storyboard = UIStoryboard(name: "FetchIksm_session", bundle: nil)
         let fetchIksm_sessionWebViewController = storyboard.instantiateViewController(withIdentifier: "FetchIksm_sessionViewController") as! FetchIksm_sessionViewController
         let nav = UINavigationController(rootViewController: fetchIksm_sessionWebViewController)
@@ -95,6 +92,7 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionViewContr
         present(nav, animated: true, completion: nil)
     }
 
+    // FetchIksm_sessionPresenterが完成したら移行する
     func returnData(session_token: String, iksm_session: String) {
         UD.set(iksm_session, forKey: "iksm_session")
         UD.set(session_token, forKey: "session_token")
@@ -102,7 +100,7 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionViewContr
     }
 }
 
-// MARK: - - TableView Extension
+// MARK: - TableView Extension
 
 extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
@@ -127,15 +125,7 @@ extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         GesoTownTableView.deselectRow(at: indexPath, animated: true)
-        let selectGear = presenter.GesoTownDatas[indexPath.row - 1]
-
-        let storyboard = UIStoryboard(name: "ItemOrder", bundle: nil)
-        let itemOrderViewController = storyboard.instantiateViewController(withIdentifier: "ItemOrderViewController") as! ItemOrderViewController
-
-        itemOrderViewController.selectGear = selectGear
-        itemOrderViewController.orderedItem = presenter.orderedItem
-//        present(itemOrderViewController, animated: true, completion: nil)
-        navigationController?.pushViewController(itemOrderViewController, animated: true)
+        presenter.didSelectRow(at: indexPath)
     }
 
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
@@ -143,8 +133,19 @@ extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - GesoTownPresenterOutput Extension
+
 extension GesoTownViewController: GesoTownPrsenterOutput {
-    func showGesoTownGear() {
+    func transitionToItemOrder(selectGear: merchandises) {
+        let storyboard = UIStoryboard(name: "ItemOrder", bundle: nil)
+        let itemOrderViewController = storyboard.instantiateViewController(withIdentifier: "ItemOrderViewController") as! ItemOrderViewController
+
+        itemOrderViewController.selectGear = selectGear
+        itemOrderViewController.orderedItem = presenter.orderedItem
+        navigationController?.pushViewController(itemOrderViewController, animated: true)
+    }
+
+    func gesoTownTableUpdate() {
         GesoTownTableView.reloadData()
     }
 

@@ -11,15 +11,17 @@ import AudioToolbox
 import UIKit
 
 final class StageScheduleViewController: UIViewController {
-    private let refreshCtl = UIRefreshControl()
-    private var presenter: StageSchedulePresenter!
-
     @IBOutlet var stageScheduleTableView: UITableView!
+
+    private let refreshCtl = UIRefreshControl()
+    private var presenter: StageSchedulePresenterInput!
+    func inject(presenter: StageSchedulePresenterInput) {
+        self.presenter = presenter
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        presenter = StageSchedulePresenter(view: self)
         presenter.fetchStageInfo()
     }
 
@@ -35,6 +37,8 @@ final class StageScheduleViewController: UIViewController {
         refreshCtl.endRefreshing()
     }
 }
+
+// MARK: - StageScheduleTableView Extension
 
 extension StageScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
@@ -59,6 +63,8 @@ extension StageScheduleViewController: UITableViewDelegate, UITableViewDataSourc
         return CGFloat.leastNormalMagnitude
     }
 }
+
+// MARK: - StageSchedulePresenterOutput Extension
 
 extension StageScheduleViewController: StageSchedulePresenterOutput {
     func showStageInfo() {
