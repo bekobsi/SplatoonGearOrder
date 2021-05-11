@@ -10,8 +10,8 @@ import Foundation
 import RxSwift
 
 protocol GesoTownPresenterInput {
-    var GesoTownDatas: [merchandises] { get }
     var orderedItem: ordered_info { get }
+    var GesoTownDatas: [merchandises] { get }
     func alertOrGesoTownTableUpdate()
     func didSelectRow(at indexPath: IndexPath)
 }
@@ -36,21 +36,21 @@ final class GesoTownPresenter: GesoTownPresenterInput {
 
     private let calender = Calendar.current
     init(
+        iksm_session: String,
+        orderedItem: ordered_info,
+        GesoTownDatas: [merchandises],
         view: GesoTownPrsenterOutput,
         iksm_sessionRepository: Iksm_sessionRepository = SplatNet2Iksm_sessionRepository(),
         gesoTownGearRepository: GesoTownGearRepository = AlamofireGesoTownGearRrepository(),
-        timeFromTheLastUsageDate: TimeFromTheLastUsageDate,
-        iksm_session: String,
-        orderedItem: ordered_info,
-        GesoTownDatas: [merchandises]
+        timeFromTheLastUsageDate: TimeFromTheLastUsageDate
     ) {
+        self.iksm_session = iksm_session
+        self.orderedItem = orderedItem
+        self.GesoTownDatas = GesoTownDatas
         self.view = view
         self.iksm_sessionRepository = iksm_sessionRepository
         self.gesoTownGearRepository = gesoTownGearRepository
         self.timeFromTheLastUsageDate = timeFromTheLastUsageDate
-        self.iksm_session = iksm_session
-        self.orderedItem = orderedItem
-        self.GesoTownDatas = GesoTownDatas
     }
 
     func didSelectRow(at indexPath: IndexPath) {
