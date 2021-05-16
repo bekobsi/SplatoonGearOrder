@@ -25,7 +25,6 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
     private var indicatorBackgroundView: UIView!
     private var indicator: UIActivityIndicatorView!
     private var response = JSON()
-    private var userdefaults = UserDefaults.standard
 
     private var presenter: FetchIksm_sessionPresenterInput!
     func inject(presenter: FetchIksm_sessionPresenterInput) {
@@ -38,12 +37,7 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
-//        if userdefaults.string(forKey: "session_token") == "" {
-//            print("session_tokenが取得されていません")
-//        } else {
-//            print("session_tokenが取得完了")
-//            openWebview()
-//        }
+        openWebview()
     }
 
     // webViewNavigationInfo
