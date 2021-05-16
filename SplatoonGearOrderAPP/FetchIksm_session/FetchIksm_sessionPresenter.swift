@@ -17,14 +17,11 @@ protocol FetchIksm_sessionPresenterOutput: AnyObject {
 }
 
 final class FetchIksm_sessionPresenter: FetchIksm_sessionPresenterInput {
-
-    
     private weak var view: FetchIksm_sessionPresenterOutput!
-    
+
     init(view: FetchIksm_sessionPresenterOutput) {
         self.view = view
     }
-    
-    func test() {
-    }
+
+    func test() {}
 }

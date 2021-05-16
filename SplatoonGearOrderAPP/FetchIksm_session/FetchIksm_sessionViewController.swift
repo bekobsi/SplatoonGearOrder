@@ -26,7 +26,7 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
     private var indicator: UIActivityIndicatorView!
     private var response = JSON()
     private var userdefaults = UserDefaults.standard
-    
+
     private var presenter: FetchIksm_sessionPresenterInput!
     func inject(presenter: FetchIksm_sessionPresenterInput) {
         self.presenter = presenter
@@ -37,15 +37,13 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.navigationDelegate = self
-
         setUpViews()
-        if userdefaults.string(forKey: "session_token") == "" {
-            print("session_tokenが取得されていません")
-        } else {
-            print("session_tokenが取得完了")
-            openWebview()
-        }
+//        if userdefaults.string(forKey: "session_token") == "" {
+//            print("session_tokenが取得されていません")
+//        } else {
+//            print("session_tokenが取得完了")
+//            openWebview()
+//        }
     }
 
     // webViewNavigationInfo
@@ -61,7 +59,6 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
     }
 
     private func openWebview() {
-//        let url = URL(string: createNintendoLoginPageURL.urlselfEncode())
         let url = URL(string: "https://accounts.nintendo.com/connect/1.0.0/authorize?state=8ZrmBl2yhUXWkiEurks0PkXh-0BF26__48kOs4SiRTanZTJJ&redirect_uri=npf71b963c1b7b6d119%3A%2F%2Fauth&client_id=71b963c1b7b6d119&scope=openid+user+user.birthday+user.mii+user.screenName&response_type=session_token_code&session_token_code_challenge=IOnJPiv21-wfuJDC2KvvyI-EIlkcg5gPnYhe7mWjp_I&session_token_code_challenge_method=S256&theme=login_form")
 
         let urlRequest = URLRequest(url: url!)
@@ -77,7 +74,6 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
             print("session_token_code取得に成功しました。:", session_token_codeURL)
             do {
                 fetchSession_token_code(session_token_codeURL: session_token_codeURL)
-//                auth_code_verifer = createNintendoLoginPageURL.randomStringCreate(createLength: 50, numberPullOut: true)
                 auth_code_verifer = "65G4PktrsDKGyIb9CdCI6lQwScL8XkP6tDTvmmIB1o4"
                 print("session_token_codeが生成されました:", session_token_code)
                 print("auth_code_verifer:", auth_code_verifer)
@@ -133,8 +129,5 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
 }
 
 extension FetchIksm_sessionViewController: FetchIksm_sessionPresenterOutput {
-    func test2() {
-    }
-    
-    
+    func test2() {}
 }

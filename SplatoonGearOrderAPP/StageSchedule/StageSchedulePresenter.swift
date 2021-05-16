@@ -21,27 +21,20 @@ protocol StageSchedulePresenterOutput: AnyObject {
 }
 
 final class StageSchedulePresenter: StageSchedulePresenterInput {
-    private(set) var regularStages: [StageInfo]
-    private(set) var gachiStages: [StageInfo]
-    private(set) var leagueStages: [StageInfo]
+    private(set) var regularStages: [StageInfo] = []
+    private(set) var gachiStages: [StageInfo] = []
+    private(set) var leagueStages: [StageInfo] = []
 
     private weak var view: StageSchedulePresenterOutput!
     private let stageRepository: StageRepositry
 
     private let disposeBag = DisposeBag()
 
-    init(
-        view: StageSchedulePresenterOutput,
-        stageReposiory: StageRepositry = AlamofireStageRepository(),
-        regularStages: [StageInfo],
-        gachiStages: [StageInfo],
-        leagueStages: [StageInfo]
-    ) {
+    init(view: StageSchedulePresenterOutput,
+         stageReposiory: StageRepositry = AlamofireStageRepository())
+    {
         self.view = view
         stageRepository = stageReposiory
-        self.regularStages = regularStages
-        self.gachiStages = gachiStages
-        self.leagueStages = leagueStages
     }
 
     func fetchStageInfo() {
