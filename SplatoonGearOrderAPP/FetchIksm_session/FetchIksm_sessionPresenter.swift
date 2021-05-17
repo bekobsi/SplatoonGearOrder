@@ -7,21 +7,35 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol FetchIksm_sessionPresenterInput {
-    func test()
+    func didTapAccountSelect(_ session_token_codeurl: String)
 }
 
 protocol FetchIksm_sessionPresenterOutput: AnyObject {
-    func test2()
+    func dismiss()
 }
 
 final class FetchIksm_sessionPresenter: FetchIksm_sessionPresenterInput {
-    private weak var view: FetchIksm_sessionPresenterOutput!
+    private let view: FetchIksm_sessionPresenterOutput
+    private let session_token_codeURLRepository: Session_token_codeURLRepository
+    private let disposeBag = DisposeBag()
 
-    init(view: FetchIksm_sessionPresenterOutput) {
+    init(
+        view: FetchIksm_sessionPresenterOutput,
+        session_token_codeURLRepository: Session_token_codeURLRepository = Session_token_codeURLConversion()
+    ) {
         self.view = view
+        self.session_token_codeURLRepository = session_token_codeURLRepository
     }
 
-    func test() {}
+    func didTapAccountSelect(_ session_token_codeURL: String) {
+        session_token_codeURLRepository.get(session_token_codeURL).subscribe(onSuccess: { succsess in
+            if succsess == true {
+                self.view.dismiss()
+            }
+        })
+            .disposed(by: disposeBag)
+    }
 }

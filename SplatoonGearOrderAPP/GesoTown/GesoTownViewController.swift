@@ -32,9 +32,12 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionViewContr
         setup()
     }
 
-    private func setup() {
+    override func viewWillAppear(_: Bool) {
         inject(presenter: GesoTownPresenter(view: self))
         presenter.alertOrGesoTownTableUpdate()
+    }
+
+    private func setup() {
         GesoTownTableView.refreshControl = refreshCtl
         refreshCtl.addTarget(self, action: #selector(refreshTableView(sender:)), for: .valueChanged)
     }

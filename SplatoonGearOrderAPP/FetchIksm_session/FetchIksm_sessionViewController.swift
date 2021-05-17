@@ -19,8 +19,6 @@ protocol FetchIksm_sessionViewControllerDelegate {
 class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
     private let createNintendoLoginPageURL = CreateNintendoLoginPageURL()
     private let iksm = Iksm()
-    private var auth_code_verifer = ""
-    private var session_token_code = ""
 
     private var indicatorBackgroundView: UIView!
     private var indicator: UIActivityIndicatorView!
@@ -36,6 +34,7 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        inject(presenter: FetchIksm_sessionPresenter(view: self))
         setUpViews()
         openWebview()
     }
@@ -53,7 +52,7 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
     }
 
     private func openWebview() {
-        let url = URL(string: "https://accounts.nintendo.com/connect/1.0.0/authorize?state=8ZrmBl2yhUXWkiEurks0PkXh-0BF26__48kOs4SiRTanZTJJ&redirect_uri=npf71b963c1b7b6d119%3A%2F%2Fauth&client_id=71b963c1b7b6d119&scope=openid+user+user.birthday+user.mii+user.screenName&response_type=session_token_code&session_token_code_challenge=IOnJPiv21-wfuJDC2KvvyI-EIlkcg5gPnYhe7mWjp_I&session_token_code_challenge_method=S256&theme=login_form")
+        let url = URL(string: "https://accounts.nintendo.com/connect/1.0.0/authorize?state=_99o_shMs0SHNSzPUSS_W-H0Ni6-5Zurlske9J3LVrVp78rC&redirect_uri=npf71b963c1b7b6d119%3A%2F%2Fauth&client_id=71b963c1b7b6d119&scope=openid+user+user.birthday+user.mii+user.screenName&response_type=session_token_code&session_token_code_challenge=36tApCjTUbr8O9Pf8GCogPIZ3_PKERD-xtgOZbQKjOk&session_token_code_challenge_method=S256&theme=login_form")
 
         let urlRequest = URLRequest(url: url!)
         webView.load(urlRequest)
@@ -61,67 +60,15 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
 
     func webView(_: WKWebView,
                  decidePolicyFor navigationAction: WKNavigationAction,
-                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void)
-    {
-        guard let session_token_codeURL = navigationAction.request.url?.absoluteString else { return }
-        if session_token_codeURL.contains("session_token_code=") == true {
-            print("session_token_code取得に成功しました。:", session_token_codeURL)
-            do {
-                fetchSession_token_code(session_token_codeURL: session_token_codeURL)
-                auth_code_verifer = "65G4PktrsDKGyIb9CdCI6lQwScL8XkP6tDTvmmIB1o4"
-                print("session_token_codeが生成されました:", session_token_code)
-                print("auth_code_verifer:", auth_code_verifer)
-                response = try SplatNet2.getSessionToken(session_token_code, auth_code_verifer)
-                let session_token = response["session_token"].stringValue
-
-                let iksm_session = try SplatNet2.genIksmSession(session_token)["iksm_session"].stringValue
-                print("iksm_session", iksm_session)
-
-                delegate?.returnData(session_token: session_token, iksm_session: iksm_session)
-                dismiss(animated: true, completion: nil)
-            } catch {
-                print("catchが呼ばれました", error)
-            }
-        }
-        print("session_token_codeの取得に失敗しました")
+                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void){
+        guard let session_token_codeurl = navigationAction.request.url?.absoluteString else { return }
+        presenter.didTapAccountSelect(session_token_codeurl)
         decisionHandler(.allow)
-    }
-
-    func fetchSession_token_code(session_token_codeURL: String) {
-        var count = 0
-        while session_token_codeURL.prefix(count).contains("session_token_code=") == false {
-            count += 1
-        }
-        session_token_code = String(session_token_codeURL.dropFirst(count))
-        count = 0
-        while session_token_codeURL.dropLast(count).contains("&state=") == true {
-            count += 1
-        }
-        session_token_code = String(session_token_code.dropLast(count + 6))
-    }
-
-    func showIndicator() {
-        // インジケータビューの背景
-        indicatorBackgroundView = UIView(frame: view.bounds)
-        indicatorBackgroundView.backgroundColor = UIColor.black
-        indicatorBackgroundView.alpha = 0.4
-        indicatorBackgroundView?.tag = 100_100
-
-        indicator = UIActivityIndicatorView()
-        indicator.style = .large
-        indicator?.center = view.center
-        indicator?.color = UIColor.white
-        // アニメーション停止と同時に隠す設定
-        indicator?.hidesWhenStopped = true
-
-        // 作成したviewを表示
-        indicatorBackgroundView?.addSubview(indicator!)
-        view.addSubview(indicatorBackgroundView!)
-
-        indicator?.startAnimating()
     }
 }
 
 extension FetchIksm_sessionViewController: FetchIksm_sessionPresenterOutput {
-    func test2() {}
+    func dismiss() {
+        dismiss(animated: true, completion: nil)
+    }
 }

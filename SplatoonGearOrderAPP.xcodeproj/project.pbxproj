@@ -46,6 +46,7 @@
 		98DA2AA42646CFEA0076AC50 /* JapanTimeFromUnixTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AA32646CFEA0076AC50 /* JapanTimeFromUnixTime.swift */; };
 		98DA2AA7264775080076AC50 /* TimeFromTheRequiredUsageDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AA6264775080076AC50 /* TimeFromTheRequiredUsageDate.swift */; };
 		98DA2AB2264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AB1264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift */; };
+		98DA2AB5265103560076AC50 /* Session_token_codeurlConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AB4265103560076AC50 /* Session_token_codeurlConversion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		98DA2AA32646CFEA0076AC50 /* JapanTimeFromUnixTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapanTimeFromUnixTime.swift; sourceTree = "<group>"; };
 		98DA2AA6264775080076AC50 /* TimeFromTheRequiredUsageDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFromTheRequiredUsageDate.swift; sourceTree = "<group>"; };
 		98DA2AB1264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchIksm_sessionPresenter.swift; sourceTree = "<group>"; };
+		98DA2AB4265103560076AC50 /* Session_token_codeurlConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session_token_codeurlConversion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				989E14E52636F88F006E3397 /* FetchGesoTownGearDate.swift */,
 				98DA2AA32646CFEA0076AC50 /* JapanTimeFromUnixTime.swift */,
 				98DA2AA6264775080076AC50 /* TimeFromTheRequiredUsageDate.swift */,
+				98DA2AB4265103560076AC50 /* Session_token_codeurlConversion.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				9866598E24FD901D00116F03 /* SceneDelegate.swift in Sources */,
 				986659AD24FD931D00116F03 /* GesoTownViewController.swift in Sources */,
 				9887B4AD25FA317C00B1A1A1 /* SectionTableViewCell.swift in Sources */,
+				98DA2AB5265103560076AC50 /* Session_token_codeurlConversion.swift in Sources */,
 				989E14CE262F0F85006E3397 /* FetchStageInfo.swift in Sources */,
 				985852372506577C004D2927 /* Iksm.swift in Sources */,
 				98B45EF025E2ACE600597F2B /* Gesotown.swift in Sources */,
