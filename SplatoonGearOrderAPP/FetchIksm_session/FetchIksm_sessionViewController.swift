@@ -12,25 +12,13 @@ import SwiftyJSON
 import UIKit
 import WebKit
 
-protocol FetchIksm_sessionViewControllerDelegate {
-    func returnData(session_token: String, iksm_session: String)
-}
-
 class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
-    private let createNintendoLoginPageURL = CreateNintendoLoginPageURL()
-    private let iksm = Iksm()
-
-    private var indicatorBackgroundView: UIView!
-    private var indicator: UIActivityIndicatorView!
-    private var response = JSON()
+    @IBOutlet var webView: WKWebView!
 
     private var presenter: FetchIksm_sessionPresenterInput!
     func inject(presenter: FetchIksm_sessionPresenterInput) {
         self.presenter = presenter
     }
-
-    var delegate: FetchIksm_sessionViewControllerDelegate?
-    @IBOutlet var webView: WKWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,9 +48,10 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
 
     func webView(_: WKWebView,
                  decidePolicyFor navigationAction: WKNavigationAction,
-                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void){
-        guard let session_token_codeurl = navigationAction.request.url?.absoluteString else { return }
-        presenter.didTapAccountSelect(session_token_codeurl)
+                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void)
+    {
+        guard let session_token_codeURL = navigationAction.request.url?.absoluteString else { return }
+        presenter.didTapAccountSelect(session_token_codeURL)
         decisionHandler(.allow)
     }
 }

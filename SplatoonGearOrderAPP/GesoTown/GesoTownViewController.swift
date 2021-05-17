@@ -13,12 +13,8 @@ import SwiftyJSON
 import UIKit
 import WebKit
 
-final class GesoTownViewController: UIViewController, FetchIksm_sessionViewControllerDelegate {
+final class GesoTownViewController: UIViewController {
     private let CustomCell = "CustomCell"
-    private let date = Date()
-    private let now_day = Date(timeIntervalSinceNow: 60 * 60 * 9)
-    private let UD = UserDefaults.standard
-
     private var refreshCtl = UIRefreshControl()
 
     private var presenter: GesoTownPresenterInput!
@@ -92,15 +88,7 @@ final class GesoTownViewController: UIViewController, FetchIksm_sessionViewContr
         let fetchIksm_sessionWebViewController = storyboard.instantiateViewController(withIdentifier: "FetchIksm_sessionViewController") as! FetchIksm_sessionViewController
         let nav = UINavigationController(rootViewController: fetchIksm_sessionWebViewController)
         nav.modalPresentationStyle = .fullScreen
-        fetchIksm_sessionWebViewController.delegate = self
         present(nav, animated: true, completion: nil)
-    }
-
-    // FetchIksm_sessionPresenterが完成したら移行する
-    func returnData(session_token: String, iksm_session: String) {
-        UD.set(iksm_session, forKey: "iksm_session")
-        UD.set(session_token, forKey: "session_token")
-        UD.set(now_day, forKey: "lastUseDate")
     }
 }
 
