@@ -62,26 +62,3 @@ class Session_token_codeURLConversion: Session_token_codeURLRepository {
         }
     }
 }
-
-//    func session_token_codeURLConversionToIksm_sessionAndSession_token(_ session_token_codeURL: String) {
-//        if session_token_codeURL.contains("session_token_code=") == true {
-//            print("session_token_code取得に成功しました。:", session_token_codeURL)
-//            do {
-//                session_token_codeurlConversionToSession_token_code(session_token_codeURL: session_token_codeURL)
-//                let auth_code_verifer = "anvnw6SdIPmSUUG7DcMRqD8ak4aZXKNPdKM9nFszxUQ"
-//                print("session_token_codeが生成されました:", session_token_code)
-//                print("auth_code_verifer:", auth_code_verifer)
-//                response = try SplatNet2.getSessionToken(session_token_code, auth_code_verifer)
-//                let session_token = response["session_token"].stringValue
-//
-//                let iksm_session = try SplatNet2.genIksmSession(session_token)["iksm_session"].stringValue
-//                print("iksm_session", iksm_session)
-//
-//                UD.set("session_token", forKey: session_token)
-//                UD.set("iksm_session", forKey: iksm_session)
-//                UD.set(yesterday, forKey: "lastUseDate")
-//            } catch {
-//                print("catchが呼ばれました", error)
-//            }
-//        }
-//    }
