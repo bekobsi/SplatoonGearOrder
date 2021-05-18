@@ -31,10 +31,11 @@ final class FetchIksm_sessionPresenter: FetchIksm_sessionPresenterInput {
     }
 
     func didTapAccountSelect(_ session_token_codeURL: String) {
-        session_token_codeURLRepository.get(session_token_codeURL).subscribe(onSuccess: { succsess in
-            if succsess == true {
-                self.view.dismiss()
-            }
+        session_token_codeURLRepository.get(session_token_codeURL)
+            .subscribe(onSuccess: { succsess in
+                if succsess {
+                    self.view.dismiss()
+                }
         })
             .disposed(by: disposeBag)
     }
