@@ -36,7 +36,7 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
     }
 
     @objc func tappedNavLeftBarButton() {
-        dismiss(animated: true, completion: nil)
+        presenter.tappedNavLeftBarButton()
     }
 
     private func openWebview() {

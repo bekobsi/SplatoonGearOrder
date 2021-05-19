@@ -11,6 +11,7 @@ import RxSwift
 
 protocol FetchIksm_sessionPresenterInput {
     func didTapAccountSelect(_ session_token_codeurl: String)
+    func tappedNavLeftBarButton()
 }
 
 protocol FetchIksm_sessionPresenterOutput: AnyObject {
@@ -36,7 +37,11 @@ final class FetchIksm_sessionPresenter: FetchIksm_sessionPresenterInput {
                 if succsess {
                     self.view.dismiss()
                 }
-        })
+            })
             .disposed(by: disposeBag)
+    }
+
+    func tappedNavLeftBarButton() {
+        view.dismiss()
     }
 }
