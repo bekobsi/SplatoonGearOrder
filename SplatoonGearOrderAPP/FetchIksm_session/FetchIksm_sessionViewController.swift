@@ -22,7 +22,6 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        inject(presenter: FetchIksm_sessionPresenter(view: self))
         setUpViews()
         openWebview()
     }
@@ -58,6 +57,9 @@ class FetchIksm_sessionViewController: UIViewController, WKNavigationDelegate {
 
 extension FetchIksm_sessionViewController: FetchIksm_sessionPresenterOutput {
     func dismiss() {
+        let gesoTownViewController = UIStoryboard(name: "GesoTown", bundle: nil).instantiateInitialViewController() as! GesoTownViewController
+        let gesoTownPresenter = GesoTownPresenter(view: gesoTownViewController)
+        gesoTownViewController.inject(presenter: gesoTownPresenter)
         dismiss(animated: true, completion: nil)
     }
 }

@@ -29,7 +29,6 @@ final class GesoTownViewController: UIViewController {
     }
 
     override func viewWillAppear(_: Bool) {
-        inject(presenter: GesoTownPresenter(view: self))
         presenter.alertOrGesoTownTableUpdate()
     }
 
@@ -85,8 +84,10 @@ final class GesoTownViewController: UIViewController {
 
     @objc func openFetchIksm_sessionview() {
         let storyboard = UIStoryboard(name: "FetchIksm_session", bundle: nil)
-        let fetchIksm_sessionWebViewController = storyboard.instantiateViewController(withIdentifier: "FetchIksm_sessionViewController") as! FetchIksm_sessionViewController
-        let nav = UINavigationController(rootViewController: fetchIksm_sessionWebViewController)
+        let fetchIksm_sessionViewController = storyboard.instantiateViewController(withIdentifier: "FetchIksm_sessionViewController") as! FetchIksm_sessionViewController
+        let fetchIksm_sessionPresenter = FetchIksm_sessionPresenter(view: fetchIksm_sessionViewController)
+        fetchIksm_sessionViewController.inject(presenter: fetchIksm_sessionPresenter)
+        let nav = UINavigationController(rootViewController: fetchIksm_sessionViewController)
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true, completion: nil)
     }
