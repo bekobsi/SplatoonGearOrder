@@ -11,9 +11,10 @@ import AudioToolbox
 import UIKit
 
 final class StageScheduleViewController: UIViewController {
-    @IBOutlet var stageScheduleTableView: UITableView!
+    @IBOutlet private var stageScheduleTableView: UITableView!
 
     private let refreshCtl = UIRefreshControl()
+
     private var presenter: StageSchedulePresenterInput!
     func inject(presenter: StageSchedulePresenterInput) {
         self.presenter = presenter
@@ -22,6 +23,7 @@ final class StageScheduleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+//        inject(presenter: StageSchedulePresenter(view: self))
         presenter.fetchStageInfo()
     }
 
