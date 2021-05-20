@@ -12,8 +12,11 @@ class ItemOrderViewController: UIViewController {
     @IBOutlet var ItemOrderTableview: UITableView!
 
     private let dateFormatter = DateFormatter()
-
     private let CustomCell = "CustomCell"
+    private var presenter: ItemOrderPresenterInput!
+    func inject(presenter: ItemOrderPresenterInput) {
+        self.presenter = presenter
+    }
 
     var selectGear: merchandises?
     var orderedItem: ordered_info?
@@ -32,6 +35,10 @@ class ItemOrderViewController: UIViewController {
     @objc func tappedCancelButton() {
         navigationController?.popViewController(animated: true)
     }
+}
+
+extension ItemOrderViewController: ItemOrderPresenterOutput{
+    
 }
 
 extension ItemOrderViewController: UITableViewDelegate, UITableViewDataSource {

@@ -46,6 +46,7 @@
 		98DA2AA7264775080076AC50 /* TimeFromTheRequiredUsageDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AA6264775080076AC50 /* TimeFromTheRequiredUsageDate.swift */; };
 		98DA2AB2264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AB1264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift */; };
 		98DA2AB5265103560076AC50 /* Session_token_codeurlConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AB4265103560076AC50 /* Session_token_codeurlConversion.swift */; };
+		98DA2AC12656B6280076AC50 /* ItemOrderPresnter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AC02656B6280076AC50 /* ItemOrderPresnter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		98DA2AA6264775080076AC50 /* TimeFromTheRequiredUsageDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFromTheRequiredUsageDate.swift; sourceTree = "<group>"; };
 		98DA2AB1264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchIksm_sessionPresenter.swift; sourceTree = "<group>"; };
 		98DA2AB4265103560076AC50 /* Session_token_codeurlConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session_token_codeurlConversion.swift; sourceTree = "<group>"; };
+		98DA2AC02656B6280076AC50 /* ItemOrderPresnter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemOrderPresnter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 			children = (
 				989E150C263852FA006E3397 /* ItemOrder.storyboard */,
 				987C1B9225F6315700A6FF1C /* ItemOrderViewController.swift */,
+				98DA2AC02656B6280076AC50 /* ItemOrderPresnter.swift */,
 			);
 			path = ItemOrder;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				986659B524FD9D9300116F03 /* StageScheduleTableViewCell.swift in Sources */,
 				989E14E62636F88F006E3397 /* FetchGesoTownGearDate.swift in Sources */,
 				9863AC3D2501304000A74FC6 /* FetchIksm_sessionViewController.swift in Sources */,
+				98DA2AC12656B6280076AC50 /* ItemOrderPresnter.swift in Sources */,
 				986659AB24FD92B700116F03 /* BaseTabBarViewController.swift in Sources */,
 				988AEDE625B46F9200A53FBF /* CreateNintendoLoginPageURL.swift in Sources */,
 				98DA2AB2264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift in Sources */,
