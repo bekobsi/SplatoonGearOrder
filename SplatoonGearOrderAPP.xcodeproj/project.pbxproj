@@ -19,7 +19,6 @@
 		9866598E24FD901D00116F03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866598D24FD901D00116F03 /* SceneDelegate.swift */; };
 		9866599524FD901E00116F03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9866599424FD901E00116F03 /* Assets.xcassets */; };
 		986659A424FD912A00116F03 /* StageScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986659A324FD912A00116F03 /* StageScheduleViewController.swift */; };
-		986659A724FD921800116F03 /* BaseTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986659A624FD921800116F03 /* BaseTabBar.storyboard */; };
 		986659A924FD927700116F03 /* GesoTown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986659A824FD927700116F03 /* GesoTown.storyboard */; };
 		986659AB24FD92B700116F03 /* BaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986659AA24FD92B700116F03 /* BaseTabBarViewController.swift */; };
 		986659AD24FD931D00116F03 /* GesoTownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986659AC24FD931D00116F03 /* GesoTownViewController.swift */; };
@@ -67,7 +66,6 @@
 		9866599924FD901E00116F03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		986659A024FD90ED00116F03 /* StageSchedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StageSchedule.storyboard; sourceTree = "<group>"; };
 		986659A324FD912A00116F03 /* StageScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageScheduleViewController.swift; sourceTree = "<group>"; };
-		986659A624FD921800116F03 /* BaseTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BaseTabBar.storyboard; sourceTree = "<group>"; };
 		986659A824FD927700116F03 /* GesoTown.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GesoTown.storyboard; sourceTree = "<group>"; };
 		986659AA24FD92B700116F03 /* BaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewController.swift; sourceTree = "<group>"; };
 		986659AC24FD931D00116F03 /* GesoTownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesoTownViewController.swift; sourceTree = "<group>"; };
@@ -233,7 +231,6 @@
 			isa = PBXGroup;
 			children = (
 				986659AA24FD92B700116F03 /* BaseTabBarViewController.swift */,
-				986659A624FD921800116F03 /* BaseTabBar.storyboard */,
 			);
 			path = BaseTabBar;
 			sourceTree = "<group>";
@@ -341,7 +338,6 @@
 				9866599524FD901E00116F03 /* Assets.xcassets in Resources */,
 				989E150D263852FA006E3397 /* ItemOrder.storyboard in Resources */,
 				9887B4AA25FA306100B1A1A1 /* SectionTableViewCell.xib in Resources */,
-				986659A724FD921800116F03 /* BaseTabBar.storyboard in Resources */,
 				986659B024FD97A600116F03 /* StageScheduleTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,7 +23,7 @@ final class StageScheduleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        inject(presenter: StageSchedulePresenter(view: self))
+//        inject(presenter: StageSchedulePresenter(view: self))
         presenter.fetchStageInfo()
     }
 

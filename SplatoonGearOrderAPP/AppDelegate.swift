@@ -15,9 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // ********** APIキーの設定 **********
     let applicationkey = "fc0409eb0a48129c0b208e41ca3031cb7bc0c479e0017251d1d380bb632e96be"
     let clientkey = "98550e415db2d8f5378464fa5927f897cbbb4c04faf414d8475de28ae669fd57"
+    var window: UIWindow?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         NCMB.initialize(applicationKey: applicationkey, clientKey: clientkey)
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = BaseTabBarViewController()
+        window?.makeKeyAndVisible()
 
         //        プッシュ通知の初期設定
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
