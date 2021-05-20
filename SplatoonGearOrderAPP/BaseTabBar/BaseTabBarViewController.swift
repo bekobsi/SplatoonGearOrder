@@ -11,6 +11,28 @@ import UIKit
 class BaseTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
+
+        setupTabbarItem()
+    }
+
+    private func setupViews() {
+        var viewControllers = [UIViewController]()
+
+        let stageScheduleViewController = UIStoryboard(name: "StageSchedule", bundle: nil).instantiateInitialViewController() as! StageScheduleViewController
+        let stageSchedulePresenter = StageSchedulePresenter(view: stageScheduleViewController)
+        stageScheduleViewController.inject(presenter: stageSchedulePresenter)
+        viewControllers.append(stageScheduleViewController)
+
+        let gesoTownViewController = UIStoryboard(name: "GesoTown", bundle: nil).instantiateInitialViewController() as! GesoTownViewController
+        let navgationController = UINavigationController(rootViewController: gesoTownViewController)
+        let gesoTownPresenter = GesoTownPresenter(view: gesoTownViewController)
+        gesoTownViewController.inject(presenter: gesoTownPresenter)
+        viewControllers.append(navgationController)
+        setViewControllers(viewControllers, animated: false)
+    }
+
+    private func setupTabbarItem() {
         viewControllers?.enumerated().forEach { index, viewController in
             switch index {
             case 0:
