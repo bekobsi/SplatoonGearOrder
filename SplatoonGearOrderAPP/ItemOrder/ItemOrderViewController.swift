@@ -33,11 +33,15 @@ class ItemOrderViewController: UIViewController {
     }
 
     @objc func tappedCancelButton() {
-        navigationController?.popViewController(animated: true)
+        presenter.tappedCancelButton()
     }
 }
 
-extension ItemOrderViewController: ItemOrderPresenterOutput {}
+extension ItemOrderViewController: ItemOrderPresenterOutput {
+    func popViewController() {
+        navigationController?.popViewController(animated: true)
+    }
+}
 
 extension ItemOrderViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {

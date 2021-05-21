@@ -8,14 +8,22 @@
 
 import Foundation
 
-protocol ItemOrderPresenterInput {}
+protocol ItemOrderPresenterInput {
+    func tappedCancelButton()
+}
 
-protocol ItemOrderPresenterOutput: AnyObject {}
+protocol ItemOrderPresenterOutput: AnyObject {
+    func popViewController()
+}
 
 final class ItemOrderPresenter: ItemOrderPresenterInput {
     private weak var view: ItemOrderPresenterOutput!
 
     init(view: ItemOrderPresenterOutput) {
         self.view = view
+    }
+
+    func tappedCancelButton() {
+        view.popViewController()
     }
 }

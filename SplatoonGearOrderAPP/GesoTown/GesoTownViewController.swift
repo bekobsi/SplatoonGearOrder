@@ -132,6 +132,8 @@ extension GesoTownViewController: GesoTownPrsenterOutput {
     func transitionToItemOrder(selectGear: merchandises) {
         let storyboard = UIStoryboard(name: "ItemOrder", bundle: nil)
         let itemOrderViewController = storyboard.instantiateViewController(withIdentifier: "ItemOrderViewController") as! ItemOrderViewController
+        let itemOrderPresenter = ItemOrderPresenter(view: itemOrderViewController)
+        itemOrderViewController.inject(presenter: itemOrderPresenter)
 
         itemOrderViewController.selectGear = selectGear
         itemOrderViewController.orderedItem = presenter.orderedItem
