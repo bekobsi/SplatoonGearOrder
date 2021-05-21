@@ -12,7 +12,6 @@ class ItemOrderViewController: UIViewController {
     @IBOutlet var ItemOrderTableview: UITableView!
 
     private let dateFormatter = DateFormatter()
-    private let CustomCell = "CustomCell"
     private var presenter: ItemOrderPresenterInput!
     func inject(presenter: ItemOrderPresenterInput) {
         self.presenter = presenter
@@ -29,7 +28,8 @@ class ItemOrderViewController: UIViewController {
         navigationItem.title = "ギアの注文"
         let cancelBarButton = UIBarButtonItem(title: "戻る", style: .plain, target: self, action: #selector(tappedCancelButton))
         navigationItem.leftBarButtonItem = cancelBarButton
-        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMdHms", options: 0, locale: Locale(identifier: "ja_JP"))
+        ItemOrderTableview.register(UINib(nibName: "SectionTableViewCell", bundle: nil), forCellReuseIdentifier: "SectionTableViewCell")
+        ItemOrderTableview.register(UINib(nibName: "GesoTownTableViewCell", bundle: nil), forCellReuseIdentifier: "GesoTownTableViewCell")
     }
 
     @objc func tappedCancelButton() {
@@ -37,9 +37,7 @@ class ItemOrderViewController: UIViewController {
     }
 }
 
-extension ItemOrderViewController: ItemOrderPresenterOutput{
-    
-}
+extension ItemOrderViewController: ItemOrderPresenterOutput {}
 
 extension ItemOrderViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
@@ -49,26 +47,22 @@ extension ItemOrderViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            ItemOrderTableview.register(UINib(nibName: "SectionTableViewCell", bundle: nil), forCellReuseIdentifier: CustomCell)
-            let cell = ItemOrderTableview.dequeueReusableCell(withIdentifier: CustomCell) as! SectionTableViewCell
+            let cell = ItemOrderTableview.dequeueReusableCell(withIdentifier: "SectionTableViewCell") as! SectionTableViewCell
             cell.sectionName = "ギアの情報"
             return cell
         case 1:
-            ItemOrderTableview.register(UINib(nibName: "GesoTownTableViewCell", bundle: nil), forCellReuseIdentifier: CustomCell)
-            let cell = ItemOrderTableview.dequeueReusableCell(withIdentifier: CustomCell) as! GesoTownTableViewCell
+            let cell = ItemOrderTableview.dequeueReusableCell(withIdentifier: "GesoTownTableViewCell") as! GesoTownTableViewCell
 
             cell.gesoTownInfo = selectGear
             return cell
 
         case 2:
-            ItemOrderTableview.register(UINib(nibName: "SectionTableViewCell", bundle: nil), forCellReuseIdentifier: CustomCell)
-            let cell = ItemOrderTableview.dequeueReusableCell(withIdentifier: CustomCell) as! SectionTableViewCell
+            let cell = ItemOrderTableview.dequeueReusableCell(withIdentifier: "SectionTableViewCell") as! SectionTableViewCell
 
             cell.sectionName = "注文中のギア"
             return cell
         case 3:
-            ItemOrderTableview.register(UINib(nibName: "GesoTownTableViewCell", bundle: nil), forCellReuseIdentifier: CustomCell)
-            let cell = ItemOrderTableview.dequeueReusableCell(withIdentifier: CustomCell) as! GesoTownTableViewCell
+            let cell = ItemOrderTableview.dequeueReusableCell(withIdentifier: "GesoTownTableViewCell") as! GesoTownTableViewCell
 
             cell.orderedInfo = orderedItem
             return cell

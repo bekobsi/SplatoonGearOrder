@@ -35,6 +35,8 @@ final class GesoTownViewController: UIViewController {
     private func setup() {
         GesoTownTableView.refreshControl = refreshCtl
         refreshCtl.addTarget(self, action: #selector(refreshTableView(sender:)), for: .valueChanged)
+        GesoTownTableView.register(UINib(nibName: "GesoTownTableViewCell", bundle: nil), forCellReuseIdentifier: "GesoTownTableViewCell")
+        GesoTownTableView.register(UINib(nibName: "SectionTableViewCell", bundle: nil), forCellReuseIdentifier: "SectionTableViewCell")
     }
 
     @objc func refreshTableView(sender _: UIRefreshControl) {
@@ -103,14 +105,12 @@ extension GesoTownViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            GesoTownTableView.register(UINib(nibName: "SectionTableViewCell", bundle: nil), forCellReuseIdentifier: CustomCell)
-            let cell = GesoTownTableView.dequeueReusableCell(withIdentifier: CustomCell) as! SectionTableViewCell
+            let cell = GesoTownTableView.dequeueReusableCell(withIdentifier: "SectionTableViewCell") as! SectionTableViewCell
             cell.sectionNameLabel.text = "商品一覧"
             return cell
         default:
-            GesoTownTableView.register(UINib(nibName: "GesoTownTableViewCell", bundle: nil), forCellReuseIdentifier: CustomCell)
 
-            let cell = GesoTownTableView.dequeueReusableCell(withIdentifier: CustomCell) as! GesoTownTableViewCell
+            let cell = GesoTownTableView.dequeueReusableCell(withIdentifier: "GesoTownTableViewCell") as! GesoTownTableViewCell
             cell.gesoTownInfo = presenter.GesoTownDatas[indexPath.row - 1]
             return cell
         }

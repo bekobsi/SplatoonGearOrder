@@ -8,20 +8,14 @@
 
 import Foundation
 
-protocol ItemOrderPresenterInput {
-    
-}
+protocol ItemOrderPresenterInput {}
 
-protocol ItemOrderPresenterOutput: AnyObject {
-    
-}
+protocol ItemOrderPresenterOutput: AnyObject {}
 
 final class ItemOrderPresenter: ItemOrderPresenterInput {
     private weak var view: ItemOrderPresenterOutput!
-    
-    init(view: ItemOrderPresenterOutput){
+
+    init(view: ItemOrderPresenterOutput) {
         self.view = view
     }
-    
-    
 }
