@@ -47,6 +47,8 @@
 		98DA2AB2264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AB1264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift */; };
 		98DA2AB5265103560076AC50 /* Session_token_codeurlConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AB4265103560076AC50 /* Session_token_codeurlConversion.swift */; };
 		98DA2AC12656B6280076AC50 /* ItemOrderPresnter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2AC02656B6280076AC50 /* ItemOrderPresnter.swift */; };
+		98DA2ACF2657E2890076AC50 /* OrderButtonTebleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DA2ACE2657E2890076AC50 /* OrderButtonTebleViewCell.swift */; };
+		98DA2AD32657E2AE0076AC50 /* OrderButtonTebleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98DA2AD22657E2AE0076AC50 /* OrderButtonTebleViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +96,8 @@
 		98DA2AB1264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchIksm_sessionPresenter.swift; sourceTree = "<group>"; };
 		98DA2AB4265103560076AC50 /* Session_token_codeurlConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session_token_codeurlConversion.swift; sourceTree = "<group>"; };
 		98DA2AC02656B6280076AC50 /* ItemOrderPresnter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemOrderPresnter.swift; sourceTree = "<group>"; };
+		98DA2ACE2657E2890076AC50 /* OrderButtonTebleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderButtonTebleViewCell.swift; sourceTree = "<group>"; };
+		98DA2AD22657E2AE0076AC50 /* OrderButtonTebleViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderButtonTebleViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +189,7 @@
 				986659AF24FD97A600116F03 /* StageScheduleTableViewCell.xib */,
 				987E5A452514EE87007A560E /* GesoTownTableViewCell.xib */,
 				9887B4A925FA306100B1A1A1 /* SectionTableViewCell.xib */,
+				98DA2AD22657E2AE0076AC50 /* OrderButtonTebleViewCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				986659B424FD9D9300116F03 /* StageScheduleTableViewCell.swift */,
 				988CB86825C827B70086D91B /* GesoTownTableViewCell.swift */,
 				9887B4AC25FA317C00B1A1A1 /* SectionTableViewCell.swift */,
+				98DA2ACE2657E2890076AC50 /* OrderButtonTebleViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -339,6 +345,7 @@
 				987E5A462514EE87007A560E /* GesoTownTableViewCell.xib in Resources */,
 				986659A924FD927700116F03 /* GesoTown.storyboard in Resources */,
 				9866599524FD901E00116F03 /* Assets.xcassets in Resources */,
+				98DA2AD32657E2AE0076AC50 /* OrderButtonTebleViewCell.xib in Resources */,
 				989E150D263852FA006E3397 /* ItemOrder.storyboard in Resources */,
 				9887B4AA25FA306100B1A1A1 /* SectionTableViewCell.xib in Resources */,
 				986659B024FD97A600116F03 /* StageScheduleTableViewCell.xib in Resources */,
@@ -416,6 +423,7 @@
 				989E14E62636F88F006E3397 /* FetchGesoTownGearDate.swift in Sources */,
 				9863AC3D2501304000A74FC6 /* FetchIksm_sessionViewController.swift in Sources */,
 				98DA2AC12656B6280076AC50 /* ItemOrderPresnter.swift in Sources */,
+				98DA2ACF2657E2890076AC50 /* OrderButtonTebleViewCell.swift in Sources */,
 				986659AB24FD92B700116F03 /* BaseTabBarViewController.swift in Sources */,
 				988AEDE625B46F9200A53FBF /* CreateNintendoLoginPageURL.swift in Sources */,
 				98DA2AB2264AB31C0076AC50 /* FetchIksm_sessionPresenter.swift in Sources */,

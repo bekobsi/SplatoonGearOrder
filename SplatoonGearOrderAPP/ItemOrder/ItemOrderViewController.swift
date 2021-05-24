@@ -30,6 +30,7 @@ class ItemOrderViewController: UIViewController {
         navigationItem.leftBarButtonItem = cancelBarButton
         ItemOrderTableview.register(UINib(nibName: "SectionTableViewCell", bundle: nil), forCellReuseIdentifier: "SectionTableViewCell")
         ItemOrderTableview.register(UINib(nibName: "GesoTownTableViewCell", bundle: nil), forCellReuseIdentifier: "GesoTownTableViewCell")
+        ItemOrderTableview.register(UINib(nibName: "OrderButtonTebleViewCell", bundle: nil), forCellReuseIdentifier: "OrderButtonTebleViewCell")
     }
 
     @objc func tappedCancelButton() {
@@ -45,7 +46,7 @@ extension ItemOrderViewController: ItemOrderPresenterOutput {
 
 extension ItemOrderViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 4
+        return 5
     }
 
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,19 +57,20 @@ extension ItemOrderViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 1:
             let cell = ItemOrderTableview.dequeueReusableCell(withIdentifier: "GesoTownTableViewCell") as! GesoTownTableViewCell
-
             cell.gesoTownInfo = selectGear
             return cell
-
         case 2:
             let cell = ItemOrderTableview.dequeueReusableCell(withIdentifier: "SectionTableViewCell") as! SectionTableViewCell
-
             cell.sectionName = "注文中のギア"
             return cell
         case 3:
             let cell = ItemOrderTableview.dequeueReusableCell(withIdentifier: "GesoTownTableViewCell") as! GesoTownTableViewCell
-
             cell.orderedInfo = orderedItem
+            return cell
+        case 4:
+            let cell = ItemOrderTableview.dequeueReusableCell(withIdentifier: "OrderButtonTebleViewCell") as! OrderButtonTebleViewCell
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+            cell.orderButtonSetUp()
             return cell
         default:
             break

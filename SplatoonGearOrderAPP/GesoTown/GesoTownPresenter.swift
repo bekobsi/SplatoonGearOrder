@@ -48,8 +48,13 @@ final class GesoTownPresenter: GesoTownPresenterInput {
     }
 
     func didSelectRow(at indexPath: IndexPath) {
-        let selectGear = GesoTownDatas[indexPath.row - 1]
-        view.transitionToItemOrder(selectGear: selectGear)
+        switch indexPath.row {
+        case 0:
+            return
+        default:
+            let selectGear = GesoTownDatas[indexPath.row - 1]
+            view.transitionToItemOrder(selectGear: selectGear)
+        }
     }
 
     func alertOrGesoTownTableUpdate() {
